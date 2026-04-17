@@ -514,9 +514,10 @@ p { color: var(--color-text-muted); }
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   color: rgba(255, 255, 255, 0.88);
   max-width: 800px;
-  margin-bottom: 48px;
+  margin: 0 auto 48px;
   font-weight: 300;
   line-height: 1.6;
+  text-align: center;
 }
 
 .hero__badges {
