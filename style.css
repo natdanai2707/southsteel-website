@@ -176,12 +176,11 @@ p { color: var(--color-text-muted); }
 
 .section-label {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--color-secondary);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 /* --- Card --- */
