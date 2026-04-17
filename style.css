@@ -493,7 +493,7 @@ p { color: var(--color-text-muted); }
 
 .hero__label {
   display: block;
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #ffffff;
