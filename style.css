@@ -510,7 +510,7 @@ p { color: var(--color-text-muted); }
   font-weight: 700;
   color: var(--color-white);
   max-width: 860px;
-  line-height: 1.15;
+  line-height: 1.4;
   margin-bottom: 24px;
 }
 
