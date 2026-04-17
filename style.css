@@ -15,7 +15,7 @@
   --color-divider:    #D2D2D7;
 
   --font-family: 'Sarabun', sans-serif;
-  --font-size-base: 20px;
+  --font-size-base: 18px;
   --line-height-body: 1.6;
 
   --radius-sm: 6px;
@@ -90,10 +90,10 @@ h1, h2, h3, h4 {
   letter-spacing: -0.01em;
 }
 
-h1 { font-size: clamp(2.75rem, 6vw, 4.5rem); }
-h2 { font-size: clamp(2.25rem, 5vw, 3.5rem); }
-h3 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); }
-h4 { font-size: 1.4rem; }
+h1 { font-size: clamp(2.25rem, 5vw, 3.25rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+h4 { font-size: 1.1rem; }
 
 p { color: var(--color-text-muted); }
 
@@ -493,7 +493,7 @@ p { color: var(--color-text-muted); }
 
 .hero__label {
   display: block;
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #ffffff;
@@ -502,7 +502,7 @@ p { color: var(--color-text-muted); }
 }
 
 .hero__title {
-  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
   font-weight: 700;
   color: var(--color-white);
   max-width: 100%;
@@ -511,7 +511,7 @@ p { color: var(--color-text-muted); }
 }
 
 .hero__subtitle {
-  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
   color: rgba(255, 255, 255, 0.88);
   max-width: 800px;
   margin: 0 auto 48px;
@@ -534,9 +534,9 @@ p { color: var(--color-text-muted); }
   background: rgba(255, 255, 255, 0.18);
   border: 1.5px solid rgba(255, 255, 255, 0.45);
   color: #ffffff;
-  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
   font-weight: 600;
-  padding: 16px 30px;
+  padding: 12px 24px;
   border-radius: 50px;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
