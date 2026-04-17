@@ -523,6 +523,35 @@ p { color: var(--color-text-muted); }
   line-height: 1.6;
 }
 
+.hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 50px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  letter-spacing: 0.01em;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.hero__badge:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
 .hero__actions {
   display: flex;
   gap: 16px;
@@ -1656,6 +1685,15 @@ p { color: var(--color-text-muted); }
   .hero__label {
     font-size: 0.95rem;
     padding: 6px 14px;
+  }
+
+  .hero__badges {
+    gap: 8px;
+  }
+
+  .hero__badge {
+    font-size: 0.9rem;
+    padding: 8px 14px;
   }
 
   .hero__actions {
