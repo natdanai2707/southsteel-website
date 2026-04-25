@@ -1,0 +1,190 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import CTA from "@/components/CTA";
+import PageHeader from "@/components/PageHeader";
+import Placeholder from "@/components/Placeholder";
+import { SS, ssEyebrow, ssBody, ssDisplay } from "@/lib/design";
+
+export const metadata: Metadata = {
+  title: "สินค้า | เหล็กใต้",
+  description: "เหล็กรูปพรรณ เหล็กก่อสร้าง เหล็กแผ่น และสแตนเลส ราคาส่ง มาตรฐาน มอก. ทุกชิ้น",
+};
+
+const productImages: Record<string, string> = {
+  "01-1": "/images/wide-flange.jpg",
+  "01-2": "/images/wide-flange.jpg",
+  "01-3": "/images/angle-bar.jpg",
+  "01-4": "/images/c-purlin.jpg",
+  "02-1": "/images/rebar.jpg",
+  "02-2": "/images/rebar.jpg",
+  "02-3": "/images/rebar.jpg",
+  "03-1": "/images/square-pipe.jpg",
+  "03-2": "/images/round-pipe.jpg",
+  "03-3": "/images/c-purlin.jpg",
+  "03-4": "/images/c-purlin.jpg",
+  "04-1": "/images/steel-plate.jpg",
+  "04-2": "/images/steel-plate.jpg",
+  "04-3": "/images/stainless.jpg",
+  "04-4": "/images/stainless.jpg",
+  "05-1": "/images/laser-cutting.jpg",
+  "05-2": "/images/bending.jpg",
+  "05-3": "/images/c-purlin.jpg",
+};
+
+const categories = [
+  {
+    id: "hot-rolled", no: "01",
+    th: "เหล็กโครงสร้างรีดร้อน", en: "Hot-Rolled Structural",
+    blurb: "เหล็กโครงสร้างมาตรฐาน มอก. สำหรับงานก่อสร้างโรงงาน อาคาร สะพาน และโครงสร้างหลักทุกประเภท",
+    items: [
+      { th: "ไวด์แฟลงก์ / H-Beam", spec: "100×100 — 400×400 mm · SS400" },
+      { th: "ไอบีม / I-Beam", spec: "100×50 — 300×150 mm · SS400" },
+      { th: "เหล็กฉาก / Equal Angle", spec: "25×25 — 100×100 mm" },
+      { th: "เหล็กรางน้ำ / Channel", spec: "75×40 — 300×90 mm" },
+    ],
+  },
+  {
+    id: "construction", no: "02",
+    th: "เหล็กก่อสร้าง", en: "Rebar & Round Bar",
+    blurb: "เหล็กเส้นมาตรฐาน มอก. 20–2559 และ มอก. 24–2559 สำหรับงานก่อสร้างคอนกรีตเสริมเหล็ก",
+    items: [
+      { th: "เหล็กข้ออ้อย / Deformed Bar", spec: "DB10 — DB32 · SD40 / SD50" },
+      { th: "เหล็กเส้นกลม / Round Bar", spec: "RB6 — RB25 · SR24" },
+      { th: "ลวดผูกเหล็ก / Tie Wire", spec: "เบอร์ 18, 20, 21" },
+      { th: "ตะแกรงไวร์เมช", spec: "4–9 mm · เฟอร์โร 2×4m" },
+    ],
+  },
+  {
+    id: "cold-rolled", no: "03",
+    th: "เหล็กรีดเย็น", en: "Cold-Rolled Sections",
+    blurb: "เหล็กกล่อง แป๊บ และหน้าตัดพิเศษ สำหรับงานเฟอร์นิเจอร์ โครงสร้างเบา ประตู หน้าต่าง",
+    items: [
+      { th: "เหล็กกล่องเหลี่ยม / Square Tube", spec: "12×12 — 150×150 mm" },
+      { th: "เหล็กกล่องแบน / Rect. Tube", spec: "20×40 — 100×200 mm" },
+      { th: "เหล็กตัวซี / C-Channel", spec: "60×30 — 200×75 mm" },
+      { th: "เหล็กฉากพับ / Folded Angle", spec: "t=1.5 — 3.0 mm" },
+    ],
+  },
+  {
+    id: "plate", no: "04",
+    th: "เหล็กแผ่นและสแตนเลส", en: "Plate & Stainless Steel",
+    blurb: "เหล็กแผ่นทุกความหนาและเกรด สแตนเลส 304/201 สำหรับงานเชื่อม งานตัดเลเซอร์ งานตกแต่ง",
+    items: [
+      { th: "เหล็กแผ่นดำ / Black Plate", spec: "t=1.6 — 50 mm · SS400" },
+      { th: "แผ่นลาย / Checker Plate", spec: "t=3.0 — 12 mm" },
+      { th: "สแตนเลส 304 / SUS304", spec: "t=0.4 — 6 mm · No.4 / 2B" },
+      { th: "แผ่นซิงค์ / Galvanized", spec: "t=0.5 — 4.0 mm" },
+    ],
+  },
+  {
+    id: "misc", no: "05",
+    th: "อุปกรณ์งานเหล็ก", en: "Accessories & Hardware",
+    blurb: "อุปกรณ์ประกอบ ตะแกรง ลวดเชื่อม และของใช้ในไซต์งานก่อสร้าง",
+    items: [
+      { th: "ตะแกรงเหล็กฉีก / Expanded Metal", spec: "XS-31 · XS-43 · XS-62" },
+      { th: "ลวดเชื่อม / Welding Rod", spec: "2.6 / 3.2 / 4.0 mm" },
+      { th: "น็อต สกรู / Fasteners", spec: "M6 — M24 · ชุบซิงค์" },
+      { th: "แผ่นยางกันกระแทก", spec: "t=3 — 20 mm" },
+    ],
+  },
+];
+
+export default function ProductsPage() {
+  return (
+    <main style={{ background: SS.paper, color: SS.ink, fontFamily: SS.body }}>
+      <PageHeader
+        kicker="§ 02 — สินค้า / Products"
+        titleTh={`สินค้าของเรา<br/><em style="font-style:italic;color:${SS.accent}">ครบทุกประเภท.</em>`}
+        titleEn="Full steel catalogue"
+        desc="เหล็กรูปพรรณ เหล็กก่อสร้าง เหล็กแผ่น และสแตนเลส — พร้อมส่งจากคลังสต็อก 2 สาขาในหาดใหญ่ ราคาส่ง มาตรฐาน มอก. ทุกชิ้น"
+      />
+
+      {/* Category nav strip */}
+      <section style={{ padding: "32px 56px", borderBottom: `1px solid ${SS.rule}`, display: "flex", gap: 0 }}>
+        {categories.map((c, i) => (
+          <div key={c.id} style={{ flex: 1, padding: "0 24px", borderLeft: i === 0 ? "none" : `1px solid ${SS.rule}` }}>
+            <div style={{ ...ssEyebrow, color: SS.accent }}>№ {c.no}</div>
+            <div style={{ ...ssDisplay, fontSize: 20, fontWeight: 500, marginTop: 8 }}>{c.th}</div>
+            <div style={{ ...ssBody, fontSize: 12, color: SS.muted, fontStyle: "italic", marginTop: 2 }}>{c.en}</div>
+          </div>
+        ))}
+      </section>
+
+      {/* Category sections */}
+      {categories.map((c, i) => (
+        <section key={c.id} style={{ padding: "96px 56px", borderBottom: `1px solid ${SS.rule}`, background: i % 2 === 1 ? SS.paperAlt : SS.paper }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 80, alignItems: "start" }}>
+            <div style={{ position: "sticky", top: 100 }}>
+              <div style={{ ...ssEyebrow, color: SS.accent, marginBottom: 20 }}>§ {c.no} / CATEGORY</div>
+              <h2 style={{ ...ssDisplay, fontSize: 64, margin: 0, lineHeight: 1 }}>{c.th}</h2>
+              <div style={{ ...ssBody, fontSize: 16, color: SS.muted, fontStyle: "italic", marginTop: 12 }}>{c.en}</div>
+              <p style={{ ...ssBody, fontSize: 17, marginTop: 32, maxWidth: 460 }}>{c.blurb}</p>
+              <a
+                href="https://line.me/ti/p/@southsteel"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ ...ssEyebrow, color: SS.accent, marginTop: 32, display: "inline-block", textDecoration: "none", borderBottom: `1px solid ${SS.accent}`, paddingBottom: 4 }}
+              >
+                ขอใบเสนอราคา →
+              </a>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+              {c.items.map((it, idx) => {
+                const imgId = `${c.no}-${idx + 1}`;
+                return (
+                  <div key={it.th} style={{ borderTop: `1px solid ${SS.ink}`, paddingTop: 20 }}>
+                    <Placeholder
+                      label={it.th.split(" / ")[1] || it.th}
+                      id={imgId}
+                      height={220}
+                      src={productImages[imgId]}
+                    />
+                    <div style={{ marginTop: 16 }}>
+                      <div style={{ ...ssDisplay, fontSize: 20, fontWeight: 500 }}>{it.th}</div>
+                      <div style={{ ...ssBody, fontFamily: SS.mono, fontSize: 12, color: SS.muted, marginTop: 8, letterSpacing: "0.02em" }}>{it.spec}</div>
+                    </div>
+                    <div style={{ marginTop: 12, display: "flex", justifyContent: "space-between", borderTop: `1px dotted ${SS.rule}`, paddingTop: 12 }}>
+                      <span style={{ ...ssEyebrow, color: SS.muted }}>มอก. · In stock</span>
+                      <span style={{ ...ssEyebrow, color: SS.accent }}>สอบถาม →</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      ))}
+
+      {/* Quote band */}
+      <section style={{ padding: "96px 56px", background: SS.ink, color: SS.paper }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
+          <div>
+            <div style={{ ...ssEyebrow, color: "#8a8067", marginBottom: 24 }}>ขอใบเสนอราคา / Request a quote</div>
+            <h2 style={{ ...ssDisplay, color: SS.paper, fontSize: 64, margin: 0 }}>
+              ไม่พบสิ่งที่ต้องการ?<br />
+              <em style={{ fontStyle: "italic", color: SS.accent }}>ถามเราได้.</em>
+            </h2>
+          </div>
+          <div>
+            <p style={{ ...ssBody, color: "#c9c2b2", fontSize: 18 }}>
+              หากสินค้าที่ต้องการไม่มีในแคตตาล็อก ทีมของเราสามารถสั่งมาเพิ่มได้ตามความต้องการ หรือแนะนำสินค้าทดแทนที่เหมาะสม
+            </p>
+            <div style={{ display: "flex", gap: 12, marginTop: 32 }}>
+              <a
+                href="https://line.me/ti/p/@southsteel"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ padding: "14px 22px", background: SS.line, color: "white", borderRadius: 2, fontSize: 14, fontWeight: 600, textDecoration: "none" }}
+              >
+                แชทผ่าน Line →
+              </a>
+              <a href="tel:0864884450" style={{ padding: "14px 22px", background: "transparent", color: SS.paper, border: `1px solid ${SS.paper}`, borderRadius: 2, fontSize: 14, fontWeight: 500, textDecoration: "none" }}>
+                086-488-4450
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
