@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { SS, ssEyebrow, ssDisplay } from "@/lib/design";
 
@@ -21,7 +22,8 @@ export default function Nav() {
       borderBottom: `1px solid ${SS.rule}`, backdropFilter: "blur(8px)",
     }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "20px 56px" }}>
-        <Link href="/" style={{ display: "flex", alignItems: "baseline", gap: 10, textDecoration: "none" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+          <Image src="/images/logo-blue.png" alt="เหล็กใต้" width={36} height={36} style={{ objectFit: "contain" }} />
           <div style={{ ...ssDisplay, fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>เหล็กใต้</div>
           <div style={{ ...ssEyebrow, fontSize: 10 }}>SOUTH&nbsp;STEEL</div>
         </Link>

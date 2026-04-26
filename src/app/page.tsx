@@ -52,22 +52,21 @@ export default function HomePage() {
       <section style={{ padding: "80px 56px 40px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "end" }}>
           <div>
-            <div style={{ ...ssEyebrow, marginBottom: 24, display: "flex", alignItems: "center", gap: 12 }}>
-              <span>ฉบับที่ 01 · ประจำปี 2026</span>
-              <span style={{ width: 40, height: 1, background: SS.ink, display: "inline-block" }}></span>
-              <span>VOLUME ONE</span>
-            </div>
             <h1 style={{ ...ssDisplay, margin: 0, fontSize: "90px", letterSpacing: "-1.08px", lineHeight: "1.15" }}>
               เหล็กถูก<br />เหล็กดี<br />เหล็กมีคุณภาพ<br />
               <em style={{ fontStyle: "italic", color: SS.accent }}>ต้องที่ เหล็กใต้</em>
             </h1>
           </div>
           <div style={{ paddingBottom: 24 }}>
-            <p style={{ ...ssBody, fontSize: 19, lineHeight: 1.55, maxWidth: 440, margin: 0 }}>
-              81 ปีกับเหล็กรูปพรรณทุกชนิด 2 สาขาในหาดใหญ่ ศูนย์ Laser CNC ตัด–พับ–ม้วน พร้อมจัดส่งถึงหน้าไซต์งาน
+            <p style={{ ...ssBody, fontSize: 19, lineHeight: 1.7, maxWidth: 440, margin: 0 }}>
+              ร้านเหล็กเก่าแก่คู่เมืองหาดใหญ่ ศูนย์รวมเหล็กทุกชนิด<br />
+              จำหน่ายปลีก-ส่ง บริการ ตัด-พับ พร้อมจัดส่งทั่วประเทศ
             </p>
-            <p style={{ ...ssBody, fontSize: 14, lineHeight: 1.6, color: SS.muted, marginTop: 16, maxWidth: 440, fontStyle: "italic" }}>
-              81 years of structural steel, cut to spec and delivered to site — family-run from Hatyai since 1944.
+            <p style={{ ...ssBody, fontSize: 14, lineHeight: 1.7, color: SS.muted, marginTop: 16, maxWidth: 440, fontStyle: "italic" }}>
+              Hat Yai's long-established steel center.<br />
+              A comprehensive hub for all types of steel.<br />
+              Retail and wholesale available.<br />
+              We offer cutting and folding services, with nationwide delivery.
             </p>
             <div style={{ display: "flex", gap: 12, marginTop: 40 }}>
               <a
