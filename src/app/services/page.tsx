@@ -23,6 +23,7 @@ const services = [
     specs: [["ความแม่นยำมุม", "±0.5°"], ["ความยาวพับ", "สูงสุด 3000 mm"], ["ความหนา", "สูงสุด 12 mm"], ["แรงกด", "160 ตัน"]],
     use: ["ฝาข้างรถบรรทุก", "รางน้ำ รางระบายน้ำ", "ตู้ไฟฟ้า ตู้เหล็ก", "พับสแตนเลสทุกประเภท"],
     src: "/images/bending.jpg",
+    src2: "/images/bending2.jpg",
   },
   {
     id: "laser-welding", no: "03", th: "งานเชื่อมเลเซอร์", en: "Laser Welding",
@@ -73,8 +74,8 @@ export default function ServicesPage() {
             <div key={n} style={{ padding: "32px 24px", borderLeft: i === 0 ? "none" : `1px solid ${SS.rule}`, position: "relative" }}>
               <div style={{ ...ssEyebrow, color: SS.accent, fontSize: 14 }}>{n}</div>
               <div style={{ ...ssDisplay, fontSize: 24, marginTop: 12 }}>{th}</div>
-              <div style={{ ...ssBody, fontSize: 12, color: SS.muted, fontStyle: "italic", marginTop: 4 }}>{en}</div>
-              <div style={{ ...ssBody, fontSize: 13, color: SS.subtle, marginTop: 16 }}>{sub}</div>
+              <div style={{ ...ssBody, fontSize: 14, color: SS.muted, fontStyle: "italic", marginTop: 4 }}>{en}</div>
+              <div style={{ ...ssBody, fontSize: 15, color: SS.subtle, marginTop: 16 }}>{sub}</div>
               {i < 4 && (
                 <div style={{ position: "absolute", top: "50%", right: -8, fontSize: 20, color: SS.muted, background: SS.paper, padding: "0 4px" }}>→</div>
               )}
@@ -115,12 +116,17 @@ export default function ServicesPage() {
             </div>
             <div>
               <Placeholder label={s.en} id={`svc-${s.no}`} height={380} src={s.src} />
+              {"src2" in s && s.src2 && (
+                <div style={{ marginTop: 16 }}>
+                  <Placeholder label={`${s.en} 2`} id={`svc-${s.no}-2`} height={280} src={s.src2} />
+                </div>
+              )}
               <div style={{ marginTop: 32, background: SS.paper, padding: 32, border: `1px solid ${SS.ink}` }}>
                 <div style={{ ...ssEyebrow, marginBottom: 20 }}>SPEC SHEET / สเปคเครื่อง</div>
                 {s.specs.map(([k, v]) => (
                   <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "14px 0", borderBottom: `1px solid ${SS.rule}` }}>
-                    <span style={{ ...ssBody, fontSize: 13, color: SS.muted, fontFamily: SS.mono, letterSpacing: "0.05em", textTransform: "uppercase" }}>{k}</span>
-                    <span style={{ ...ssBody, fontSize: 14, fontFamily: SS.mono, fontWeight: 500 }}>{v}</span>
+                    <span style={{ ...ssBody, fontSize: 15, color: SS.muted, fontFamily: SS.mono, letterSpacing: "0.05em", textTransform: "uppercase" }}>{k}</span>
+                    <span style={{ ...ssBody, fontSize: 16, fontFamily: SS.mono, fontWeight: 500 }}>{v}</span>
                   </div>
                 ))}
               </div>
@@ -140,7 +146,7 @@ export default function ServicesPage() {
             <div key={ext} style={{ padding: "32px 24px", borderBottom: `1px solid rgba(245,242,236,0.2)`, borderRight: `1px solid rgba(245,242,236,0.2)` }}>
               <div style={{ ...ssDisplay, color: SS.paper, fontSize: 36, fontFamily: SS.mono, fontWeight: 500 }}>.{ext.toLowerCase()}</div>
               <div style={{ ...ssEyebrow, color: SS.accent, marginTop: 12 }}>{name}</div>
-              <div style={{ ...ssBody, color: "#a8a091", fontSize: 13, marginTop: 4 }}>{sub}</div>
+              <div style={{ ...ssBody, color: "#a8a091", fontSize: 15, marginTop: 4 }}>{sub}</div>
             </div>
           ))}
         </div>

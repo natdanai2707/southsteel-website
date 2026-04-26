@@ -108,7 +108,7 @@ export default function ProductsPage() {
           <div key={c.id} style={{ flex: 1, padding: "0 24px", borderLeft: i === 0 ? "none" : `1px solid ${SS.rule}` }}>
             <div style={{ ...ssEyebrow, color: SS.accent }}>№ {c.no}</div>
             <div style={{ ...ssDisplay, fontSize: 20, fontWeight: 500, marginTop: 8 }}>{c.th}</div>
-            <div style={{ ...ssBody, fontSize: 12, color: SS.muted, fontStyle: "italic", marginTop: 2 }}>{c.en}</div>
+            <div style={{ ...ssBody, fontSize: 14, color: SS.muted, fontStyle: "italic", marginTop: 2 }}>{c.en}</div>
           </div>
         ))}
       </section>
@@ -144,7 +144,7 @@ export default function ProductsPage() {
                     />
                     <div style={{ marginTop: 16 }}>
                       <div style={{ ...ssDisplay, fontSize: 20, fontWeight: 500 }}>{it.th}</div>
-                      <div style={{ ...ssBody, fontFamily: SS.mono, fontSize: 12, color: SS.muted, marginTop: 8, letterSpacing: "0.02em" }}>{it.en}</div>
+                      <div style={{ ...ssBody, fontFamily: SS.mono, fontSize: 14, color: SS.muted, marginTop: 8, letterSpacing: "0.02em" }}>{it.en}</div>
                     </div>
                     <div style={{ marginTop: 12, display: "flex", justifyContent: "space-between", borderTop: `1px dotted ${SS.rule}`, paddingTop: 12 }}>
                       <span style={{ ...ssEyebrow, color: SS.muted }}>มอก. · In stock</span>

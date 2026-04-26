@@ -17,7 +17,7 @@ export const SS = {
 
 export const ssEyebrow: CSSProperties = {
   fontFamily: SS.body,
-  fontSize: 11,
+  fontSize: 13,
   letterSpacing: "0.22em",
   textTransform: "uppercase",
   color: SS.muted,
@@ -26,8 +26,8 @@ export const ssEyebrow: CSSProperties = {
 
 export const ssBody: CSSProperties = {
   fontFamily: SS.body,
-  fontSize: 16,
-  lineHeight: 1.65,
+  fontSize: 17,
+  lineHeight: 1.7,
   color: SS.subtle,
   fontWeight: 400,
 };
