@@ -10,39 +10,6 @@ html, body {
 
 body {
   font-family: 'IBM Plex Sans Thai', sans-serif;
-  /* ตัดคำภาษาไทยตามหลักภาษา ใช้ dictionary ของ browser */
-  word-break: auto-phrase;
-  overflow-wrap: break-word;
-  hyphens: none;
-}
-
-/* Heading — balance ทำให้แต่ละบรรทัดยาวใกล้เคียงกัน ไม่มีบรรทัดสั้นโดด */
-h1, h2, h3, h4, h5, h6 {
-  word-break: auto-phrase;
-  overflow-wrap: break-word;
-  hyphens: none;
-  text-wrap: balance;
-}
-
-/* Paragraph — pretty หลีกเลี่ยงคำเดียวค้างบรรทัด */
-p, li {
-  word-break: auto-phrase;
-  overflow-wrap: break-word;
-  hyphens: none;
-  text-wrap: pretty;
-}
-
-div, span, a {
-  word-break: auto-phrase;
-  overflow-wrap: break-word;
-  hyphens: none;
-}
-
-/* ข้อความภาษาอังกฤษ / mono ไม่ตัดคำแบบไทย */
-[style*="JetBrains Mono"],
-[style*="monospace"] {
-  word-break: keep-all;
-  overflow-wrap: break-word;
 }
 
 em {
