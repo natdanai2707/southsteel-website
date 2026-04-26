@@ -67,7 +67,7 @@ export default function HomePage() {
               81 ปีกับเหล็กรูปพรรณทุกชนิด 2 สาขาในหาดใหญ่ ศูนย์ Laser CNC ตัด–พับ–ม้วน พร้อมจัดส่งถึงหน้าไซต์งาน
             </p>
             <p style={{ ...ssBody, fontSize: 14, lineHeight: 1.6, color: SS.muted, marginTop: 16, maxWidth: 440, fontStyle: "italic" }}>
-              Eighty-one years of structural steel, cut to spec and delivered to site — family-run from Hatyai since 1944.
+              81 years of structural steel, cut to spec and delivered to site — family-run from Hatyai since 1944.
             </p>
             <div style={{ display: "flex", gap: 12, marginTop: 40 }}>
               <a
@@ -132,7 +132,7 @@ export default function HomePage() {
               เหล็กรูปพรรณ<br />ครบทุก<em style={{ fontStyle: "italic", color: SS.accent }}>ประเภท</em>
             </h2>
             <p style={{ ...ssBody, fontSize: 18, maxWidth: 620, marginTop: 24 }}>
-              ตั้งแต่เหล็กก่อสร้างมาตรฐาน มอก. เหล็กโครงสร้างรีดร้อน เหล็กแผ่นทุกความหนา ไปจนถึงสแตนเลสและงานฉลุพิเศษ
+              เหล็กก่อสร้างมาตรฐาน มอก. เหล็กโครงสร้างรีดร้อน เหล็กแผ่นทุกความหนา สแตนเลส และงานฉลุพิเศษ — ครบในที่เดียว
             </p>
           </div>
         </div>

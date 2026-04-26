@@ -16,7 +16,23 @@ body {
   hyphens: none;
 }
 
-p, h1, h2, h3, h4, h5, h6, div, span, a, li {
+/* Heading — balance ทำให้แต่ละบรรทัดยาวใกล้เคียงกัน ไม่มีบรรทัดสั้นโดด */
+h1, h2, h3, h4, h5, h6 {
+  word-break: auto-phrase;
+  overflow-wrap: break-word;
+  hyphens: none;
+  text-wrap: balance;
+}
+
+/* Paragraph — pretty หลีกเลี่ยงคำเดียวค้างบรรทัด */
+p, li {
+  word-break: auto-phrase;
+  overflow-wrap: break-word;
+  hyphens: none;
+  text-wrap: pretty;
+}
+
+div, span, a {
   word-break: auto-phrase;
   overflow-wrap: break-word;
   hyphens: none;
