@@ -10,6 +10,23 @@ html, body {
 
 body {
   font-family: 'IBM Plex Sans Thai', sans-serif;
+  /* ตัดคำภาษาไทยตามหลักภาษา ใช้ dictionary ของ browser */
+  word-break: auto-phrase;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+p, h1, h2, h3, h4, h5, h6, div, span, a, li {
+  word-break: auto-phrase;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+/* ข้อความภาษาอังกฤษ / mono ไม่ตัดคำแบบไทย */
+[style*="JetBrains Mono"],
+[style*="monospace"] {
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 em {
