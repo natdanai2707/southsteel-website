@@ -23,7 +23,7 @@ export default function Nav() {
     }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "20px 56px" }}>
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <Image src="/images/logo-blue.png" alt="เหล็กใต้" width={36} height={36} style={{ objectFit: "contain" }} />
+          <Image src="/images/logo-blue.png" alt="เหล็กใต้" width={108} height={108} style={{ objectFit: "contain" }} />
           <div style={{ ...ssDisplay, fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>เหล็กใต้</div>
           <div style={{ ...ssEyebrow, fontSize: 10 }}>SOUTH&nbsp;STEEL</div>
         </Link>

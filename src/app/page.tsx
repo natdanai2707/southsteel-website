@@ -58,11 +58,11 @@ export default function HomePage() {
             </h1>
           </div>
           <div style={{ paddingBottom: 24 }}>
-            <p style={{ ...ssBody, fontSize: 19, lineHeight: 1.7, maxWidth: 440, margin: 0 }}>
+            <p style={{ ...ssBody, fontSize: 38, lineHeight: 1.7, maxWidth: 600, margin: 0 }}>
               ร้านเหล็กเก่าแก่คู่เมืองหาดใหญ่ ศูนย์รวมเหล็กทุกชนิด<br />
               จำหน่ายปลีก-ส่ง บริการ ตัด-พับ พร้อมจัดส่งทั่วประเทศ
             </p>
-            <p style={{ ...ssBody, fontSize: 14, lineHeight: 1.7, color: SS.muted, marginTop: 16, maxWidth: 440, fontStyle: "italic" }}>
+            <p style={{ ...ssBody, fontSize: 28, lineHeight: 1.7, color: SS.muted, marginTop: 16, maxWidth: 600, fontStyle: "italic" }}>
               Hat Yai's long-established steel center.<br />
               A comprehensive hub for all types of steel.<br />
               Retail and wholesale available.<br />
