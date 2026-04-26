@@ -22,10 +22,8 @@ export default function Nav() {
       borderBottom: `1px solid ${SS.rule}`, backdropFilter: "blur(8px)",
     }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "20px 56px" }}>
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <Image src="/images/logo-blue.png" alt="เหล็กใต้" width={108} height={108} style={{ objectFit: "contain" }} />
-          <div style={{ ...ssDisplay, fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>เหล็กใต้</div>
-          <div style={{ ...ssEyebrow, fontSize: 10 }}>SOUTH&nbsp;STEEL</div>
+        <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+          <Image src="/images/logo-blue.png" alt="เหล็กใต้" width={216} height={216} style={{ objectFit: "contain" }} />
         </Link>
         <ul style={{ display: "flex", gap: 36, listStyle: "none", margin: 0, padding: 0, fontSize: 14, fontWeight: 500 }}>
           {navItems.map(({ th, en, href }) => {
