@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://southsteel-th.com/sitemap.xml
