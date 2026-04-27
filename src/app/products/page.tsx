@@ -18,7 +18,7 @@ const productImages: Record<string, string> = {
   "01-4": "/images/channel-bar.jpg",
   "01-5": "/images/angle-bar.jpg",
   "01-6": "/images/flat-bar.jpg",
-  "01-7": "/images/round-bar.jpg",
+  "01-7": "/images/shaft-round.jpg",
   "01-8": "/images/square-bar.jpg",
   // เหล็กรีดเย็น
   "02-1": "/images/round-tube.jpg",

@@ -16,6 +16,7 @@ const services = [
     specs: [["ความแม่นยำ", "±0.1 mm"], ["ความหนาสูงสุด", "25 mm (CS) · 10 mm (SUS)"], ["ขนาดโต๊ะ", "1500 × 3000 mm"], ["รูปแบบไฟล์", "DWG · DXF · PDF · AI"]],
     use: ["ชิ้นส่วนเครื่องจักร", "ฉลุลายตกแต่ง", "ป้าย / โลโก้", "เหล็กแผ่นและสแตนเลส"],
     src: "/images/laser-cutting.jpg",
+    gallery: ["/images/laser-ex1.jpg", "/images/laser-ex2.jpg", "/images/laser-ex3.jpg", "/images/laser-ex4.jpg", "/images/laser-ex5.jpg", "/images/laser-ex6.jpg"],
   },
   {
     id: "bending", no: "02", th: "พับเหล็ก / พับสแตนเลส / พับรางน้ำ", en: "Press Brake / Bending",
@@ -116,6 +117,13 @@ export default function ServicesPage() {
             </div>
             <div>
               <Placeholder label={s.en} id={`svc-${s.no}`} height={380} src={s.src} />
+              {"gallery" in s && s.gallery && (
+                <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
+                  {(s.gallery as string[]).map((src, gi) => (
+                    <Placeholder key={gi} label={`Ex.${gi + 1}`} id={`svc-${s.no}-ex${gi + 1}`} height={120} src={src} />
+                  ))}
+                </div>
+              )}
               {"src2" in s && s.src2 && (
                 <div style={{ marginTop: 16 }}>
                   <Placeholder label={`${s.en} 2`} id={`svc-${s.no}-2`} height={280} src={s.src2} />
