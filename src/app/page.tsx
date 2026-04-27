@@ -14,10 +14,10 @@ const categories = [
 ];
 
 const services = [
-  { no: "01", th: "ตัดเลเซอร์ CNC", en: "Laser Cutting", desc: "Laser CNC Cutting ด้วยเครื่องไฟเบอร์เลเซอร์กำลัง 6000w ความแม่นยำ ±0.1mm รองรับเหล็กและโลหะทุกประเภท ตั้งแต่เหล็กบางถึงเหล็กหนา" },
-  { no: "02", th: "ตัด–พับเหล็ก", en: "Press Brake", desc: "ด้วยเครื่อง Press Brake — ตัดพับเหล็กตามแบบโดยช่างชำนาญการ" },
-  { no: "03", th: "เชื่อมเหล็ก", en: "Welding", desc: "Welding — งานเชื่อม Tig, Mig และเชื่อมเลเซอร์ รองรับทั้งงานบางและงานหนา" },
-  { no: "04", th: "จัดส่งถึงไซต์งาน", en: "Delivery", desc: "Delivery — รถบรรทุกประจำพร้อมส่งทุกพื้นที่ทั่วประเทศ" },
+  { no: "01", th: "ตัดเลเซอร์ CNC", en: "Laser Cutting", desc: "Laser CNC Cutting ด้วยเครื่องไฟเบอร์เลเซอร์กำลัง 6000w\nความแม่นยำ ±0.1mm รองรับเหล็กและโลหะทุกประเภท ตั้งแต่เหล็กบางถึงเหล็กหนา" },
+  { no: "02", th: "ตัด–พับเหล็ก", en: "Press Brake", desc: "ด้วยเครื่อง Press Brake\nตัดพับเหล็กตามแบบโดยช่างชำนาญการ" },
+  { no: "03", th: "เชื่อมเหล็ก", en: "Welding", desc: "งานเชื่อม Tig, Mig และเชื่อมเลเซอร์\nรองรับทั้งงานบางและงานหนา" },
+  { no: "04", th: "จัดส่งถึงไซต์งาน", en: "Delivery", desc: "รถบรรทุกประจำพร้อมส่งทุกพื้นที่ทั่วประเทศ" },
 ];
 
 const timeline = [
@@ -157,7 +157,7 @@ export default function HomePage() {
                 <div style={{ ...ssEyebrow, color: SS.accent }}>{s.no}</div>
                 <div>
                   <div style={{ ...ssDisplay, color: SS.paper, fontSize: 28 }}>{s.th}</div>
-                  <div style={{ ...ssBody, color: "#a8a091", fontSize: 14, marginTop: 8, maxWidth: 380, fontStyle: "italic" }}>{s.en} — {s.desc}</div>
+                  <div style={{ ...ssBody, color: "#a8a091", fontSize: 14, marginTop: 8, maxWidth: 380, fontStyle: "italic", whiteSpace: "pre-line" }}>{s.en} — {s.desc}</div>
                 </div>
                 <span style={{ ...ssEyebrow, color: SS.paper }}>→</span>
               </div>
@@ -175,7 +175,9 @@ export default function HomePage() {
               จาก<em style={{ fontStyle: "italic", color: SS.accent }}>รุ่น</em><br />สู่<em style={{ fontStyle: "italic", color: SS.accent }}>รุ่น.</em>
             </h2>
             <p style={{ ...ssBody, fontSize: 19, maxWidth: 540, marginTop: 40 }}>
-              เริ่มต้นในนาม <strong style={{ fontWeight: 600 }}>"กวงหลี"</strong> ที่สุราษฎร์ธานี ปี 1944 ขยายสู่หาดใหญ่ ปี 2531 ในชื่อ <strong style={{ fontWeight: 600 }}>บริษัท เหล็กใต้ จำกัด</strong> — วันนี้เราส่งต่อความไว้วางใจสู่รุ่นที่สาม
+              เริ่มต้นในนาม <strong style={{ fontWeight: 600 }}>"กวงหลี"</strong> ที่สุราษฎร์ธานี ปี 1944<br />
+              ขยายสู่หาดใหญ่ ปี 2531 ในชื่อ <strong style={{ fontWeight: 600 }}>บริษัท เหล็กใต้ จำกัด</strong><br />
+              วันนี้เราส่งต่อความไว้วางใจสู่รุ่นที่สาม
             </p>
             <Link href="/about" style={{ ...ssEyebrow, color: SS.accent, marginTop: 32, display: "inline-block", textDecoration: "none", borderBottom: `1px solid ${SS.accent}`, paddingBottom: 4 }}>
               อ่านประวัติเพิ่มเติม →

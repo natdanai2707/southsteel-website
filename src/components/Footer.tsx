@@ -34,7 +34,7 @@ export default function Footer() {
           </Link>
           <div style={{ ...ssEyebrow, color: "#8a8067", marginTop: 4 }}>SOUTH STEEL CO., LTD.</div>
           <p style={{ ...ssBody, color: "#a8a091", fontSize: 14, marginTop: 24, maxWidth: 320 }}>
-            ศูนย์จำหน่ายเหล็กรูปพรรณครบวงจร บริการ Laser CNC ตัด–พับ–ม้วน ประสบการณ์จากรุ่นสู่รุ่นกว่า 80 ปี
+            ศูนย์จำหน่ายเหล็กรูปพรรณครบวงจร บริการ Laser CNC ตัด–พับ ประสบการณ์จากรุ่นสู่รุ่นกว่า 80 ปี
           </p>
         </div>
         {footerLinks.map(([title, links]) => (
