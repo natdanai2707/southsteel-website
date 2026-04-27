@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "เหล็กใต้ | South Steel Co., Ltd.",
-  description: "ศูนย์จำหน่ายเหล็กรูปพรรณครบวงจร บริการ Laser CNC ตัด–พับ–ม้วน ประสบการณ์กว่า 80 ปี สองสาขาในหาดใหญ่",
+  description: "ศูนย์จำหน่ายเหล็กรูปพรรณครบวงจร บริการ Laser CNC ตัด–พับ–ม้วน ประสบการณ์กว่า 38 ปี สองสาขาในหาดใหญ่",
   keywords: ["เหล็กใต้", "เหล็ก", "หาดใหญ่", "Laser CNC", "South Steel"],
 };
 

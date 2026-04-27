@@ -105,7 +105,7 @@ export default function HomePage() {
         {/* Stats bar */}
         <div style={{ marginTop: 24, padding: "20px 0", borderTop: `1px solid ${SS.rule}`, borderBottom: `1px solid ${SS.rule}`, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }}>
           {[
-            ["81", "ปีของประสบการณ์", "Years in business"],
+            ["38", "ปีของประสบการณ์", "Years in business"],
             ["2", "สาขาในหาดใหญ่", "Branches"],
             ["มอก.", "มาตรฐานอุตสาหกรรม", "TISI Certified"],
             ["ทั่วประเทศ", "บริการจัดส่งทั่วประเทศ", "Nationwide delivery"],
@@ -131,7 +131,7 @@ export default function HomePage() {
               เหล็กรูปพรรณ<br />ครบทุก<em style={{ fontStyle: "italic", color: SS.accent }}>ประเภท</em>
             </h2>
             <p style={{ ...ssBody, fontSize: 18, maxWidth: 620, marginTop: 24 }}>
-              เหล็กก่อสร้างมาตรฐาน มอก. เหล็กโครงสร้างรีดร้อน เหล็กแผ่นทุกความหนา สแตนเลส และงานฉลุพิเศษ — ครบในที่เดียว
+              เหล็กรูปพรรณ เหล็กเส้นก่อสร้าง มาตรฐาน มอก. เหล็กแผ่น สแตนเลส อลูมิเนียม อุปกรณ์งานเหล็ก แก๊ส สี ลวดเชื่อม ใบตัด ใบเจียร์ งานตัดเลเซอร์ งานพับตามแบบ
             </p>
           </div>
         </div>
