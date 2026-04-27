@@ -13,7 +13,7 @@ export default function PageHeader({ kicker, titleTh, titleEn, desc }: PageHeade
       <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: 64, alignItems: "end" }}>
         <div>
           <div style={{ ...ssEyebrow, marginBottom: 12 }}>{kicker}</div>
-          <div style={{ ...ssBody, fontSize: 13, color: SS.muted, fontStyle: "italic" }}>{titleEn}</div>
+          {titleEn && <div style={{ ...ssBody, fontSize: 13, color: SS.muted, fontStyle: "italic" }}>{titleEn}</div>}
         </div>
         <div>
           <h1
