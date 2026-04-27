@@ -61,7 +61,7 @@ export default function ServicesPage() {
   return (
     <main style={{ background: SS.paper, color: SS.ink, fontFamily: SS.body }}>
       <PageHeader
-        kicker="§ 03 — บริการ / Services"
+        kicker=""
         titleTh={`ตัด. พับ.<br/><em style="font-style:italic;color:${SS.accent}">เชื่อม.</em>`}
         titleEn=""
         desc="บริการตัดเลเซอร์ พับเหล็ก พับสแตนเลส พับรางน้ำ และงานเชื่อมเลเซอร์ โดยช่างชำนาญการ พร้อมบริการจัดส่งทั่วภาคใต้"

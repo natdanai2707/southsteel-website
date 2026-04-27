@@ -96,10 +96,10 @@ export default function ProductsPage() {
   return (
     <main style={{ background: SS.paper, color: SS.ink, fontFamily: SS.body }}>
       <PageHeader
-        kicker="§ 02 — สินค้า / Products"
+        kicker=""
         titleTh={`สินค้าของเรา<br/><em style="font-style:italic;color:${SS.accent}">ครบทุกประเภท.</em>`}
         titleEn=""
-        desc="เหล็กรูปพรรณ เหล็กก่อสร้าง เหล็กแผ่น และสแตนเลส — พร้อมส่งจากคลังสต็อก 2 สาขาในหาดใหญ่ ราคาส่ง มาตรฐาน มอก. ทุกชิ้น"
+        desc={"เหล็กรูปพรรณ เหล็กเส้นก่อสร้าง มาตรฐาน มอก. เหล็กแผ่น สแตนเลส อลูมิเนียม\n\nอุปกรณ์งานเหล็ก แก๊ส สี ลวดเชื่อม ใบตัด ใบเจียร์ ฯลฯ"}
       />
 
       {/* Category nav strip */}

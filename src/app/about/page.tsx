@@ -31,7 +31,7 @@ export default function AboutPage() {
   return (
     <main style={{ background: SS.paper, color: SS.ink, fontFamily: SS.body }}>
       <PageHeader
-        kicker="§ 04 — เกี่ยวกับเรา / About"
+        kicker=""
         titleTh={`38 ปี<br/>กับ<em style="font-style:italic;color:${SS.accent}">เหล็ก.</em>`}
         titleEn=""
         desc="จากร้านเล็กๆ ในสุราษฎร์ธานีปี 1944 สู่ศูนย์จำหน่ายเหล็กครบวงจรที่หาดใหญ่ วันนี้เรากำลังส่งต่อความไว้วางใจสู่รุ่นที่สาม"
