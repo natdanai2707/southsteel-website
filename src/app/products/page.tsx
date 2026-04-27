@@ -118,7 +118,6 @@ export default function ProductsPage() {
         <section key={c.id} style={{ padding: "96px 56px", borderBottom: `1px solid ${SS.rule}`, background: i % 2 === 1 ? SS.paperAlt : SS.paper }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 80, alignItems: "start" }}>
             <div style={{ position: "sticky", top: 100 }}>
-              <div style={{ ...ssEyebrow, color: SS.accent, marginBottom: 20 }}>§ {c.no} / CATEGORY</div>
               <h2 style={{ ...ssDisplay, fontSize: 64, margin: 0, lineHeight: 1 }}>{c.th}</h2>
               <div style={{ ...ssBody, fontSize: 16, color: SS.muted, fontStyle: "italic", marginTop: 12 }}>{c.en}</div>
               <p style={{ ...ssBody, fontSize: 17, marginTop: 32, maxWidth: 460 }}>{c.blurb}</p>

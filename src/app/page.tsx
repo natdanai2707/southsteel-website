@@ -51,7 +51,7 @@ export default function HomePage() {
       <section style={{ padding: "80px 56px 40px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "end" }}>
           <div>
-            <h1 style={{ ...ssDisplay, margin: 0, fontSize: "90px", letterSpacing: "-1.08px", lineHeight: "1.15" }}>
+            <h1 style={{ ...ssBody, margin: 0, fontSize: "90px", fontWeight: 700, lineHeight: "1.15", color: SS.ink }}>
               เหล็กถูก<br />เหล็กดี<br />เหล็กมีคุณภาพ<br />
               <em style={{ fontStyle: "italic", color: SS.accent }}>ต้องที่ เหล็กใต้</em>
             </h1>
