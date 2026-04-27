@@ -48,7 +48,7 @@ export default function Placeholder({ label, height = 340, id, tint = "light", s
           </div>
         </>
       )}
-      {id && (
+      {id && !src && (
         <div style={{
           position: "absolute", top: 16, left: 16, ...ssEyebrow,
           color: isDark ? "#f5f2ec" : "#0e0d0b",
