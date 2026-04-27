@@ -64,7 +64,7 @@ export default function ServicesPage() {
         kicker=""
         titleTh={`ตัด. พับ.<br/><em style="font-style:italic;color:${SS.accent}">เชื่อม.</em>`}
         titleEn=""
-        desc="บริการตัดเลเซอร์ พับเหล็ก พับสแตนเลส พับรางน้ำ และงานเชื่อมเลเซอร์ โดยช่างชำนาญการ พร้อมบริการจัดส่งทั่วภาคใต้"
+        desc="บริการตัด Laser CNC พร้อมทีมช่างชำนาญการสำหรับงานพับเหล็ก สแตนเลส งานเชื่อม และงานเก็บพื้นผิว"
       />
 
       {/* Workflow */}
