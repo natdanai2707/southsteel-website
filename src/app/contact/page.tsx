@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 };
 
 const channels = [
-  { no: "01", th: "แชท Line", en: "Line Chat", val: "@southsteel", sub: "ตอบเร็วที่สุด", href: "https://line.me/ti/p/@southsteel", highlight: true },
+  { no: "01", th: "แชท Line", en: "Line Chat", val: "@southsteel", sub: "", href: "https://line.me/ti/p/@southsteel", highlight: true },
   { no: "02", th: "โทรศัพท์", en: "Phone", val: "086-488-4450", sub: "จ.–ส. 08–17น.", href: "tel:0864884450", highlight: false },
   { no: "03", th: "Facebook", en: "Messenger", val: "southsteelth", sub: "ข้อความ · โพสต์", href: "https://facebook.com/southsteelth", highlight: false },
-  { no: "04", th: "อีเมล", en: "Email", val: "natdanai2707@gmail.com", sub: "ติดต่อทางอีเมล", href: "mailto:natdanai2707@gmail.com", highlight: false },
+  { no: "04", th: "อีเมล", en: "Email", val: "ss_southsteel@hotmail.com", sub: "ติดต่อทางอีเมล", href: "mailto:ss_southsteel@hotmail.com", highlight: false },
 ];
 
 const branches = [
@@ -48,16 +48,14 @@ const days = [
   ["อา", "Sun", "ปิด"],
 ];
 
-const jobTypes = ["ซื้อเหล็ก", "ตัดเลเซอร์", "ตัด–พับ", "ม้วน", "จัดส่ง", "อื่นๆ"];
-
 export default function ContactPage() {
   return (
     <main style={{ background: SS.paper, color: SS.ink, fontFamily: SS.body }}>
       <PageHeader
-        kicker="§ 05 — ติดต่อเรา / Contact"
+        kicker=""
         titleTh={`แชทหาเรา<br/>ทาง <em style="font-style:italic;color:${SS.line}">Line.</em>`}
         titleEn=""
-        desc="ทีมงานพร้อมตอบคำถาม ให้คำปรึกษา และเสนอราคาฟรี ภายใน 24 ชั่วโมง จันทร์–เสาร์ 08.00–17.00 น."
+        desc="ทีมงานพร้อมให้คำปรึกษา และเสนอราคาฟรี ทุกวันจันทร์–เสาร์ เวลา 08.00–17.00 น."
       />
 
       {/* Channels */}
@@ -87,94 +85,6 @@ export default function ContactPage() {
               <div style={{ ...ssBody, fontSize: 12, color: c.highlight ? "#a8a091" : SS.muted, marginTop: 4 }}>{c.sub}</div>
             </a>
           ))}
-        </div>
-      </section>
-
-      {/* Form + side info */}
-      <section style={{ padding: "96px 56px", borderBottom: `1px solid ${SS.rule}` }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.3fr", gap: 80 }}>
-          <div>
-            <div style={{ ...ssEyebrow, marginBottom: 16 }}>§ 01 — ส่งข้อความ</div>
-            <h2 style={{ ...ssDisplay, fontSize: 52, margin: "0 0 24px" }}>
-              ส่งแบบ<br />ขอใบเสนอราคา
-            </h2>
-            <p style={{ ...ssBody, fontSize: 16, maxWidth: 380 }}>
-              หากต้องการส่งแบบ DWG / PDF แนบไฟล์ผ่าน Line ได้โดยตรง หรือกรอกฟอร์มและเราจะติดต่อกลับภายใน 24 ชั่วโมง
-            </p>
-            <div style={{ marginTop: 48, borderTop: `1px solid ${SS.rule}`, paddingTop: 24 }}>
-              <div style={{ ...ssEyebrow, marginBottom: 12 }}>เอกสารที่ควรเตรียม</div>
-              <ul style={{ ...ssBody, fontSize: 14, paddingLeft: 20, margin: 0 }}>
-                {["แบบชิ้นงาน (DWG, DXF, PDF, AI)", "จำนวนและความหนาเหล็ก", "วันที่ต้องการรับสินค้า", "สถานที่จัดส่ง"].map((item) => (
-                  <li key={item} style={{ padding: "6px 0" }}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <form
-            action="https://line.me/ti/p/@southsteel"
-            style={{ background: SS.paperAlt, padding: 48, border: `1px solid ${SS.ink}` }}
-          >
-            {[
-              { label: "ชื่อ–นามสกุล / Name", placeholder: "กรุณากรอกชื่อ", name: "name", type: "text" },
-              { label: "โทรศัพท์ / Phone", placeholder: "08x-xxx-xxxx", name: "phone", type: "tel" },
-              { label: "อีเมล / Email", placeholder: "name@example.com", name: "email", type: "email" },
-            ].map((f) => (
-              <div key={f.label} style={{ marginBottom: 24 }}>
-                <div style={{ ...ssEyebrow, marginBottom: 8 }}>{f.label}</div>
-                <input
-                  type={f.type}
-                  name={f.name}
-                  placeholder={f.placeholder}
-                  style={{
-                    width: "100%", ...ssBody, fontSize: 15, padding: "14px 0",
-                    border: "none", borderBottom: `1px solid ${SS.ink}`,
-                    background: "transparent", outline: "none", color: SS.ink,
-                    fontFamily: SS.body,
-                  }}
-                />
-              </div>
-            ))}
-            <div style={{ marginBottom: 24 }}>
-              <div style={{ ...ssEyebrow, marginBottom: 8 }}>ประเภทงาน / Type</div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                {jobTypes.map((t, i) => (
-                  <span key={t} style={{
-                    ...ssEyebrow, padding: "8px 14px",
-                    border: `1px solid ${i === 0 ? SS.ink : SS.rule}`,
-                    background: i === 0 ? SS.ink : "transparent",
-                    color: i === 0 ? SS.paper : SS.subtle,
-                    cursor: "pointer",
-                  }}>{t}</span>
-                ))}
-              </div>
-            </div>
-            <div style={{ marginBottom: 32 }}>
-              <div style={{ ...ssEyebrow, marginBottom: 8 }}>รายละเอียด / Message</div>
-              <textarea
-                name="message"
-                placeholder="รายละเอียดงานที่ต้องการ..."
-                rows={4}
-                style={{
-                  width: "100%", ...ssBody, fontSize: 15, padding: "14px 0",
-                  border: "none", borderBottom: `1px solid ${SS.ink}`,
-                  background: "transparent", outline: "none", resize: "none",
-                  color: SS.ink, fontFamily: SS.body, minHeight: 100,
-                }}
-              />
-            </div>
-            <a
-              href="https://line.me/ti/p/@southsteel"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "block", width: "100%", padding: "18px", background: SS.ink, color: SS.paper,
-                border: "none", ...ssEyebrow, fontSize: 13, letterSpacing: "0.22em",
-                cursor: "pointer", textDecoration: "none", textAlign: "center",
-              }}
-            >
-              ส่งข้อความ · SUBMIT →
-            </a>
-          </form>
         </div>
       </section>
 

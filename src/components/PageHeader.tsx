@@ -12,7 +12,7 @@ export default function PageHeader({ kicker, titleTh, titleEn, desc }: PageHeade
     <section style={{ padding: "96px 56px 64px", borderBottom: `1px solid ${SS.rule}` }}>
       <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: 64, alignItems: "end" }}>
         <div>
-          <div style={{ ...ssEyebrow, marginBottom: 12 }}>{kicker}</div>
+          {kicker && <div style={{ ...ssEyebrow, marginBottom: 12 }}>{kicker}</div>}
           {titleEn && <div style={{ ...ssBody, fontSize: 13, color: SS.muted, fontStyle: "italic" }}>{titleEn}</div>}
         </div>
         <div>
