@@ -55,8 +55,8 @@ export default function ContactPage() {
         kicker=""
         titleTh={`แชทหาเรา<br/>ทาง <em style="font-style:italic;color:${SS.line}">Line.</em>`}
         titleEn=""
-        desc={"ทีมงานพร้อมให้คำปรึกษา และเสนอราคาฟรี
-ทุกวันจันทร์–เสาร์ เวลา 08.00–17.00 น."}
+        desc={`ทีมงานพร้อมให้คำปรึกษา และเสนอราคาฟรี
+ทุกวันจันทร์–เสาร์ เวลา 08.00–17.00 น.`}
       />
 
       {/* Channels */}

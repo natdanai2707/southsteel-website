@@ -64,8 +64,8 @@ export default function ServicesPage() {
         kicker=""
         titleTh={`ตัด. พับ. <em style="font-style:italic;color:${SS.accent}">เชื่อม.</em>`}
         titleEn=""
-        desc={"บริการตัด Laser CNC พร้อมทีมช่างชำนาญการ
-สำหรับงานพับเหล็ก สแตนเลส งานเชื่อม และงานเก็บพื้นผิว"}
+        desc={`บริการตัด Laser CNC พร้อมทีมช่างชำนาญการ
+สำหรับงานพับเหล็ก สแตนเลส งานเชื่อม และงานเก็บพื้นผิว`}
       />
 
       {/* Workflow */}
