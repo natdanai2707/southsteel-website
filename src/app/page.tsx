@@ -14,10 +14,10 @@ const categories = [
 ];
 
 const services = [
-  { no: "01", th: "ตัดเลเซอร์ CNC", en: "Laser Cutting", desc: "เครื่องเลเซอร์ไฟเบอร์ความแม่นยำ ±0.1mm รองรับเหล็กดำ สแตนเลส กัลวาไนซ์ หนาสูงสุด 25mm" },
-  { no: "02", th: "ตัด–พับเหล็ก", en: "Press Brake", desc: "พับเหล็กตามแบบด้วยเครื่อง CNC รับทำฝาข้างรถบรรทุก รางน้ำ และงานพับพิเศษทุกประเภท" },
-  { no: "03", th: "ม้วนเหล็ก", en: "Plate Rolling", desc: "ม้วนเหล็กทุกขนาด รับม้วนวงกลม วงรี ตามแบบที่ลูกค้ากำหนด" },
-  { no: "04", th: "จัดส่งถึงไซต์งาน", en: "Delivery", desc: "รถบรรทุกประจำพร้อมส่งในหาดใหญ่และทั่วประเทศ ส่งฟรีในพื้นที่หาดใหญ่" },
+  { no: "01", th: "ตัดเลเซอร์ CNC", en: "Laser Cutting", desc: "Laser CNC Cutting ด้วยเครื่องไฟเบอร์เลเซอร์กำลัง 6000w ความแม่นยำ ±0.1mm รองรับเหล็กและโลหะทุกประเภท ตั้งแต่เหล็กบางถึงเหล็กหนา" },
+  { no: "02", th: "ตัด–พับเหล็ก", en: "Press Brake", desc: "ด้วยเครื่อง Press Brake — ตัดพับเหล็กตามแบบโดยช่างชำนาญการ" },
+  { no: "03", th: "เชื่อมเหล็ก", en: "Welding", desc: "Welding — งานเชื่อม Tig, Mig และเชื่อมเลเซอร์ รองรับทั้งงานบางและงานหนา" },
+  { no: "04", th: "จัดส่งถึงไซต์งาน", en: "Delivery", desc: "Delivery — รถบรรทุกประจำพร้อมส่งทุกพื้นที่ทั่วประเทศ" },
 ];
 
 const timeline = [
@@ -51,7 +51,7 @@ export default function HomePage() {
       <section style={{ padding: "80px 56px 40px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "end" }}>
           <div>
-            <h1 style={{ ...ssBody, margin: 0, fontSize: "90px", fontWeight: 700, lineHeight: "1.15", color: SS.ink }}>
+            <h1 style={{ ...ssBody, margin: 0, fontSize: "90px", fontWeight: 300, lineHeight: "1.15", color: SS.ink }}>
               เหล็กถูก<br />เหล็กดี<br />เหล็กมีคุณภาพ<br />
               <em style={{ fontStyle: "italic", color: SS.accent }}>ต้องที่ เหล็กใต้</em>
             </h1>
@@ -144,10 +144,10 @@ export default function HomePage() {
           <div>
             <div style={{ ...ssEyebrow, color: "#8a8067", marginBottom: 32 }}>§ 02 — บริการ / Services</div>
             <h2 style={{ ...ssDisplay, color: SS.paper, fontSize: 72, margin: 0 }}>
-              ตัด.<br />พับ.<br /><em style={{ fontStyle: "italic", color: SS.accent }}>ม้วน.</em>
+              ตัด<br />พับ<br /><em style={{ fontStyle: "italic", color: SS.accent }}>เชื่อม</em>
             </h2>
             <p style={{ ...ssBody, color: "#c9c2b2", fontSize: 18, maxWidth: 480, marginTop: 32 }}>
-              บริการ Laser CNC ความแม่นยำสูง พร้อมทีมช่างชำนาญการสำหรับงานตัด–พับ–ม้วนเหล็กทุกขนาด
+              บริการตัด Laser CNC พร้อมทีมช่างชำนาญการสำหรับงานพับเหล็ก สแตนเลส งานเชื่อม และงานเก็บพื้นผิว
             </p>
           </div>
           <div>
