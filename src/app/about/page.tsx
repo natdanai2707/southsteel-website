@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import CTA from "@/components/CTA";
 import PageHeader from "@/components/PageHeader";
 import { SS, ssEyebrow, ssBody, ssDisplay } from "@/lib/design";
@@ -10,13 +9,10 @@ export const metadata: Metadata = {
 };
 
 const timeline = [
-  { yr: "1944", be: "B.E. 2487", title: "ก่อตั้งร้าน \"กวงหลี\"", loc: "สุราษฎร์ธานี", desc: "รุ่นที่หนึ่งก่อตั้งร้านขายเหล็กเล็กๆ ในนาม \"กวงหลี\" จำหน่ายเหล็กก่อสร้างและอุปกรณ์งานช่างให้ช่างท้องถิ่น" },
-  { yr: "1967", be: "B.E. 2510", title: "ขยายสู่รุ่นที่สอง", loc: "สุราษฎร์ธานี", desc: "รุ่นที่สองเข้ามาบริหาร ขยายกลุ่มสินค้าให้ครอบคลุมเหล็กรูปพรรณและเหล็กโครงสร้าง" },
-  { yr: "1988", be: "B.E. 2531", title: "ก่อตั้ง \"บริษัท เหล็กใต้ จำกัด\"", loc: "หาดใหญ่ · สงขลา", desc: "ขยายกิจการมายังหาดใหญ่ในนามบริษัท เปิดสาขาสามสิบเมตรเป็นสำนักงานใหญ่ รองรับตลาดภาคใต้ทั้งหมด" },
-  { yr: "2004", be: "B.E. 2547", title: "ศูนย์ตัด–พับเหล็ก", loc: "หาดใหญ่", desc: "ติดตั้งเครื่องตัด–พับเหล็ก CNC เริ่มให้บริการแปรรูปเหล็กตามแบบลูกค้า" },
-  { yr: "2011", be: "B.E. 2554", title: "เปิดสาขาคลองหวะ", loc: "คอหงส์ · หาดใหญ่", desc: "เปิดสาขาที่สอง ถนนกาญจนวนิช เพื่อรองรับลูกค้าในเขตคอหงส์และใกล้เคียง" },
-  { yr: "2019", be: "B.E. 2562", title: "ศูนย์ Laser CNC", loc: "หาดใหญ่", desc: "ลงทุนเครื่องตัดเลเซอร์ไฟเบอร์ ±0.1mm เพิ่มขีดความสามารถงานแปรรูปเหล็กแผ่น" },
-  { yr: "2026", be: "B.E. 2569", title: "รุ่นที่สาม · ปัจจุบัน", loc: "หาดใหญ่", desc: "ส่งต่อกิจการสู่รุ่นที่สาม พร้อมปรับปรุงบริการดิจิทัล เปิดรับสั่งทำผ่าน Line และเว็บไซต์" },
+  { yr: "1944", be: "B.E. 2487", title: "ก่อตั้งร้าน \"กวงหลี\"", loc: "สุราษฎร์ธานี", desc: "" },
+  { yr: "1988", be: "B.E. 2531", title: "ก่อตั้ง \"บริษัท เหล็กใต้ จำกัด\"", loc: "หาดใหญ่ · สงขลา", desc: "" },
+  { yr: "2012", be: "B.E. 2555", title: "เปิดสาขาคลองหวะ", loc: "คอหงส์ · หาดใหญ่", desc: "" },
+  { yr: "2026", be: "B.E. 2569", title: "ร้านเหล็กคู่เมืองหาดใหญ่", loc: "หาดใหญ่", desc: "ขยายการบริการให้ครอบคลุมทุกความต้องการ" },
 ];
 
 const values = [
@@ -29,7 +25,6 @@ const stats = [
   ["38+", "ปี", "Years in business"],
   ["3", "รุ่น", "Generations"],
   ["2", "สาขา", "Branches"],
-  ["500+", "SKU", "Products in stock"],
 ];
 
 export default function AboutPage() {
@@ -41,31 +36,6 @@ export default function AboutPage() {
         titleEn="38 years with steel"
         desc="จากร้านเล็กๆ ในสุราษฎร์ธานีปี 1944 สู่ศูนย์จำหน่ายเหล็กครบวงจรที่หาดใหญ่ วันนี้เรากำลังส่งต่อความไว้วางใจสู่รุ่นที่สาม"
       />
-
-      {/* Opening quote */}
-      <section style={{ padding: "96px 56px", borderBottom: `1px solid ${SS.rule}` }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 80 }}>
-          <div>
-            <div style={{ ...ssEyebrow, marginBottom: 24 }}>§ 01 — จุดเริ่มต้น</div>
-            <p style={{ ...ssDisplay, fontSize: 40, lineHeight: 1.15, margin: 0, color: SS.ink }}>
-              "ความไว้วางใจของลูกค้าคือสิ่งที่ครอบครัวเราสร้างมาตลอดสามรุ่น มันหนักกว่าเหล็กทุกแท่งที่เราขาย"
-            </p>
-            <div style={{ ...ssEyebrow, color: SS.muted, marginTop: 32 }}>— ครอบครัวผู้ก่อตั้ง · FOUNDING FAMILY</div>
-          </div>
-          <div>
-            <div style={{ position: "relative", height: 480 }}>
-              <Image
-                src="/images/store-interior.jpg"
-                alt="ร้านกวงหลี · สุราษฎร์ธานี"
-                fill
-                style={{ objectFit: "cover", filter: "saturate(0.9) contrast(1.02)" }}
-                sizes="50vw"
-              />
-            </div>
-            <div style={{ ...ssEyebrow, color: SS.muted, marginTop: 12 }}>Fig. 02 — ร้านกวงหลี · สุราษฎร์ธานี ปี 1972</div>
-          </div>
-        </div>
-      </section>
 
       {/* Timeline */}
       <section style={{ padding: "120px 56px", background: SS.paperAlt, borderBottom: `1px solid ${SS.rule}` }}>
@@ -112,7 +82,7 @@ export default function AboutPage() {
       {/* Stats */}
       <section style={{ padding: "96px 56px", background: SS.ink, color: SS.paper }}>
         <div style={{ ...ssEyebrow, color: "#8a8067", marginBottom: 32 }}>ตัวเลขที่เราภูมิใจ</div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 }}>
           {stats.map(([n, th, en]) => (
             <div key={en} style={{ borderTop: `1px solid rgba(245,242,236,0.2)`, paddingTop: 24 }}>
               <div style={{ ...ssDisplay, color: SS.paper, fontSize: 72, fontWeight: 500, letterSpacing: "-0.03em" }}>{n}</div>

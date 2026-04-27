@@ -23,7 +23,7 @@ const services = [
 const timeline = [
   ["1944", "B.E. 2487", "ก่อตั้ง \"กวงหลี\"", "สุราษฎร์ธานี"],
   ["1988", "B.E. 2531", "ตั้ง \"เหล็กใต้\"", "สาขาหาดใหญ่"],
-  ["2012", "B.E. 2555", "ขยายสาขาคลองหวะ", "ขยายกิจการ"],
+  ["2026", "B.E. 2569", "ร้านเหล็กคู่เมืองหาดใหญ่", "ขยายการบริการให้ครอบคลุมทุกความต้องการ"],
 ];
 
 const branches = [
@@ -53,7 +53,7 @@ export default function HomePage() {
           <div>
             <h1 style={{ ...ssBody, margin: 0, fontSize: "90px", fontWeight: 300, lineHeight: "1.15", color: SS.ink }}>
               เหล็กถูก<br />เหล็กดี<br />เหล็กมีคุณภาพ<br />
-              <em style={{ fontStyle: "italic", color: SS.accent }}>ต้องที่ เหล็กใต้</em>
+              <em style={{ fontStyle: "italic", color: SS.accent }}>ต้องที่ <strong style={{ fontWeight: 700 }}>เหล็กใต้</strong></em>
             </h1>
           </div>
           <div style={{ paddingBottom: 24 }}>
