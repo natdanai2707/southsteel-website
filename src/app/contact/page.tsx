@@ -56,7 +56,7 @@ export default function ContactPage() {
       <PageHeader
         kicker="§ 05 — ติดต่อเรา / Contact"
         titleTh={`แชทหาเรา<br/>ทาง <em style="font-style:italic;color:${SS.line}">Line.</em>`}
-        titleEn="Reach us — fastest via Line"
+        titleEn=""
         desc="ทีมงานพร้อมตอบคำถาม ให้คำปรึกษา และเสนอราคาฟรี ภายใน 24 ชั่วโมง จันทร์–เสาร์ 08.00–17.00 น."
       />
 

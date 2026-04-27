@@ -63,7 +63,7 @@ export default function ServicesPage() {
       <PageHeader
         kicker="§ 03 — บริการ / Services"
         titleTh={`ตัด. พับ.<br/><em style="font-style:italic;color:${SS.accent}">เชื่อม.</em>`}
-        titleEn="Cut · Bend · Weld"
+        titleEn=""
         desc="บริการตัดเลเซอร์ พับเหล็ก พับสแตนเลส พับรางน้ำ และงานเชื่อมเลเซอร์ โดยช่างชำนาญการ พร้อมบริการจัดส่งทั่วภาคใต้"
       />
 
