@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CTA from "@/components/CTA";
 import Placeholder from "@/components/Placeholder";
+import HeroSlider from "@/components/HeroSlider";
 import { SS, ssEyebrow, ssBody, ssDisplay } from "@/lib/design";
 
 const categories = [
@@ -84,22 +85,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Hero image */}
-        <div style={{ marginTop: 56, position: "relative" }}>
-          <div style={{ position: "relative", width: "100%", height: 520 }}>
-            <Image
-              src="/images/hero-store.jpg"
-              alt="คลังเหล็ก · สาขาคลองหวะ"
-              fill
-              priority
-              style={{ objectFit: "cover", filter: "contrast(1.05) saturate(0.9)" }}
-              sizes="100vw"
-            />
-          </div>
-          <div style={{ position: "absolute", bottom: 20, left: 20, right: 20, display: "flex", justifyContent: "space-between", alignItems: "end" }}>
-            <div style={{ ...ssEyebrow, color: SS.paper, opacity: 0.9 }}>Fig. 01 — สาขาคลองหวะ · หาดใหญ่</div>
-            <div style={{ ...ssEyebrow, color: SS.paper, opacity: 0.9 }}>13°N · 100°E</div>
-          </div>
+        {/* Hero image slider */}
+        <div style={{ marginTop: 56 }}>
+          <HeroSlider />
         </div>
 
         {/* Stats bar */}
