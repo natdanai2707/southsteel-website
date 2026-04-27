@@ -21,7 +21,7 @@ export default function PageHeader({ kicker, titleTh, titleEn, desc }: PageHeade
             dangerouslySetInnerHTML={{ __html: titleTh }}
           />
           {desc && (
-            <p style={{ ...ssBody, fontSize: 30, maxWidth: 640, marginTop: 32, color: SS.subtle, whiteSpace: "pre-line" }}>{desc}</p>
+            <p style={{ ...ssBody, fontSize: 30, maxWidth: 900, marginTop: 32, color: SS.subtle, whiteSpace: "pre-line" }}>{desc}</p>
           )}
         </div>
       </div>
