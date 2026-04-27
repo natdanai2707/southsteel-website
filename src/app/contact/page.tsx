@@ -21,8 +21,8 @@ const branches = [
     badge: "สำนักงานใหญ่ / HQ",
     name: "สาขาสามสิบเมตร",
     addr: "45 ถ.ราษฎร์ยินดี ต.หาดใหญ่ อ.หาดใหญ่ จ.สงขลา 90110",
-    coord: "7.0084°N · 100.4747°E",
-    phones: [{ num: "086-488-4450", label: "หลัก" }, { num: "095-086-1777", label: "สำรอง" }, { num: "074-356-643~6", label: "สำนักงาน" }],
+    coord: "",
+    phones: [{ num: "074-356-643~6", label: "สำนักงาน" }, { num: "086-488-4450", label: "สำรอง" }, { num: "095-086-1777", label: "สำรอง" }],
     img: "/images/branch-30m.jpg",
     mapsUrl: "https://maps.google.com/?q=45+ถ.ราษฎร์ยินดี+หาดใหญ่+สงขลา",
   },
@@ -31,8 +31,8 @@ const branches = [
     badge: "สาขา / Branch",
     name: "สาขาคลองหวะ",
     addr: "272 ถ.กาญจนวนิช ต.คอหงส์ อ.หาดใหญ่ จ.สงขลา 90110",
-    coord: "6.9967°N · 100.4938°E",
-    phones: [{ num: "086-488-2285", label: "หลัก" }, { num: "074-819-777", label: "สำนักงาน" }],
+    coord: "",
+    phones: [{ num: "074-819-777", label: "สำนักงาน" }, { num: "086-488-2285", label: "สำรอง" }],
     img: "/images/branch-klongwa.jpg",
     mapsUrl: "https://maps.google.com/?q=272+ถ.กาญจนวนิช+คอหงส์+หาดใหญ่+สงขลา",
   },
@@ -99,9 +99,8 @@ export default function ContactPage() {
                 <Image src={b.img} alt={b.name} fill style={{ objectFit: "cover" }} sizes="50vw" />
               </div>
               <div style={{ padding: 32 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", marginBottom: 16 }}>
+                <div style={{ marginBottom: 16 }}>
                   <div style={{ ...ssEyebrow, color: SS.accent }}>{b.badge}</div>
-                  <div style={{ ...ssEyebrow, fontFamily: SS.mono, color: SS.muted, fontSize: 10 }}>{b.coord}</div>
                 </div>
                 <div style={{ ...ssDisplay, fontSize: 32 }}>{b.name}</div>
                 <div style={{ ...ssBody, fontSize: 15, marginTop: 12 }}>{b.addr}</div>
