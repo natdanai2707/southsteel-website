@@ -45,14 +45,14 @@ const categories = [
     th: "เหล็กรีดร้อน", en: "Hot-Rolled Steel",
     blurb: "เหล็กรูปพรรณรีดร้อนมาตรฐาน มอก. สำหรับงานโครงสร้างอาคาร โรงงาน สะพาน และงานวิศวกรรมทั่วไป",
     items: [
-      { th: "ไวด์แฟลงก์", en: "Wide Flange / WF" },
-      { th: "ไอบีม", en: "I-Beam" },
-      { th: "เอชบีม", en: "H-Beam" },
-      { th: "รางน้ำ", en: "Channel Bar" },
-      { th: "เหล็กฉาก", en: "Angle Bar" },
-      { th: "เหล็กแบน", en: "Flat Bar" },
-      { th: "เหล็กกลม", en: "Round Bar" },
-      { th: "เหล็กสี่เหลี่ยมตัน", en: "Square Bar" },
+      { th: "ไวด์แฟลงก์", en: "Wide Flange / WF", mok: "มอก. 1227-2558" },
+      { th: "ไอบีม", en: "I-Beam", mok: "มอก. 1227-2558" },
+      { th: "เอชบีม", en: "H-Beam", mok: "มอก. 1227-2558" },
+      { th: "รางน้ำ", en: "Channel Bar", mok: "มอก. 1227-2558" },
+      { th: "เหล็กฉาก", en: "Angle Bar", mok: "มอก. 1227-2558" },
+      { th: "เหล็กแบน", en: "Flat Bar", mok: "" },
+      { th: "เหล็กกลม", en: "Round Bar", mok: "" },
+      { th: "เหล็กสี่เหลี่ยมตัน", en: "Square Bar", mok: "" },
     ],
   },
   {
@@ -60,13 +60,13 @@ const categories = [
     th: "เหล็กรีดเย็น", en: "Cold-Rolled Steel",
     blurb: "ท่อและหน้าตัดรีดเย็น รวมถึงสแตนเลส สำหรับงานเฟอร์นิเจอร์ โครงสร้างเบา และงานตกแต่ง",
     items: [
-      { th: "ท่อกลม", en: "Round Tube" },
-      { th: "ท่อเหลี่ยม", en: "Square Tube" },
-      { th: "ท่อสี่เหลี่ยมผืนผ้า", en: "Rectangular Tube" },
-      { th: "เหล็กฉากรีดเย็น", en: "Cold Rolled Angle" },
-      { th: "แผ่นรีดเย็น", en: "Cold Rolled Sheet" },
-      { th: "ท่อสแตนเลสกลม", en: "Stainless Round Tube" },
-      { th: "กล่องสแตนเลส", en: "Stainless Square/Rect Tube" },
+      { th: "ท่อกลม", en: "Round Tube", mok: "มอก. 107-2533" },
+      { th: "ท่อเหลี่ยม", en: "Square Tube", mok: "มอก. 107-2533" },
+      { th: "ท่อสี่เหลี่ยมผืนผ้า", en: "Rectangular Tube", mok: "มอก. 107-2533" },
+      { th: "เหล็กตัวซี", en: "Lip Channel / C-Purlin", mok: "มอก. 1228-2561" },
+      { th: "แผ่นรีดเย็น", en: "Cold Rolled Sheet", mok: "" },
+      { th: "ท่อสแตนเลสกลม", en: "Stainless Round Tube", mok: "" },
+      { th: "กล่องสแตนเลส", en: "Stainless Square/Rect Tube", mok: "" },
     ],
   },
   {
@@ -74,9 +74,9 @@ const categories = [
     th: "เหล็กเส้น", en: "Rebar & Wire Mesh",
     blurb: "เหล็กเส้นมาตรฐาน มอก. สำหรับงานก่อสร้างคอนกรีตเสริมเหล็ก ทั้งงานบ้านพักอาศัยและโครงการขนาดใหญ่",
     items: [
-      { th: "เหล็กข้ออ้อย", en: "Deformed Bar / DB" },
-      { th: "เหล็กเส้นกลม", en: "Round Bar / RB" },
-      { th: "ไวร์เมช", en: "Wire Mesh" },
+      { th: "เหล็กข้ออ้อย", en: "Deformed Bar / DB", mok: "มอก. 24-2559" },
+      { th: "เหล็กเส้นกลม", en: "Round Bar / RB", mok: "มอก. 20-2559" },
+      { th: "ไวร์เมช", en: "Wire Mesh", mok: "" },
     ],
   },
   {
@@ -84,10 +84,10 @@ const categories = [
     th: "เหล็กแผ่น", en: "Steel Plate & Sheet",
     blurb: "เหล็กแผ่นทุกประเภท ตั้งแต่แผ่นดำ แผ่นลาย แผ่นซิงค์ ถึงสแตนเลส พร้อมบริการตัดตามขนาด",
     items: [
-      { th: "เหล็กแผ่นดำ", en: "Hot Rolled Plate" },
-      { th: "เหล็กแผ่นลาย", en: "Checkered Plate" },
-      { th: "เหล็กแผ่นซิงค์", en: "Galvanized Sheet" },
-      { th: "แผ่นสแตนเลส", en: "Stainless Steel Sheet" },
+      { th: "เหล็กแผ่นดำ", en: "Hot Rolled Plate", mok: "มอก. 1479-2558" },
+      { th: "เหล็กแผ่นลาย", en: "Checkered Plate", mok: "" },
+      { th: "เหล็กแผ่นซิงค์", en: "Galvanized Sheet", mok: "มอก. 277-2553" },
+      { th: "แผ่นสแตนเลส", en: "Stainless Steel Sheet", mok: "" },
     ],
   },
 ];
@@ -135,18 +135,30 @@ export default function ProductsPage() {
                 const imgId = `${c.no}-${idx + 1}`;
                 return (
                   <div key={it.th} style={{ borderTop: `1px solid ${SS.ink}`, paddingTop: 20 }}>
-                    <Placeholder
-                      label={it.th.split(" / ")[1] || it.th}
-                      id={imgId}
-                      height={220}
-                      src={productImages[imgId]}
-                    />
+                    <div style={{ position: "relative" }}>
+                      <Placeholder
+                        label={it.th.split(" / ")[1] || it.th}
+                        id={imgId}
+                        height={220}
+                        src={productImages[imgId]}
+                      />
+                      {it.mok && (
+                        <div style={{
+                          position: "absolute", bottom: 8, right: 8,
+                          background: "rgba(0,0,0,0.55)", color: "white",
+                          fontFamily: SS.mono, fontSize: 10, letterSpacing: "0.05em",
+                          padding: "3px 7px", borderRadius: 2,
+                        }}>
+                          {it.mok}
+                        </div>
+                      )}
+                    </div>
                     <div style={{ marginTop: 16 }}>
                       <div style={{ ...ssDisplay, fontSize: 20, fontWeight: 500 }}>{it.th}</div>
                       <div style={{ ...ssBody, fontFamily: SS.mono, fontSize: 14, color: SS.muted, marginTop: 8, letterSpacing: "0.02em" }}>{it.en}</div>
                     </div>
                     <div style={{ marginTop: 12, display: "flex", justifyContent: "space-between", borderTop: `1px dotted ${SS.rule}`, paddingTop: 12 }}>
-                      <span style={{ ...ssEyebrow, color: SS.muted }}>มอก. · In stock</span>
+                      <span style={{ ...ssEyebrow, color: SS.muted }}>In stock</span>
                       <span style={{ ...ssEyebrow, color: SS.accent }}>สอบถาม →</span>
                     </div>
                   </div>
