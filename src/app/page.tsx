@@ -303,7 +303,10 @@ export default function HomePage() {
             <h2>บทความจากทีมงานเหล็กใต้</h2>
           </div>
           <div className="grid-3">
-            {ARTICLES.map((a) => (
+            {[...ARTICLES]
+              .sort((a, b) => b.date.localeCompare(a.date))
+              .slice(0, 3)
+              .map((a) => (
               <Link key={a.slug} href={`/blog/${a.slug}`} className="product-card blog-card">
                 <div className="product-card-img">
                   <Image

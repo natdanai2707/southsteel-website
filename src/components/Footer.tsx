@@ -40,10 +40,21 @@ export default function Footer() {
               ร้านเหล็กหาดใหญ่ 38 ปี ศูนย์รวมเหล็กรูปพรรณ เหล็กเส้น เหล็กแผ่น
               มาตรฐาน มอก. พร้อมบริการตัดเลเซอร์ CNC ตัด–พับ และจัดส่งทั่วไทย
             </p>
-            <div className="footer-qr" aria-label="Line QR Code">
-              <span>LINE QR</span>
+            <a
+              href={LINE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-qr"
+              aria-label={`เพิ่มเพื่อน Line ${LINE_ID}`}
+            >
+              <Image
+                src="/images/line-qr-green.png"
+                alt={`Line QR Code สแกนเพิ่มเพื่อน ${LINE_ID}`}
+                width={108}
+                height={108}
+              />
               <span className="num">{LINE_ID}</span>
-            </div>
+            </a>
           </div>
 
           {/* คอลัมน์ 2: ลิงก์ */}
