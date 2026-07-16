@@ -1,167 +1,264 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import CTA from "@/components/CTA";
 import PageHeader from "@/components/PageHeader";
-import Placeholder from "@/components/Placeholder";
-import { SS, ssEyebrow, ssBody, ssDisplay } from "@/lib/design";
+import { IconLaser, IconBend, IconWeld, IconTruck, IconLine, IconPhone } from "@/components/Icons";
+import { LINE_URL, PHONE_LASER, PHONE_BENDING } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "บริการ | เหล็กใต้",
-  description: "บริการตัดเลเซอร์ พับเหล็ก พับสแตนเลส พับรางน้ำ เชื่อมเลเซอร์ และจัดส่งทั่วภาคใต้ โดยช่างชำนาญการ",
+  title: "บริการตัดเลเซอร์ CNC พับเหล็ก เชื่อม จัดส่ง",
+  description:
+    "บริการตัดเลเซอร์หาดใหญ่ด้วยไฟเบอร์เลเซอร์ 6,000W พับเหล็ก–สแตนเลสด้วย CNC Press Brake งานเชื่อม TIG/MIG/เลเซอร์ พร้อมจัดส่งถึงไซต์งานทั่วไทย",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "บริการตัดเลเซอร์ CNC พับเหล็ก เชื่อม | เหล็กใต้ หาดใหญ่",
+    description: "ตัดเลเซอร์ 6,000W แม่นยำ ±0.1 มม. พับเหล็กยาว 3 เมตร งานเชื่อมครบวงจร ที่หาดใหญ่",
+    url: "/services",
+  },
 };
 
-const services = [
+interface ServiceEntry {
+  id: string;
+  icon: typeof IconLaser;
+  featured?: boolean;
+  title: string;
+  en: string;
+  lead: string;
+  specs: [string, string][];
+  img: string;
+  imgAlt: string;
+  img2?: string;
+  img2Alt?: string;
+  gallery?: { src: string; alt: string }[];
+  href: string;
+  phone?: { display: string; tel: string };
+}
+
+const services: ServiceEntry[] = [
   {
-    id: "laser", no: "01", th: "ตัดเลเซอร์", en: "Fiber Laser Cutting",
-    lead: "ตัดเหล็กแผ่นและสแตนเลสด้วยเลเซอร์ไฟเบอร์ความแม่นยำสูง ±0.1 mm รองรับทั้งงานฉลุลาย ชิ้นส่วนเครื่องจักร และตัดตามแบบทุกรูปทรง",
-    specs: [["ความแม่นยำ", "±0.1 mm"], ["ความหนาสูงสุด", "25 mm (CS) · 10 mm (SUS)"], ["ขนาดโต๊ะ", "1500 × 3000 mm"], ["รูปแบบไฟล์", "DWG · DXF · PDF · AI"]],
-    use: ["ชิ้นส่วนเครื่องจักร", "ฉลุลายตกแต่ง", "ป้าย / โลโก้", "เหล็กแผ่นและสแตนเลส"],
-    src: "/images/laser-cutting.jpg",
-    gallery: ["/images/laser-ex1.jpg", "/images/laser-ex2.jpg", "/images/laser-ex3.jpg", "/images/laser-ex4.jpg", "/images/laser-ex5.jpg", "/images/laser-ex6.jpg"],
+    id: "laser",
+    icon: IconLaser,
+    featured: true,
+    title: "ตัดเลเซอร์ CNC",
+    en: "Fiber Laser Cutting",
+    lead: "หัวใจของเหล็กใต้ยุคใหม่ — เครื่องไฟเบอร์เลเซอร์กำลัง 6,000 วัตต์ ความแม่นยำ ±0.1 มม. ตัดเหล็กแผ่นหนาถึง 25 มม. สแตนเลส 10 มม. รองรับงานฉลุลาย ชิ้นส่วนเครื่องจักร และตัดตามแบบทุกรูปทรง ส่งไฟล์ DXF/DWG/PDF มาประเมินราคาได้ทันที",
+    specs: [
+      ["กำลังเลเซอร์", "6,000W ไฟเบอร์"],
+      ["ความแม่นยำ", "±0.1 มม."],
+      ["ความหนาสูงสุด", "เหล็ก 25 มม. · สแตนเลส 10 มม."],
+      ["ขนาดโต๊ะ", "1,500 × 3,000 มม."],
+    ],
+    img: "/images/laser-cutting.jpg",
+    imgAlt: "เครื่องตัดเลเซอร์ไฟเบอร์ CNC กำลัง 6000 วัตต์ ของร้านเหล็กใต้ หาดใหญ่",
+    gallery: [
+      { src: "/images/laser-ex1.jpg", alt: "ตัวอย่างงานตัดเลเซอร์ลายฉลุบนเหล็กแผ่น" },
+      { src: "/images/laser-ex2.jpg", alt: "ชิ้นส่วนเหล็กตัดเลเซอร์ตามแบบ" },
+      { src: "/images/laser-ex3.jpg", alt: "งานตัดเลเซอร์สแตนเลสความละเอียดสูง" },
+      { src: "/images/laser-ex4.jpg", alt: "แผ่นเหล็กฉลุลายด้วยเลเซอร์ CNC" },
+      { src: "/images/laser-ex5.jpg", alt: "งานตัดเลเซอร์ป้ายและโลโก้เหล็ก" },
+      { src: "/images/laser-ex6.jpg", alt: "ชิ้นงานเหล็กหนาตัดด้วยเลเซอร์ขอบเรียบ" },
+    ],
+    href: "/products/laser-cutting",
+    phone: PHONE_LASER,
   },
   {
-    id: "bending", no: "02", th: "พับเหล็ก / พับสแตนเลส / พับรางน้ำ", en: "Press Brake / Bending",
-    lead: "บริการพับขึ้นรูปเหล็กและสแตนเลสตามแบบ ด้วยเครื่อง CNC Press Brake รับงานฝาข้างรถบรรทุก รางน้ำ ตู้เหล็ก และชิ้นงานพับพิเศษทุกประเภท",
-    specs: [["ความแม่นยำมุม", "±0.5°"], ["ความยาวพับ", "สูงสุด 3000 mm"], ["ความหนา", "สูงสุด 12 mm"], ["แรงกด", "160 ตัน"]],
-    use: ["ฝาข้างรถบรรทุก", "รางน้ำ รางระบายน้ำ", "ตู้ไฟฟ้า ตู้เหล็ก", "พับสแตนเลสทุกประเภท"],
-    src: "/images/bending.jpg",
-    src2: "/images/bending2.jpg",
+    id: "bending",
+    icon: IconBend,
+    title: "พับเหล็ก / พับสแตนเลส / พับรางน้ำ",
+    en: "CNC Press Brake",
+    lead: "พับขึ้นรูปเหล็กและสแตนเลสตามแบบด้วยเครื่อง CNC Press Brake แรงกด 160 ตัน พับยาวสุด 3 เมตร มุมแม่นยำ ±0.5° รับงานฝาข้างรถบรรทุก รางน้ำขนาดพิเศษ ตู้เหล็ก และชิ้นงานพับทุกประเภท โดยช่างประสบการณ์กว่า 20 ปี",
+    specs: [
+      ["แรงกด", "160 ตัน"],
+      ["ความยาวพับ", "สูงสุด 3,000 มม."],
+      ["ความหนา", "สูงสุด 12 มม."],
+      ["ความแม่นยำมุม", "±0.5°"],
+    ],
+    img: "/images/bending.jpg",
+    imgAlt: "เครื่องพับเหล็ก CNC Press Brake กำลังพับแผ่นเหล็กที่ร้านเหล็กใต้ หาดใหญ่",
+    img2: "/images/bending2.jpg",
+    img2Alt: "งานพับเหล็กแผ่นขึ้นรูปตามแบบด้วย Press Brake",
+    href: "/products/press-brake",
+    phone: PHONE_BENDING,
   },
   {
-    id: "laser-welding", no: "03", th: "งานเชื่อมเลเซอร์", en: "Laser Welding",
-    lead: "เชื่อมโลหะด้วยเลเซอร์สำหรับงานละเอียด รอยเชื่อมสวยงาม แข็งแรง และความร้อนกระทบชิ้นงานน้อย เหมาะกับสแตนเลส เหล็กบาง และงานที่ต้องการความสะอาดสูง",
-    specs: [["ประเภทงาน", "สแตนเลส · เหล็กบาง"], ["ความหนาที่รองรับ", "0.5 – 6 mm"], ["รอยเชื่อม", "สะอาด ไม่ต้องเจียร"], ["มาตรฐาน", "ISO 3834"]],
-    use: ["งานสแตนเลสตกแต่ง", "ชิ้นส่วนอุตสาหกรรม", "งานที่ต้องการความสะอาด", "เชื่อมชิ้นงานบาง"],
-    src: "/images/laser-welding.jpg",
+    id: "welding",
+    icon: IconWeld,
+    title: "งานเชื่อม",
+    en: "TIG / MIG / Laser Welding",
+    lead: "งานเชื่อมครบทุกรูปแบบ ทั้ง TIG สำหรับงานประณีต MIG สำหรับงานโครงสร้าง และเชื่อมเลเซอร์สำหรับสแตนเลสและเหล็กบาง รอยเชื่อมสะอาดเรียบสวยแทบไม่ต้องเจียรแต่ง ความร้อนเข้าชิ้นงานน้อย ชิ้นงานไม่บิดงอ",
+    specs: [
+      ["ประเภท", "TIG · MIG · เลเซอร์"],
+      ["ความหนา", "0.5 – 12 มม."],
+      ["วัสดุ", "เหล็ก · สแตนเลส · อลูมิเนียม"],
+      ["จุดเด่น", "รอยเชื่อมสะอาด ไม่ต้องเจียร"],
+    ],
+    img: "/images/laser-welding.jpg",
+    imgAlt: "งานเชื่อมเลเซอร์สแตนเลสรอยเชื่อมเรียบสวย ที่ร้านเหล็กใต้ หาดใหญ่",
+    href: "/contact",
   },
   {
-    id: "delivery", no: "04", th: "บริการจัดส่ง", en: "Delivery & Logistics",
-    lead: "รถบรรทุกประจำพร้อมส่งถึงหน้าไซต์งานทั่วภาคใต้ ส่งฟรีในพื้นที่หาดใหญ่และใกล้เคียง พร้อมบริการจัดส่งด่วนภายใน 24 ชั่วโมง",
-    specs: [["พื้นที่ส่งฟรี", "หาดใหญ่ · ใกล้เคียง"], ["รถบรรทุก", "4 ล้อ · 6 ล้อ · 10 ล้อ"], ["เวลาจัดส่ง", "ภายใน 24 ชม."], ["ครอบคลุม", "สงขลา · ภาคใต้"]],
-    use: ["ไซต์ก่อสร้าง", "โรงงาน", "บ้านพักอาศัย", "โครงการขนาดใหญ่"],
-    src: "/images/delivery/delivery-01.jpg",
+    id: "delivery",
+    icon: IconTruck,
+    title: "จัดส่งถึงไซต์งาน",
+    en: "Delivery & Logistics",
+    lead: "รถบรรทุก 4 ล้อ 6 ล้อ และ 10 ล้อ ประจำพร้อมส่งทุกวัน ส่งฟรีในพื้นที่หาดใหญ่และใกล้เคียง จัดส่งด่วนภายใน 24 ชั่วโมง ครอบคลุมสงขลา ภาคใต้ และทั่วประเทศ พร้อมทีมยกของหน้างาน",
+    specs: [
+      ["พื้นที่ส่งฟรี", "หาดใหญ่และใกล้เคียง"],
+      ["รถบรรทุก", "4 ล้อ · 6 ล้อ · 10 ล้อ"],
+      ["ระยะเวลา", "ด่วนภายใน 24 ชม."],
+      ["ครอบคลุม", "ทั่วประเทศ"],
+    ],
+    img: "/images/delivery/delivery-01.jpg",
+    imgAlt: "รถบรรทุกจัดส่งเหล็กของร้านเหล็กใต้ ส่งถึงไซต์งานทั่วภาคใต้",
+    href: "/contact",
   },
 ];
 
 const workflow = [
-  ["01", "ส่งแบบ", "Submit design", "DWG · DXF · PDF"],
-  ["02", "เสนอราคา", "Quote", "ภายใน 24 ชม."],
-  ["03", "ผลิต", "Production", "ตามคิวงาน"],
-  ["04", "ตรวจสอบ QC", "Quality Check", "ตามมาตรฐาน"],
-  ["05", "จัดส่ง", "Delivery", "ถึงหน้าไซต์"],
-];
-
-const fileFormats = [
-  ["DWG", "AutoCAD", "2D drawing"],
-  ["DXF", "Exchange", "Standard"],
-  ["PDF", "Portable", "พร้อมขนาด"],
-  ["AI / EPS", "Illustrator", "Vector"],
+  ["1", "ส่งแบบ / รายการ", "ทางไลน์ @southsteel ไฟล์ DWG · DXF · PDF หรือภาพร่าง"],
+  ["2", "รับใบเสนอราคา", "ทีมงานประเมินและตอบกลับภายใน 24 ชั่วโมง"],
+  ["3", "ผลิต / เตรียมของ", "ตัด พับ เชื่อม ตามแบบ พร้อมตรวจสอบคุณภาพ"],
+  ["4", "จัดส่งถึงไซต์งาน", "รถบรรทุกส่งถึงหน้างาน หรือรับเองได้ที่สาขา"],
 ];
 
 export default function ServicesPage() {
   return (
-    <main style={{ background: SS.paper, color: SS.ink, fontFamily: SS.body }}>
+    <main>
       <PageHeader
-        kicker=""
-        titleTh={`ตัด. พับ. <em style="font-style:italic;color:${SS.accent}">เชื่อม.</em>`}
-        titleEn=""
-        desc={`บริการตัด Laser CNC พร้อมทีมช่างชำนาญการ
-สำหรับงานพับเหล็ก สแตนเลส งานเชื่อม และงานเก็บพื้นผิว`}
+        title="บริการตัดเลเซอร์ พับ เชื่อม ครบวงจรที่หาดใหญ่"
+        desc="สั่งเหล็กพร้อมแปรรูปจบในที่เดียว — ตัดเลเซอร์ CNC ความแม่นยำระดับอุตสาหกรรม พับขึ้นรูปตามแบบ งานเชื่อมคุณภาพ และจัดส่งถึงไซต์งานทั่วประเทศ"
+        crumbs={[{ label: "หน้าแรก", href: "/" }, { label: "บริการ" }]}
       />
 
       {/* Workflow */}
-      <section style={{ padding: "72px 56px", borderBottom: `1px solid ${SS.rule}` }}>
-        <div style={{ ...ssEyebrow, marginBottom: 32 }}>Fig. 01 — กระบวนการทำงาน / Workflow</div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 0, borderTop: `1px solid ${SS.ink}`, borderBottom: `1px solid ${SS.ink}` }}>
-          {workflow.map(([n, th, en, sub], i) => (
-            <div key={n} style={{ padding: "32px 24px", borderLeft: i === 0 ? "none" : `1px solid ${SS.rule}`, position: "relative" }}>
-              <div style={{ ...ssEyebrow, color: SS.accent, fontSize: 14 }}>{n}</div>
-              <div style={{ ...ssDisplay, fontSize: 24, marginTop: 12 }}>{th}</div>
-              <div style={{ ...ssBody, fontSize: 14, color: SS.muted, fontStyle: "italic", marginTop: 4 }}>{en}</div>
-              <div style={{ ...ssBody, fontSize: 15, color: SS.subtle, marginTop: 16 }}>{sub}</div>
-              {i < 4 && (
-                <div style={{ position: "absolute", top: "50%", right: -8, fontSize: 20, color: SS.muted, background: SS.paper, padding: "0 4px" }}>→</div>
-              )}
-            </div>
-          ))}
+      <section className="section--tight section">
+        <div className="container">
+          <div className="section-head" style={{ marginBottom: 32 }}>
+            <span className="eyebrow">ขั้นตอนการใช้บริการ</span>
+            <h2 style={{ fontSize: 28 }}>สั่งงานง่าย ใน 4 ขั้นตอน</h2>
+          </div>
+          <div className="grid-4">
+            {workflow.map(([n, title, desc]) => (
+              <div key={n} className="card" style={{ padding: 24 }}>
+                <div
+                  className="num"
+                  style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: "50%",
+                    background: "var(--amber)",
+                    color: "var(--navy)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontWeight: 700,
+                    fontSize: 18,
+                    marginBottom: 16,
+                  }}
+                >
+                  {n}
+                </div>
+                <h3 style={{ fontSize: 18, marginBottom: 8 }}>{title}</h3>
+                <p style={{ fontSize: 14, color: "var(--gray)", margin: 0 }}>{desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Service detail sections */}
+      {/* Services detail */}
       {services.map((s, i) => (
-        <section key={s.id} style={{ padding: "120px 56px", background: i % 2 === 0 ? SS.paper : SS.paperAlt, borderBottom: `1px solid ${SS.rule}` }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 80, alignItems: "start" }}>
-            <div>
-              <div style={{ ...ssEyebrow, color: SS.accent, marginBottom: 20 }}>SVC / {s.no}</div>
-              <h2 style={{ ...ssDisplay, fontSize: 64, margin: 0, lineHeight: 1.05 }}>{s.th}</h2>
-              <div style={{ ...ssBody, fontSize: 18, color: SS.muted, fontStyle: "italic", marginTop: 16 }}>{s.en}</div>
-              <p style={{ ...ssBody, fontSize: 18, marginTop: 32, maxWidth: 520 }}>{s.lead}</p>
-              <div style={{ marginTop: 48 }}>
-                <div style={{ ...ssEyebrow, marginBottom: 16 }}>เหมาะสำหรับงาน / Applications</div>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                  {s.use.map((u) => (
-                    <div key={u} style={{ ...ssBody, fontSize: 15, padding: "12px 0", borderTop: `1px solid ${SS.rule}` }}>
-                      <span style={{ color: SS.accent, marginRight: 8 }}>●</span>{u}
-                    </div>
-                  ))}
+        <section key={s.id} id={s.id} className={`section${i % 2 === 0 ? " section--alt" : ""}`}>
+          <div className="container">
+            <div className="grid-2" style={{ gap: 48, alignItems: "start" }}>
+              <div style={{ order: i % 2 === 0 ? 0 : 1 }}>
+                <div className="service-icon" style={{ marginBottom: 16 }}>
+                  <s.icon size={30} />
+                </div>
+                {s.featured && <span className="badge-featured">บริการเด่นของเหล็กใต้</span>}
+                <h2 style={{ fontSize: 30 }}>{s.title}</h2>
+                <p style={{ color: "var(--gray)", fontSize: 14, margin: "4px 0 16px", letterSpacing: "0.04em" }}>
+                  {s.en}
+                </p>
+                <p style={{ fontSize: 17, lineHeight: 1.8 }}>{s.lead}</p>
+                <div className="table-scroll" style={{ margin: "24px 0" }}>
+                  <table className="spec-table">
+                    <tbody>
+                      {s.specs.map(([k, v]) => (
+                        <tr key={k}>
+                          <td>{k}</td>
+                          <td>{v}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                  <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--line">
+                    <IconLine size={16} />
+                    ส่งแบบประเมินราคา
+                  </a>
+                  {s.phone && (
+                    <a href={`tel:${s.phone.tel}`} className="btn btn--outline-dark">
+                      <IconPhone size={16} />
+                      สายตรง <span className="num">{s.phone.display}</span>
+                    </a>
+                  )}
+                  <Link href={s.href} className="btn btn--navy">
+                    ดูรายละเอียด →
+                  </Link>
                 </div>
               </div>
-              <div style={{ marginTop: 40 }}>
-                <a
-                  href="https://line.me/ti/p/@southsteel"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "14px 22px", background: SS.ink, color: SS.paper, borderRadius: 2, fontSize: 14, fontWeight: 500, textDecoration: "none" }}
-                >
-                  ส่งแบบเพื่อประเมินราคา →
-                </a>
-              </div>
-            </div>
-            <div>
-              <Placeholder label={s.en} id={`svc-${s.no}`} height={380} src={s.src} />
-              {"gallery" in s && s.gallery && (
-                <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
-                  {(s.gallery as string[]).map((src, gi) => (
-                    <Placeholder key={gi} label={`Ex.${gi + 1}`} id={`svc-${s.no}-ex${gi + 1}`} height={120} src={src} />
-                  ))}
-                </div>
-              )}
-              {"src2" in s && s.src2 && (
-                <div style={{ marginTop: 16 }}>
-                  <Placeholder label={`${s.en} 2`} id={`svc-${s.no}-2`} height={280} src={s.src2} />
-                </div>
-              )}
-              <div style={{ marginTop: 32, background: SS.paper, padding: 32, border: `1px solid ${SS.ink}` }}>
-                <div style={{ ...ssEyebrow, marginBottom: 20 }}>SPEC SHEET / สเปคเครื่อง</div>
-                {s.specs.map(([k, v]) => (
-                  <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "14px 0", borderBottom: `1px solid ${SS.rule}` }}>
-                    <span style={{ ...ssBody, fontSize: 15, color: SS.muted, fontFamily: SS.mono, letterSpacing: "0.05em", textTransform: "uppercase" }}>{k}</span>
-                    <span style={{ ...ssBody, fontSize: 16, fontFamily: SS.mono, fontWeight: 500 }}>{v}</span>
+              <div style={{ order: i % 2 === 0 ? 1 : 0 }}>
+                <div className="card" style={{ overflow: "hidden" }}>
+                  <div style={{ position: "relative", aspectRatio: "16/10" }}>
+                    <Image
+                      src={s.img}
+                      alt={s.imgAlt}
+                      fill
+                      sizes="(max-width: 767px) 100vw, 50vw"
+                      style={{ objectFit: "cover" }}
+                    />
                   </div>
-                ))}
+                </div>
+                {s.gallery && (
+                  <div className="grid-3" style={{ marginTop: 16, gap: 16 }}>
+                    {s.gallery.map((g) => (
+                      <div key={g.src} className="card" style={{ overflow: "hidden" }}>
+                        <div style={{ position: "relative", aspectRatio: "4/3" }}>
+                          <Image
+                            src={g.src}
+                            alt={g.alt}
+                            fill
+                            sizes="(max-width: 767px) 33vw, 16vw"
+                            style={{ objectFit: "cover" }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {s.img2 && (
+                  <div className="card" style={{ overflow: "hidden", marginTop: 16 }}>
+                    <div style={{ position: "relative", aspectRatio: "16/9" }}>
+                      <Image
+                        src={s.img2}
+                        alt={s.img2Alt || s.imgAlt}
+                        fill
+                        sizes="(max-width: 767px) 100vw, 50vw"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </section>
       ))}
 
-      {/* File formats */}
-      <section style={{ padding: "96px 56px", background: SS.ink, color: SS.paper }}>
-        <div style={{ ...ssEyebrow, color: "#8a8067", marginBottom: 20 }}>รูปแบบไฟล์ที่รองรับ</div>
-        <h2 style={{ ...ssDisplay, color: SS.paper, fontSize: 56, margin: "0 0 48px" }}>
-          ส่งแบบมาได้<em style={{ fontStyle: "italic", color: SS.accent }}> ทุกรูปแบบ.</em>
-        </h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, borderTop: `1px solid rgba(245,242,236,0.2)` }}>
-          {fileFormats.map(([ext, name, sub]) => (
-            <div key={ext} style={{ padding: "32px 24px", borderBottom: `1px solid rgba(245,242,236,0.2)`, borderRight: `1px solid rgba(245,242,236,0.2)` }}>
-              <div style={{ ...ssDisplay, color: SS.paper, fontSize: 36, fontFamily: SS.mono, fontWeight: 500 }}>.{ext.toLowerCase()}</div>
-              <div style={{ ...ssEyebrow, color: SS.accent, marginTop: 12 }}>{name}</div>
-              <div style={{ ...ssBody, color: "#a8a091", fontSize: 15, marginTop: 4 }}>{sub}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <CTA />
+      <CTA title="ส่งแบบมาประเมินราคาได้เลยวันนี้" />
     </main>
   );
 }

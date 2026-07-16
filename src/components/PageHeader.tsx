@@ -1,30 +1,51 @@
-import { SS, ssEyebrow, ssBody, ssDisplay } from "@/lib/design";
+import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL } from "@/lib/site";
 
-interface PageHeaderProps {
-  kicker: string;
-  titleTh: string;
-  titleEn: string;
-  desc?: string;
+export interface Crumb {
+  label: string;
+  href?: string;
 }
 
-export default function PageHeader({ kicker, titleTh, titleEn, desc }: PageHeaderProps) {
+interface PageHeaderProps {
+  title: string;
+  desc?: string;
+  crumbs?: Crumb[];
+  children?: React.ReactNode;
+}
+
+// แถบหัวเรื่องพื้นน้ำเงินของหน้ารอง พร้อม breadcrumb + BreadcrumbList schema
+export default function PageHeader({ title, desc, crumbs, children }: PageHeaderProps) {
+  const breadcrumbSchema = crumbs
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: crumbs.map((c, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: c.label,
+          ...(c.href ? { item: `${SITE_URL}${c.href}` } : {}),
+        })),
+      }
+    : null;
+
   return (
-    <section style={{ padding: "96px 56px 64px", borderBottom: `1px solid ${SS.rule}` }}>
-      <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: 64, alignItems: "end" }}>
-        <div>
-          {kicker && <div style={{ ...ssEyebrow, marginBottom: 12 }}>{kicker}</div>}
-          {titleEn && <div style={{ ...ssBody, fontSize: 13, color: SS.muted, fontStyle: "italic" }}>{titleEn}</div>}
-        </div>
-        <div>
-          <h1
-            style={{ ...ssDisplay, fontSize: 96, margin: 0 }}
-            dangerouslySetInnerHTML={{ __html: titleTh }}
-          />
-          {desc && (
-            <p style={{ ...ssBody, fontSize: 30, maxWidth: 1100, marginTop: 32, color: SS.subtle, whiteSpace: "pre-line" }}>{desc}</p>
-          )}
-        </div>
+    <header className="page-header">
+      {breadcrumbSchema && <JsonLd data={breadcrumbSchema} />}
+      <div className="container">
+        {crumbs && (
+          <nav aria-label="breadcrumb">
+            <ol className="crumbs">
+              {crumbs.map((c) => (
+                <li key={c.label}>{c.href ? <Link href={c.href}>{c.label}</Link> : c.label}</li>
+              ))}
+            </ol>
+          </nav>
+        )}
+        <h1>{title}</h1>
+        {desc && <p>{desc}</p>}
+        {children}
       </div>
-    </section>
+    </header>
   );
 }

@@ -1,41 +1,42 @@
 import type { CSSProperties } from "react";
 
+// Design tokens — ค่าเดียวกับ CSS variables ใน globals.css
 export const SS = {
-  paper: "#f5f2ec",
-  paperAlt: "#ece6d8",
-  ink: "#0e0d0b",
-  muted: "#6b655c",
-  subtle: "#3a372f",
-  rule: "rgba(14,13,11,0.14)",
-  ruleDark: "rgba(14,13,11,0.28)",
-  accent: "oklch(0.52 0.16 255)",
-  line: "#06c755",
-  body: "'IBM Plex Sans Thai', sans-serif",
-  mono: "'JetBrains Mono', monospace",
-  display: "'Noto Serif Thai', serif",
+  navy: "#0A1628",
+  navySoft: "#101F38",
+  ink: "#111827",
+  paper: "#FFFFFF",
+  paperAlt: "#F5F7FA",
+  muted: "#6B7280",
+  rule: "#E5E7EB",
+  accent: "#F59E0B",
+  accentDark: "#B45309",
+  line: "#06C755",
+  body: "var(--font-sarabun), 'Sarabun', sans-serif",
+  num: "var(--font-inter), 'Inter', sans-serif",
 } as const;
 
 export const ssEyebrow: CSSProperties = {
   fontFamily: SS.body,
   fontSize: 13,
-  letterSpacing: "0.22em",
+  letterSpacing: "0.14em",
   textTransform: "uppercase",
-  color: SS.muted,
-  fontWeight: 500,
+  color: SS.accent,
+  fontWeight: 700,
 };
 
 export const ssBody: CSSProperties = {
   fontFamily: SS.body,
-  fontSize: 17,
+  fontSize: 16,
   lineHeight: 1.7,
-  color: SS.subtle,
+  color: SS.ink,
   fontWeight: 400,
 };
 
 export const ssDisplay: CSSProperties = {
-  fontFamily: SS.display,
-  fontWeight: 500,
+  fontFamily: SS.body,
+  fontWeight: 700,
   letterSpacing: "-0.01em",
-  lineHeight: 1.05,
-  color: SS.ink,
+  lineHeight: 1.2,
+  color: SS.navy,
 };

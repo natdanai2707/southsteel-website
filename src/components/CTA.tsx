@@ -1,30 +1,30 @@
-import { SS, ssEyebrow, ssBody, ssDisplay } from "@/lib/design";
+import { LINE_URL, PHONE_MAIN, OPENING_HOURS_TH } from "@/lib/site";
+import { IconPhone, IconLine } from "@/components/Icons";
 
-export default function CTA() {
+// แถบชวนติดต่อท้ายหน้า — ใช้ซ้ำได้ทุกหน้า
+export default function CTA({
+  title = "ต้องการใบเสนอราคา หรือปรึกษาเรื่องเหล็ก?",
+  subtitle = `ทีมงานตอบไว ภายใน 24 ชั่วโมง เปิดทำการ${OPENING_HOURS_TH}`,
+}: {
+  title?: string;
+  subtitle?: string;
+}) {
   return (
-    <section style={{ padding: "96px 56px", background: SS.paper, borderTop: `1px solid ${SS.rule}` }}>
-      <div style={{ textAlign: "center" }}>
-        <div style={{ ...ssEyebrow, marginBottom: 20 }}>ติดต่อ / Get in touch</div>
-        <h2 style={{ ...ssDisplay, fontSize: 80, margin: 0, lineHeight: 1 }}>
-          แชทได้ที่ <em style={{ fontStyle: "italic", color: SS.line }}>Line.</em>
-        </h2>
-        <p style={{ ...ssBody, fontSize: 18, maxWidth: 520, margin: "32px auto 0", color: SS.muted }}>
-          ตอบกลับภายใน 24 ชั่วโมง จันทร์–เสาร์ · 08.00–17.00 น.
+    <section className="section section--navy">
+      <div className="container" style={{ textAlign: "center" }}>
+        <span className="eyebrow">ติดต่อเหล็กใต้</span>
+        <h2 style={{ maxWidth: 640, margin: "0 auto" }}>{title}</h2>
+        <p style={{ color: "rgba(255,255,255,0.75)", fontSize: 18, margin: "16px auto 32px", maxWidth: 520 }}>
+          {subtitle}
         </p>
-        <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 40 }}>
-          <a
-            href="https://line.me/ti/p/@southsteel"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 28px", background: SS.line, color: "white", borderRadius: 2, fontSize: 15, fontWeight: 600, textDecoration: "none" }}
-          >
-            @southsteel — แชทผ่าน Line
+        <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+          <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--primary btn--lg">
+            <IconPhone size={18} />
+            โทร <span className="num">{PHONE_MAIN.display}</span>
           </a>
-          <a
-            href="tel:0864884450"
-            style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 28px", background: "transparent", color: SS.ink, borderRadius: 2, border: `1px solid ${SS.ink}`, fontSize: 15, fontWeight: 500, textDecoration: "none" }}
-          >
-            086-488-4450
+          <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--line btn--lg">
+            <IconLine size={18} />
+            แชท Line @southsteel
           </a>
         </div>
       </div>

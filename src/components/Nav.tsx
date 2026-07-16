@@ -3,55 +3,160 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { SS, ssEyebrow, ssDisplay } from "@/lib/design";
+import { useEffect, useState } from "react";
+import { PRODUCTS } from "@/lib/products";
+import { PHONE_MAIN } from "@/lib/site";
+import { IconPhone } from "@/components/Icons";
 
 const navItems = [
-  { th: "หน้าแรก", en: "Home", href: "/" },
-  { th: "สินค้า", en: "Products", href: "/products" },
-  { th: "บริการ", en: "Services", href: "/services" },
-  { th: "เกี่ยวกับเรา", en: "About", href: "/about" },
-  { th: "ติดต่อเรา", en: "Contact", href: "/contact" },
+  { th: "หน้าแรก", href: "/" },
+  { th: "สินค้า", href: "/products", mega: true },
+  { th: "บริการ", href: "/services" },
+  { th: "บทความ", href: "/blog" },
+  { th: "เกี่ยวกับเรา", href: "/about" },
+  { th: "ติดต่อเรา", href: "/contact" },
 ];
 
 export default function Nav() {
   const pathname = usePathname();
+  const [compact, setCompact] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [megaOpen, setMegaOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setCompact(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // ปิดเมนูเมื่อเปลี่ยนหน้า และล็อก scroll ตอนเมนูมือถือเปิด
+  useEffect(() => {
+    setMobileOpen(false);
+    setMegaOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <nav style={{
-      position: "sticky", top: 0, zIndex: 50, background: SS.paper,
-      borderBottom: `1px solid ${SS.rule}`, backdropFilter: "blur(8px)",
-    }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "6px 56px" }}>
-        <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <Image src="/images/logo-blue.png" alt="เหล็กใต้" width={400} height={60} style={{ objectFit: "contain", width: "auto", height: 60 }} />
-        </Link>
-        <ul style={{ display: "flex", gap: 36, listStyle: "none", margin: 0, padding: 0, fontSize: 14, fontWeight: 500 }}>
-          {navItems.map(({ th, en, href }) => {
-            const active = pathname === href;
-            return (
-              <li key={en}>
-                <Link href={href} style={{ display: "flex", flexDirection: "column", lineHeight: 1.1, textDecoration: "none", color: active ? SS.ink : SS.muted }}>
-                  <span>{th}</span>
-                  <span style={{ ...ssEyebrow, fontSize: 9, marginTop: 2, color: active ? SS.accent : SS.muted }}>{en}</span>
-                </Link>
-              </li>
-            );
-          })}
+    <>
+      <nav className={`nav${compact ? " nav--compact" : ""}`} aria-label="เมนูหลัก">
+        <div className="nav-inner">
+          <Link href="/" className="nav-logo" aria-label="เหล็กใต้ — กลับหน้าแรก">
+            <Image
+              src="/images/logo-white.png"
+              alt="โลโก้ บริษัท เหล็กใต้ จำกัด — South Steel Co., Ltd."
+              width={234}
+              height={48}
+              priority
+            />
+          </Link>
+
+          <ul className="nav-links">
+            {navItems.map((item) =>
+              item.mega ? (
+                <li
+                  key={item.href}
+                  className={`nav-item${megaOpen ? " nav-item--open" : ""}`}
+                  onMouseEnter={() => setMegaOpen(true)}
+                  onMouseLeave={() => setMegaOpen(false)}
+                >
+                  <Link
+                    href={item.href}
+                    className={`nav-link${isActive(item.href) ? " nav-link--active" : ""}`}
+                    aria-expanded={megaOpen}
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                  >
+                    {item.th}
+                    <svg className="nav-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </Link>
+                  <div className="mega" role="menu">
+                    <div className="mega-grid">
+                      {PRODUCTS.map((p) => (
+                        <Link key={p.slug} href={`/products/${p.slug}`} className="mega-link" role="menuitem">
+                          <strong>{p.nameTh}</strong>
+                          <span>{p.category}</span>
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="mega-footer">
+                      <Link href="/products" className="link-more">
+                        ดูสินค้าทั้งหมด →
+                      </Link>
+                    </div>
+                  </div>
+                </li>
+              ) : (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`nav-link${isActive(item.href) ? " nav-link--active" : ""}`}
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                  >
+                    {item.th}
+                  </Link>
+                </li>
+              )
+            )}
+          </ul>
+
+          <div className="nav-cta">
+            <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--primary">
+              <IconPhone size={16} />
+              <span className="num">{PHONE_MAIN.display}</span>
+            </a>
+          </div>
+
+          <button
+            className={`nav-burger${mobileOpen ? " nav-burger--open" : ""}`}
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-expanded={mobileOpen}
+            aria-label={mobileOpen ? "ปิดเมนู" : "เปิดเมนู"}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </nav>
+
+      <div className={`mobile-menu${mobileOpen ? " mobile-menu--open" : ""}`} aria-hidden={!mobileOpen}>
+        <ul>
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className={`mobile-link${isActive(item.href) ? " mobile-link--active" : ""}`}
+                aria-current={isActive(item.href) ? "page" : undefined}
+              >
+                {item.th}
+              </Link>
+              {item.mega &&
+                PRODUCTS.slice(0, 6).map((p) => (
+                  <Link key={p.slug} href={`/products/${p.slug}`} className="mobile-sublink">
+                    {p.nameTh}
+                  </Link>
+                ))}
+            </li>
+          ))}
         </ul>
-        <a
-          href="https://line.me/ti/p/@southsteel"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: "inline-flex", alignItems: "center", gap: 10,
-            padding: "12px 20px", borderRadius: 999, background: SS.line, color: "white",
-            fontSize: 14, fontWeight: 600, textDecoration: "none",
-          }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6 2 1 6 1 11c0 3 2 5.5 5 7l-1 4 5-3c1 0 1 0 2 0 6 0 11-4 11-9S18 2 12 2z"/></svg>
-          แชท Line
-        </a>
+        <div className="mobile-menu-cta">
+          <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--primary btn--lg">
+            <IconPhone size={18} />
+            โทร <span className="num">{PHONE_MAIN.display}</span>
+          </a>
+        </div>
       </div>
-    </nav>
+    </>
   );
 }
