@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sarabun, Inter } from "next/font/google";
+import { Sarabun, Prompt, Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -11,6 +11,13 @@ const sarabun = Sarabun({
   subsets: ["thai", "latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sarabun",
+  display: "swap",
+});
+
+const prompt = Prompt({
+  subsets: ["thai", "latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-prompt",
   display: "swap",
 });
 
@@ -56,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th" className={`${sarabun.variable} ${inter.variable}`}>
+    <html lang="th" className={`${sarabun.variable} ${prompt.variable} ${inter.variable}`}>
       <head>
         <Analytics />
       </head>
