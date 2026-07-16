@@ -50,6 +50,29 @@ function Block({ block }: { block: ArticleBlock }) {
           ))}
         </ul>
       );
+    case "table":
+      return (
+        <div className="table-scroll">
+          <table className="spec-table">
+            <thead>
+              <tr>
+                {(block.columns || []).map((c) => (
+                  <th key={c}>{c}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {(block.rows || []).map((row, i) => (
+                <tr key={i}>
+                  {row.map((cell, j) => (
+                    <td key={j}>{cell}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
     default:
       return <p dangerouslySetInnerHTML={{ __html: block.html || "" }} />;
   }

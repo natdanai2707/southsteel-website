@@ -71,6 +71,28 @@ export default function ContactPage() {
                 ))}
               </div>
 
+              <div
+                className="card"
+                style={{ padding: 24, marginBottom: 32, display: "flex", gap: 20, alignItems: "center", flexWrap: "wrap" }}
+              >
+                <a href={LINE_URL} target="_blank" rel="noopener noreferrer" aria-label={`เพิ่มเพื่อน Line ${LINE_ID}`}>
+                  <Image
+                    src="/images/line-qr-green.png"
+                    alt={`Line QR Code สแกนเพิ่มเพื่อน ${LINE_ID}`}
+                    width={132}
+                    height={132}
+                    style={{ display: "block", border: "1px solid var(--rule)" }}
+                  />
+                </a>
+                <div>
+                  <h3 style={{ fontSize: 18, marginBottom: 6 }}>สแกนเพิ่มเพื่อนใน Line</h3>
+                  <p style={{ fontSize: 14, color: "var(--gray)", margin: 0 }}>
+                    เปิดกล้องหรือแอป Line สแกน QR นี้ แล้วส่งรายการที่ต้องการมาได้เลย
+                    ทีมงานตอบภายใน 24 ชั่วโมง
+                  </p>
+                </div>
+              </div>
+
               <div className="card" style={{ padding: 24 }}>
                 <h3 style={{ fontSize: 18, marginBottom: 12 }}>ช่องทางอื่น ๆ</h3>
                 <ul style={{ listStyle: "none", margin: 0, padding: 0, fontSize: 15, lineHeight: 2.2 }}>

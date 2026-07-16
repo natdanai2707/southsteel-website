@@ -65,8 +65,8 @@ src/
   (static export ไม่มี image optimizer) เช่นใช้ https://squoosh.app
 - โลโก้: `logo-white.png` ใช้บน header/footer พื้นน้ำเงิน, `logo.png` ตัวเต็ม
 - รูป OG (ตอนแชร์ลิงก์): `public/images/og-image.jpg` ขนาด 1200×630
-- QR Line ใน footer ยังเป็น placeholder — แก้ที่ `src/components/Footer.tsx`
-  (แทน div `.footer-qr` ด้วย `<Image src="/images/line-qr.png" .../>`)
+- QR Line: ใช้ `public/images/line-qr-green.png` (สีเขียว ใช้ใน footer + หน้าติดต่อ)
+  และมี `line-qr-black.png` สำรอง เปลี่ยน QR ใหม่ให้วางทับไฟล์เดิมชื่อเดิม
 
 ## ตั้งค่า GTM / GA4 / Facebook Pixel / LINE Tag
 
