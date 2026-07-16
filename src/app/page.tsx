@@ -1,237 +1,326 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import CTA from "@/components/CTA";
-import Placeholder from "@/components/Placeholder";
 import HeroSlider from "@/components/HeroSlider";
-import { SS, ssEyebrow, ssBody, ssDisplay } from "@/lib/design";
+import ProductCard from "@/components/ProductCard";
+import JsonLd from "@/components/JsonLd";
+import { IconLaser, IconBend, IconWeld, IconTruck, IconPhone } from "@/components/Icons";
+import { PRODUCTS } from "@/lib/products";
+import { ARTICLES } from "@/lib/blog";
+import {
+  SITE_URL,
+  COMPANY_TH,
+  COMPANY_EN,
+  BRANCHES,
+  LINE_URL,
+  FACEBOOK_URL,
+  PHONE_MAIN,
+  OPENING_HOURS_SCHEMA,
+} from "@/lib/site";
 
-const categories = [
-  { th: "เหล็กโครงสร้างรีดร้อน", en: "Hot-Rolled Structural", sub: "H-Beam · I-Beam · Angle · Channel", no: "01", span: 7, h: 380, src: "/images/wide-flange.jpg" },
-  { th: "เหล็กก่อสร้าง", en: "Rebar & Round Bar", sub: "ข้ออ้อย · เส้นกลม · มอก. 20–2559", no: "02", span: 5, h: 380, src: "/images/rebar.jpg" },
-  { th: "เหล็กรีดเย็น", en: "Cold-Rolled", sub: "กล่อง · ตัวซี · แป๊บแบน", no: "03", span: 5, h: 340, src: "/images/square-pipe.jpg" },
-  { th: "เหล็กแผ่น & สแตนเลส", en: "Plate & Stainless", sub: "แผ่นดำ · ลาย · 304/201", no: "04", span: 4, h: 340, src: "/images/steel-plate.jpg" },
-  { th: "Laser CNC", en: "Laser Cutting", sub: "ฉลุลาย · แม่นยำ ±0.1mm", no: "05", span: 3, h: 340, src: "/images/laser-cutting.jpg" },
+export const metadata: Metadata = {
+  title: {
+    absolute: "ร้านเหล็กหาดใหญ่ เหล็กรูปพรรณ ตัดเลเซอร์ CNC | เหล็กใต้ 38 ปี",
+  },
+  description:
+    "เหล็กใต้ ร้านเหล็กหาดใหญ่ 38 ปี จำหน่ายเหล็กรูปพรรณ เหล็กกล่อง เหล็กฉาก เหล็กเส้น เหล็กแผ่น มอก. บริการตัดเลเซอร์ CNC พับเหล็ก ราคาส่ง 2 สาขา ส่งทั่วไทย",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "ร้านเหล็กหาดใหญ่ เหล็กรูปพรรณ ตัดเลเซอร์ CNC | เหล็กใต้ 38 ปี",
+    description:
+      "จำหน่ายเหล็กครบวงจร มาตรฐาน มอก. บริการตัดเลเซอร์ CNC พับเหล็ก ราคาส่ง 2 สาขาในหาดใหญ่ ส่งทั่วไทย",
+    url: "/",
+  },
+};
+
+const FEATURED_SLUGS = [
+  "h-beam",
+  "square-tube",
+  "rebar",
+  "c-channel",
+  "angle",
+  "steel-plate",
+  "stainless-304",
+  "laser-cutting",
 ];
 
 const services = [
-  { no: "01", th: "ตัดเลเซอร์ CNC", en: "Laser Cutting", desc: "Laser CNC Cutting ด้วยเครื่องไฟเบอร์เลเซอร์กำลัง 6000w\nความแม่นยำ ±0.1mm รองรับเหล็กและโลหะทุกประเภท ตั้งแต่เหล็กบางถึงเหล็กหนา" },
-  { no: "02", th: "ตัด–พับเหล็ก", en: "Press Brake", desc: "ด้วยเครื่อง Press Brake\nตัดพับเหล็กตามแบบโดยช่างชำนาญการ" },
-  { no: "03", th: "เชื่อมเหล็ก", en: "Welding", desc: "งานเชื่อม Tig, Mig และเชื่อมเลเซอร์\nรองรับทั้งงานบางและงานหนา" },
-  { no: "04", th: "จัดส่งถึงไซต์งาน", en: "Delivery", desc: "รถบรรทุกประจำพร้อมส่งทุกพื้นที่ทั่วประเทศ" },
+  {
+    icon: IconLaser,
+    title: "ตัดเลเซอร์ CNC",
+    desc: "ไฟเบอร์เลเซอร์ 6,000W แม่นยำ ±0.1 มม. ตัดเหล็กหนาถึง 25 มม. ส่งไฟล์ DXF/DWG ตัดได้เลย",
+    href: "/products/laser-cutting",
+    featured: true,
+  },
+  {
+    icon: IconBend,
+    title: "พับเหล็ก Press Brake",
+    desc: "เครื่องพับ CNC 160 ตัน ยาวสุด 3 เมตร รับพับรางน้ำ ตู้เหล็ก ฝาข้างรถบรรทุก งานสแตนเลส",
+    href: "/products/press-brake",
+  },
+  {
+    icon: IconWeld,
+    title: "งานเชื่อม",
+    desc: "เชื่อม TIG, MIG และเชื่อมเลเซอร์ รอยเชื่อมสะอาด รองรับทั้งงานเหล็กบางและงานหนา",
+    href: "/services",
+  },
+  {
+    icon: IconTruck,
+    title: "จัดส่งถึงไซต์งาน",
+    desc: "รถบรรทุกประจำพร้อมส่งทั่วหาดใหญ่ สงขลา และทั่วประเทศ ส่งด่วนภายใน 24 ชั่วโมง",
+    href: "/services",
+  },
 ];
 
 const timeline = [
-  ["1944", "B.E. 2487", "ก่อตั้ง \"กวงหลี\"", "สุราษฎร์ธานี"],
-  ["1988", "B.E. 2531", "ตั้ง \"เหล็กใต้\"", "สาขาหาดใหญ่"],
-  ["2012", "B.E. 2555", "ขยายสาขาคลองหวะ", "คอหงส์ · หาดใหญ่"],
-  ["2026", "B.E. 2569", "ร้านเหล็กคู่เมืองหาดใหญ่", "ขยายการบริการให้ครอบคลุมทุกความต้องการ"],
+  { yr: "2487", title: 'ก่อตั้งร้าน "กวงหลี"', sub: "จุดเริ่มต้นของครอบครัว ที่สุราษฎร์ธานี" },
+  { yr: "2531", title: "ก่อตั้ง บริษัท เหล็กใต้ จำกัด", sub: "เปิดสาขาแรกที่หาดใหญ่ สงขลา" },
+  { yr: "2555", title: "ขยายสาขาคลองหวะ", sub: "รองรับลูกค้าโซนคอหงส์และสนามบิน" },
+  { yr: "2569", title: "ร้านเหล็กคู่เมืองหาดใหญ่", sub: "ครบ 38 ปี พร้อมบริการ Laser CNC ครบวงจร" },
 ];
 
-const branches = [
-  {
-    badge: "สำนักงานใหญ่ / HQ",
-    name: "สาขาสามสิบเมตร",
-    addr: "45 ถ.ราษฎร์ยินดี ต.หาดใหญ่ อ.หาดใหญ่ จ.สงขลา 90110",
-    phones: ["086-488-4450", "095-086-1777", "074-356-643~6"],
-    img: "/images/branch-30m.jpg",
-  },
-  {
-    badge: "สาขา / Branch",
-    name: "สาขาคลองหวะ",
-    addr: "272 ถ.กาญจนวนิช ต.คอหงส์ อ.หาดใหญ่ จ.สงขลา 90110",
-    phones: ["086-488-2285", "074-819-777"],
-    img: "/images/branch-klongwa.jpg",
-  },
-];
+// LocalBusiness schema — แยกเป็น 2 สาขา ใต้ @graph เดียวกัน
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@graph": BRANCHES.map((b, i) => ({
+    "@type": "LocalBusiness",
+    "@id": `${SITE_URL}/#branch-${b.id}`,
+    name: i === 0 ? COMPANY_TH : `${COMPANY_TH} (${b.name})`,
+    alternateName: COMPANY_EN,
+    description:
+      "ร้านเหล็กหาดใหญ่ เปิดมากว่า 38 ปี จำหน่ายเหล็กรูปพรรณ เหล็กเส้น เหล็กแผ่น สแตนเลส มาตรฐาน มอก. พร้อมบริการตัดเลเซอร์ CNC ตัด–พับเหล็ก และจัดส่งทั่วประเทศ",
+    url: SITE_URL,
+    image: `${SITE_URL}/images/og-image.jpg`,
+    telephone: b.phones.map((p) => p.num),
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: b.streetAddress,
+      addressLocality: b.addressLocality,
+      addressRegion: b.addressRegion,
+      postalCode: b.postalCode,
+      addressCountry: "TH",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: b.geo.lat,
+      longitude: b.geo.lng,
+    },
+    openingHours: OPENING_HOURS_SCHEMA,
+    priceRange: "฿฿",
+    hasMap: b.mapsUrl,
+    sameAs: [FACEBOOK_URL, LINE_URL],
+  })),
+};
 
 export default function HomePage() {
+  const featured = FEATURED_SLUGS.map((s) => PRODUCTS.find((p) => p.slug === s)!).filter(Boolean);
+
   return (
-    <main style={{ background: SS.paper, color: SS.ink, fontFamily: SS.body }}>
+    <main>
+      <JsonLd data={localBusinessSchema} />
 
       {/* HERO */}
-      <section style={{ padding: "80px 56px 40px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "end" }}>
-          <div>
-            <h1 style={{ ...ssBody, margin: 0, fontSize: "90px", fontWeight: 300, lineHeight: "1.15", color: SS.ink }}>
-              เหล็กถูก<br />เหล็กดี<br />เหล็กมีคุณภาพ<br />
-              <em style={{ fontStyle: "italic", color: SS.accent }}>ต้องที่ <strong style={{ fontWeight: 700 }}>เหล็กใต้</strong></em>
-            </h1>
-          </div>
-          <div style={{ paddingBottom: 24 }}>
-            <p style={{ ...ssBody, fontSize: 26, lineHeight: 1.7, maxWidth: 600, margin: 0 }}>
-              ร้านเหล็กเก่าแก่คู่เมืองหาดใหญ่ ศูนย์รวมเหล็กทุกชนิด<br />
-              จำหน่ายปลีก-ส่ง บริการ ตัด-พับ พร้อมจัดส่งทั่วประเทศ
-            </p>
-            <p style={{ ...ssBody, fontSize: 19, lineHeight: 1.7, color: SS.muted, marginTop: 16, maxWidth: 600, fontStyle: "italic" }}>
-              Hat Yai's long-established steel center.<br />
-              A comprehensive hub for all types of steel.<br />
-              Retail and wholesale available.<br />
-              We offer cutting and folding services, with nationwide delivery.
-            </p>
-            <div style={{ display: "flex", gap: 12, marginTop: 40 }}>
-              <a
-                href="https://line.me/ti/p/@southsteel"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "14px 22px", background: SS.ink, color: SS.paper, borderRadius: 2, fontSize: 14, fontWeight: 500, textDecoration: "none" }}
-              >
-                แชทผ่าน Line →
-              </a>
-              <Link href="/products" style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "14px 22px", background: "transparent", color: SS.ink, border: `1px solid ${SS.ink}`, borderRadius: 2, fontSize: 14, fontWeight: 500, textDecoration: "none" }}>
-                ดูสินค้าทั้งหมด
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Hero image slider */}
-        <div style={{ marginTop: 56 }}>
+      <section className="hero">
+        <div className="hero-bg">
           <HeroSlider />
         </div>
-
-        {/* Stats bar */}
-        <div style={{ marginTop: 24, padding: "20px 0", borderTop: `1px solid ${SS.rule}`, borderBottom: `1px solid ${SS.rule}`, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }}>
+        <div className="hero-overlay" />
+        <div className="hero-content">
+          <span className="eyebrow">บริษัท เหล็กใต้ จำกัด · หาดใหญ่ สงขลา</span>
+          <h1 className="hero-title">
+            ร้านเหล็กหาดใหญ่ <em>ครบวงจร</em>
+            <br />
+            เหล็กรูปพรรณ มอก. + ตัดเลเซอร์ CNC
+          </h1>
+          <p className="hero-sub">
+            จำหน่ายเหล็กทุกชนิด ปลีก–ส่ง ราคาโรงงาน พร้อมบริการตัดเลเซอร์ พับเหล็ก
+            และจัดส่งถึงไซต์งานทั่วประเทศ ดูแลโดยทีมงานประสบการณ์กว่า 38 ปี
+          </p>
+          <div className="hero-ctas">
+            <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--primary btn--lg">
+              <IconPhone size={18} />
+              โทรหาเรา
+            </a>
+            <Link href="/products" className="btn btn--outline-light btn--lg">
+              ดูสินค้า
+            </Link>
+          </div>
+        </div>
+        <div className="hero-stats">
           {[
-            ["38", "ปีของประสบการณ์", "Years in business"],
-            ["2", "สาขาในหาดใหญ่", "Branches"],
-            ["มอก.", "มาตรฐานอุตสาหกรรม", "TISI Certified"],
-            ["ทั่วประเทศ", "บริการจัดส่งทั่วประเทศ", "Nationwide delivery"],
-          ].map(([n, th, en]) => (
-            <div key={en}>
-              <div style={{ ...ssDisplay, fontSize: 40, letterSpacing: "-0.03em", fontWeight: 500 }}>{n}</div>
-              <div style={{ ...ssEyebrow, marginTop: 8 }}>{en}</div>
-              <div style={{ ...ssBody, fontSize: 14, color: SS.muted, marginTop: 2 }}>{th}</div>
+            ["38 ปี", "ประสบการณ์ค้าเหล็ก"],
+            ["2 สาขา", "ในหาดใหญ่ สงขลา"],
+            ["Laser CNC", "ตัดแม่นยำ ±0.1 มม."],
+            ["ส่งทั่วไทย", "ถึงไซต์งานใน 24 ชม."],
+          ].map(([n, d]) => (
+            <div key={n} className="stat-badge">
+              <strong>{n}</strong>
+              <span>{d}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* PRODUCT CATEGORIES */}
-      <section style={{ padding: "120px 56px", borderTop: `1px solid ${SS.rule}` }}>
-        <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: 64, marginBottom: 64 }}>
-          <div>
-            <div style={{ ...ssEyebrow, marginBottom: 16 }}>§ 01 — สินค้า</div>
-            <div style={{ ...ssBody, fontSize: 13, color: SS.muted, fontStyle: "italic" }}>Our catalogue</div>
-          </div>
-          <div>
-            <h2 style={{ ...ssDisplay, fontSize: 64, margin: 0, maxWidth: 900 }}>
-              เหล็กรูปพรรณ<br />ครบทุก<em style={{ fontStyle: "italic", color: SS.accent }}>ประเภท</em>
-            </h2>
-            <p style={{ ...ssBody, fontSize: 18, maxWidth: 620, marginTop: 24 }}>
-              เหล็กรูปพรรณ เหล็กเส้นก่อสร้าง มาตรฐาน มอก. เหล็กแผ่น สแตนเลส อลูมิเนียม อุปกรณ์งานเหล็ก แก๊ส สี ลวดเชื่อม ใบตัด ใบเจียร์ งานตัดเลเซอร์ งานพับตามแบบ
+      {/* PRODUCTS */}
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">สินค้าของเรา</span>
+            <h2>เหล็กรูปพรรณครบทุกประเภท มาตรฐาน มอก.</h2>
+            <p>
+              เหล็กโครงสร้าง เหล็กกล่อง เหล็กเส้น เหล็กแผ่น สแตนเลส และวัสดุงานเหล็กครบวงจร
+              สต็อกจริงพร้อมส่งที่หาดใหญ่
             </p>
           </div>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
-          {categories.map((p) => (
-            <Link key={p.no} href="/products" style={{ gridColumn: `span ${p.span}`, textDecoration: "none", color: SS.ink, display: "block" }}>
-              <Placeholder label={p.en} id={p.no} height={p.h} src={p.src} />
-              <div style={{ paddingTop: 20, display: "flex", justifyContent: "space-between", alignItems: "start", gap: 20 }}>
-                <div>
-                  <div style={{ ...ssDisplay, fontSize: 26, fontWeight: 500, letterSpacing: "-0.01em" }}>{p.th}</div>
-                  <div style={{ ...ssBody, fontSize: 14, color: SS.muted, marginTop: 6 }}>{p.sub}</div>
-                </div>
-                <span style={{ ...ssEyebrow, color: SS.accent, whiteSpace: "nowrap", marginTop: 6 }}>ดู →</span>
-              </div>
-              <div style={{ ...ssBody, fontSize: 12, color: SS.muted, marginTop: 8, fontStyle: "italic" }}>{p.en}</div>
+          <div className="grid-4">
+            {featured.map((p) => (
+              <ProductCard key={p.slug} product={p} />
+            ))}
+          </div>
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <Link href="/products" className="btn btn--outline-dark">
+              ดูสินค้าทั้งหมด 13 รายการ →
             </Link>
-          ))}
+          </div>
         </div>
       </section>
 
-      {/* SERVICES DARK */}
-      <section style={{ padding: "120px 56px", background: SS.ink, color: SS.paper }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }}>
-          <div>
-            <div style={{ ...ssEyebrow, color: "#8a8067", marginBottom: 32 }}>§ 02 — บริการ / Services</div>
-            <h2 style={{ ...ssDisplay, color: SS.paper, fontSize: 72, margin: 0 }}>
-              ตัด<br />พับ<br /><em style={{ fontStyle: "italic", color: SS.accent }}>เชื่อม</em>
-            </h2>
-            <p style={{ ...ssBody, color: "#c9c2b2", fontSize: 18, maxWidth: 480, marginTop: 32 }}>
-              บริการตัด Laser CNC พร้อมทีมช่างชำนาญการสำหรับงานพับเหล็ก สแตนเลส งานเชื่อม และงานเก็บพื้นผิว
+      {/* SERVICES */}
+      <section className="section section--alt">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">บริการของเรา</span>
+            <h2>มากกว่าร้านขายเหล็ก — ตัด พับ เชื่อม ส่ง จบในที่เดียว</h2>
+            <p>
+              จุดต่างของเหล็กใต้คือเครื่องตัดเลเซอร์ไฟเบอร์ CNC ระดับโรงงานอุตสาหกรรม
+              เจ้าแรก ๆ ในหาดใหญ่ ให้คุณสั่งเหล็กพร้อมแปรรูปเสร็จในร้านเดียว
             </p>
           </div>
-          <div>
-            {services.map((s, i) => (
-              <div key={s.no} style={{ display: "grid", gridTemplateColumns: "60px 1fr auto", gap: 20, alignItems: "baseline", padding: "32px 0", borderTop: i === 0 ? `1px solid rgba(245,242,236,0.2)` : "none", borderBottom: `1px solid rgba(245,242,236,0.2)` }}>
-                <div style={{ ...ssEyebrow, color: SS.accent }}>{s.no}</div>
-                <div>
-                  <div style={{ ...ssDisplay, color: SS.paper, fontSize: 28 }}>{s.th}</div>
-                  <div style={{ ...ssBody, color: "#a8a091", fontSize: 14, marginTop: 8, maxWidth: 380, fontStyle: "italic", whiteSpace: "pre-line" }}>{s.en} — {s.desc}</div>
+          <div className="grid-2">
+            {services.map((s) => (
+              <Link
+                key={s.title}
+                href={s.href}
+                className={`service-item${s.featured ? " service-item--featured" : ""}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div className="service-icon">
+                  <s.icon size={30} />
                 </div>
-                <span style={{ ...ssEyebrow, color: SS.paper }}>→</span>
-              </div>
+                <div>
+                  {s.featured && <span className="badge-featured">บริการเด่น</span>}
+                  <h3>{s.title}</h3>
+                  <p>{s.desc}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* HERITAGE */}
-      <section style={{ padding: "120px 56px", borderTop: `1px solid ${SS.rule}` }}>
-        <div style={{ ...ssEyebrow, marginBottom: 16 }}>§ 03 — ประวัติ / Heritage</div>
-        <div style={{ display: "grid", gridTemplateColumns: "1.3fr 1fr", gap: 80, alignItems: "start", marginTop: 32 }}>
-          <div>
-            <h2 style={{ ...ssDisplay, fontSize: 88, margin: 0 }}>
-              จาก<em style={{ fontStyle: "italic", color: SS.accent }}>รุ่น</em><br />สู่<em style={{ fontStyle: "italic", color: SS.accent }}>รุ่น.</em>
-            </h2>
-            <p style={{ ...ssBody, fontSize: 19, maxWidth: 540, marginTop: 40 }}>
-              เริ่มต้นในนาม <strong style={{ fontWeight: 600 }}>"กวงหลี"</strong> ที่สุราษฎร์ธานี ปี 1944<br />
-              ขยายสู่หาดใหญ่ ปี 2531 ในชื่อ <strong style={{ fontWeight: 600 }}>บริษัท เหล็กใต้ จำกัด</strong><br />
-              วันนี้เราส่งต่อความไว้วางใจสู่รุ่นที่สาม
-            </p>
-            <Link href="/about" style={{ ...ssEyebrow, color: SS.accent, marginTop: 32, display: "inline-block", textDecoration: "none", borderBottom: `1px solid ${SS.accent}`, paddingBottom: 4 }}>
-              อ่านประวัติเพิ่มเติม →
-            </Link>
+      <section className="section">
+        <div className="container">
+          <div className="grid-2" style={{ gap: 64, alignItems: "start" }}>
+            <div>
+              <span className="eyebrow">เรื่องราวของเรา</span>
+              <h2>จากรุ่นสู่รุ่น กว่า 38 ปีในหาดใหญ่</h2>
+              <p style={{ color: "var(--gray)", fontSize: 17, marginTop: 16 }}>
+                เริ่มต้นจากร้าน &ldquo;กวงหลี&rdquo; ที่สุราษฎร์ธานีตั้งแต่ พ.ศ. 2487
+                สู่ บริษัท เหล็กใต้ จำกัด ที่หาดใหญ่ในปี 2531 วันนี้เราส่งต่อความไว้วางใจ
+                สู่รุ่นที่สาม พร้อมยกระดับบริการด้วยเทคโนโลยี Laser CNC
+                เพื่อเป็นร้านเหล็กคู่เมืองหาดใหญ่ที่ช่างและผู้รับเหมาไว้ใจที่สุด
+              </p>
+              <Link href="/about" className="link-more">
+                อ่านเรื่องราวของเหล็กใต้ →
+              </Link>
+            </div>
+            <ul className="timeline">
+              {timeline.map((t) => (
+                <li key={t.yr}>
+                  <div className="num">พ.ศ. {t.yr}</div>
+                  <strong>{t.title}</strong>
+                  <span>{t.sub}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div style={{ borderLeft: `1px solid ${SS.rule}`, paddingLeft: 32 }}>
-            {timeline.map(([yr, be, title, sub], i) => (
-              <div key={yr} style={{ position: "relative", paddingBottom: 28 }}>
-                <div style={{ position: "absolute", left: -37, top: 8, width: 10, height: 10, borderRadius: "50%", background: i === 4 ? SS.accent : SS.ink }}></div>
-                <div style={{ display: "flex", gap: 16, alignItems: "baseline" }}>
-                  <div style={{ ...ssDisplay, fontSize: 24, fontWeight: 500 }}>{yr}</div>
-                  <div style={{ ...ssEyebrow, color: SS.muted }}>{be}</div>
+        </div>
+      </section>
+
+      {/* BRANCHES */}
+      <section className="section section--alt">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">สาขาของเรา</span>
+            <h2>2 สาขาในหาดใหญ่ พร้อมให้บริการ</h2>
+          </div>
+          <div className="grid-2">
+            {BRANCHES.map((b) => (
+              <div key={b.id} className="card" style={{ overflow: "hidden" }}>
+                <div style={{ position: "relative", aspectRatio: "16/8" }}>
+                  <Image
+                    src={b.img}
+                    alt={`${b.name} ${COMPANY_TH} ${b.addr}`}
+                    fill
+                    sizes="(max-width: 767px) 100vw, 50vw"
+                    style={{ objectFit: "cover" }}
+                  />
                 </div>
-                <div style={{ ...ssBody, fontSize: 16, marginTop: 4 }}>{title}</div>
-                <div style={{ ...ssBody, fontSize: 13, color: SS.muted, fontStyle: "italic" }}>{sub}</div>
+                <div style={{ padding: 24 }}>
+                  <span className="eyebrow" style={{ marginBottom: 4 }}>
+                    {b.badge}
+                  </span>
+                  <h3 style={{ fontSize: 24 }}>{b.name}</h3>
+                  <p style={{ color: "var(--gray)", fontSize: 15, margin: "8px 0 16px" }}>{b.addr}</p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
+                    {b.phones.map((p) => (
+                      <a key={p.tel} href={`tel:${p.tel}`} className="btn btn--outline-dark" style={{ padding: "8px 16px", fontSize: 14 }}>
+                        <IconPhone size={14} />
+                        <span className="num">{p.num}</span>
+                      </a>
+                    ))}
+                  </div>
+                  <a href={b.mapsUrl} target="_blank" rel="noopener noreferrer" className="link-more map-link">
+                    เปิดใน Google Maps →
+                  </a>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* BRANCHES */}
-      <section style={{ padding: "120px 56px", background: SS.paperAlt, borderTop: `1px solid ${SS.rule}` }}>
-        <div style={{ ...ssEyebrow, marginBottom: 16 }}>§ 04 — สาขา / Branches</div>
-        <h2 style={{ ...ssDisplay, fontSize: 56, margin: "16px 0 56px" }}>สองสาขา ในหาดใหญ่</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
-          {branches.map((b) => (
-            <div key={b.name} style={{ background: SS.paper, border: `1px solid ${SS.rule}` }}>
-              <div style={{ position: "relative", width: "100%", height: 240 }}>
-                <Image src={b.img} alt={b.name} fill style={{ objectFit: "cover", filter: "saturate(0.9) contrast(1.02)" }} sizes="50vw" />
-              </div>
-              <div style={{ padding: 40 }}>
-                <div style={{ ...ssEyebrow, color: SS.accent, marginBottom: 16 }}>{b.badge}</div>
-                <div style={{ ...ssDisplay, fontSize: 36, marginBottom: 24 }}>{b.name}</div>
-                <div style={{ ...ssBody, fontSize: 15, marginBottom: 20 }}>{b.addr}</div>
-                <div style={{ borderTop: `1px solid ${SS.rule}`, paddingTop: 20 }}>
-                  {b.phones.map((p) => (
-                    <div key={p} style={{ display: "flex", justifyContent: "space-between", padding: "10px 0", borderBottom: `1px dotted ${SS.rule}`, ...ssBody, fontSize: 15 }}>
-                      <span style={{ color: SS.muted, fontFamily: SS.mono, fontSize: 13 }}>TEL</span>
-                      <a href={`tel:${p.replace(/[-~]/g, "")}`} style={{ color: SS.ink, textDecoration: "none" }}>{p}</a>
-                    </div>
-                  ))}
+      {/* BLOG TEASER */}
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">ความรู้เรื่องเหล็ก</span>
+            <h2>บทความจากทีมงานเหล็กใต้</h2>
+          </div>
+          <div className="grid-3">
+            {ARTICLES.map((a) => (
+              <Link key={a.slug} href={`/blog/${a.slug}`} className="product-card blog-card">
+                <div className="product-card-img">
+                  <Image
+                    src={a.cover}
+                    alt={a.coverAlt}
+                    fill
+                    sizes="(max-width: 767px) 100vw, 33vw"
+                    style={{ objectFit: "cover" }}
+                  />
                 </div>
-                <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(b.addr)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ ...ssEyebrow, color: SS.accent, marginTop: 24, display: "inline-block", textDecoration: "none" }}
-                >
-                  เปิดใน Google Maps →
-                </a>
-              </div>
-            </div>
-          ))}
+                <div className="product-card-body">
+                  <time dateTime={a.date}>
+                    {new Date(a.date).toLocaleDateString("th-TH", { year: "numeric", month: "long", day: "numeric" })}
+                  </time>
+                  <h3 style={{ fontSize: 18, margin: "6px 0" }}>{a.title}</h3>
+                  <span className="link-more">อ่านต่อ →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

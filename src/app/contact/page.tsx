@@ -1,153 +1,141 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
-import { SS, ssEyebrow, ssBody, ssDisplay } from "@/lib/design";
+import ContactForm from "@/components/ContactForm";
+import { IconPhone, IconLine } from "@/components/Icons";
+import {
+  BRANCHES,
+  COMPANY_TH,
+  LINE_URL,
+  LINE_ID,
+  FACEBOOK_URL,
+  EMAIL,
+  PHONE_LASER,
+  PHONE_BENDING,
+  OPENING_HOURS_TH,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "ติดต่อเรา | เหล็กใต้",
-  description: "ทีมงานพร้อมตอบคำถาม ให้คำปรึกษา และเสนอราคาฟรี ภายใน 24 ชั่วโมง จันทร์–เสาร์",
+  title: "ติดต่อเรา ร้านเหล็กหาดใหญ่ โทร 074-356-643",
+  description:
+    "ติดต่อเหล็กใต้ ร้านเหล็กหาดใหญ่ 2 สาขา สอบถามราคาเหล็ก งานตัดเลเซอร์ ตัด–พับ ทางโทรศัพท์ Line @southsteel หรือกรอกฟอร์ม ตอบกลับภายใน 24 ชั่วโมง",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "ติดต่อเรา | เหล็กใต้ ร้านเหล็กหาดใหญ่",
+    description: "สอบถามราคาเหล็กและงานตัดเลเซอร์ ทางโทร Line @southsteel หรือฟอร์ม ตอบภายใน 24 ชม.",
+    url: "/contact",
+  },
 };
 
-const channels = [
-  { no: "01", th: "แชท Line", en: "Line Chat", val: "@southsteel", sub: "", href: "https://line.me/ti/p/@southsteel", highlight: true },
-  { no: "02", th: "โทรศัพท์", en: "Phone", val: "086-488-4450", sub: "จ.–ส. 08–17น.", href: "tel:0864884450", highlight: false },
-  { no: "03", th: "Facebook", en: "Messenger", val: "southsteelth", sub: "ข้อความ · โพสต์", href: "https://facebook.com/southsteelth", highlight: false },
-  { no: "04", th: "อีเมล", en: "Email", val: "ss_southsteel@hotmail.com", sub: "ติดต่อทางอีเมล", href: "mailto:ss_southsteel@hotmail.com", highlight: false },
-];
-
-const branches = [
-  {
-    id: "hq",
-    badge: "สำนักงานใหญ่ / HQ",
-    name: "สาขาสามสิบเมตร",
-    addr: "45 ถ.ราษฎร์ยินดี ต.หาดใหญ่ อ.หาดใหญ่ จ.สงขลา 90110",
-    coord: "",
-    phones: [{ num: "074-356-643~6", label: "สำนักงาน" }, { num: "086-488-4450", label: "สำรอง" }, { num: "095-086-1777", label: "สำรอง" }],
-    img: "/images/branch-30m.jpg",
-    mapsUrl: "https://maps.google.com/?q=45+ถ.ราษฎร์ยินดี+หาดใหญ่+สงขลา",
-  },
-  {
-    id: "kw",
-    badge: "สาขา / Branch",
-    name: "สาขาคลองหวะ",
-    addr: "272 ถ.กาญจนวนิช ต.คอหงส์ อ.หาดใหญ่ จ.สงขลา 90110",
-    coord: "",
-    phones: [{ num: "074-819-777", label: "สำนักงาน" }, { num: "086-488-2285", label: "สำรอง" }],
-    img: "/images/branch-klongwa.jpg",
-    mapsUrl: "https://maps.google.com/?q=272+ถ.กาญจนวนิช+คอหงส์+หาดใหญ่+สงขลา",
-  },
-];
-
-const days = [
-  ["จ", "Mon", "08–17"],
-  ["อ", "Tue", "08–17"],
-  ["พ", "Wed", "08–17"],
-  ["พฤ", "Thu", "08–17"],
-  ["ศ", "Fri", "08–17"],
-  ["ส", "Sat", "08–17"],
-  ["อา", "Sun", "ปิด"],
+const hotlines = [
+  { label: "สายตรงแผนก Laser CNC", phone: PHONE_LASER },
+  { label: "สายตรงแผนกตัด–พับ", phone: PHONE_BENDING },
 ];
 
 export default function ContactPage() {
   return (
-    <main style={{ background: SS.paper, color: SS.ink, fontFamily: SS.body }}>
+    <main>
       <PageHeader
-        kicker=""
-        titleTh={`แชทหาเรา<br/>ทาง <em style="font-style:italic;color:${SS.line}">Line.</em>`}
-        titleEn=""
-        desc={`ทีมงานพร้อมให้คำปรึกษา และเสนอราคาฟรี
-ทุกวันจันทร์–เสาร์ เวลา 08.00–17.00 น.`}
+        title="ติดต่อเหล็กใต้ ร้านเหล็กหาดใหญ่"
+        desc={`ทีมงานพร้อมให้คำปรึกษาและเสนอราคาฟรี ${OPENING_HOURS_TH} ตอบกลับทุกช่องทางภายใน 24 ชั่วโมง`}
+        crumbs={[{ label: "หน้าแรก", href: "/" }, { label: "ติดต่อเรา" }]}
       />
 
-      {/* Channels */}
-      <section style={{ padding: "72px 56px", borderBottom: `1px solid ${SS.rule}` }}>
-        <div style={{ ...ssEyebrow, marginBottom: 32 }}>ช่องทางติดต่อ / Channels</div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, borderTop: `1px solid ${SS.ink}` }}>
-          {channels.map((c, i) => (
-            <a
-              key={c.no}
-              href={c.href}
-              target={c.href.startsWith("http") ? "_blank" : undefined}
-              rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              style={{
-                padding: 32,
-                borderLeft: i === 0 ? "none" : `1px solid ${SS.rule}`,
-                borderBottom: `1px solid ${SS.ink}`,
-                background: c.highlight ? SS.ink : "transparent",
-                color: c.highlight ? SS.paper : SS.ink,
-                textDecoration: "none",
-                display: "block",
-              }}
-            >
-              <div style={{ ...ssEyebrow, color: c.highlight ? SS.line : SS.accent }}>№ {c.no}</div>
-              <div style={{ ...ssDisplay, fontSize: 28, marginTop: 16, color: c.highlight ? SS.paper : SS.ink }}>{c.th}</div>
-              <div style={{ ...ssBody, fontSize: 13, color: c.highlight ? "#a8a091" : SS.muted, fontStyle: "italic" }}>{c.en}</div>
-              <div style={{ ...ssBody, fontFamily: SS.mono, fontSize: 16, marginTop: 24, color: c.highlight ? SS.line : SS.ink, fontWeight: 500 }}>{c.val}</div>
-              <div style={{ ...ssBody, fontSize: 12, color: c.highlight ? "#a8a091" : SS.muted, marginTop: 4 }}>{c.sub}</div>
-            </a>
-          ))}
-        </div>
-      </section>
+      {/* Form + channels */}
+      <section className="section--tight section">
+        <div className="container">
+          <div className="grid-2" style={{ gap: 48, alignItems: "start" }}>
+            <div>
+              <span className="eyebrow">ส่งข้อความหาเรา</span>
+              <h2 style={{ fontSize: 26, marginBottom: 8 }}>ขอใบเสนอราคา / สอบถาม</h2>
+              <p style={{ color: "var(--gray)", marginBottom: 24 }}>
+                กรอกรายละเอียดด้านล่าง ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง
+              </p>
+              <ContactForm formLocation="contact_page" />
+            </div>
 
-      {/* Branch locations */}
-      <section style={{ padding: "96px 56px", background: SS.paperAlt, borderBottom: `1px solid ${SS.rule}` }}>
-        <div style={{ ...ssEyebrow, marginBottom: 16 }}>§ 02 — สาขา / Locations</div>
-        <h2 style={{ ...ssDisplay, fontSize: 56, margin: "16px 0 56px" }}>สองสาขา ในหาดใหญ่</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
-          {branches.map((b) => (
-            <div key={b.id} style={{ background: SS.paper, border: `1px solid ${SS.rule}` }}>
-              <div style={{ position: "relative", height: 280 }}>
-                <Image src={b.img} alt={b.name} fill style={{ objectFit: "cover" }} sizes="50vw" />
-              </div>
-              <div style={{ padding: 32 }}>
-                <div style={{ marginBottom: 16 }}>
-                  <div style={{ ...ssEyebrow, color: SS.accent }}>{b.badge}</div>
-                </div>
-                <div style={{ ...ssDisplay, fontSize: 32 }}>{b.name}</div>
-                <div style={{ ...ssBody, fontSize: 15, marginTop: 12 }}>{b.addr}</div>
-                <div style={{ marginTop: 24, borderTop: `1px solid ${SS.rule}` }}>
-                  {b.phones.map(({ num, label }) => (
-                    <div key={num} style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: `1px dotted ${SS.rule}` }}>
-                      <span style={{ ...ssEyebrow, color: SS.muted }}>{label}</span>
-                      <a href={`tel:${num.replace(/[-~]/g, "")}`} style={{ ...ssBody, fontFamily: SS.mono, fontSize: 14, fontWeight: 500, color: SS.ink, textDecoration: "none" }}>{num}</a>
-                    </div>
-                  ))}
-                </div>
-                <a
-                  href={b.mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ ...ssEyebrow, color: SS.accent, marginTop: 24, display: "inline-block", textDecoration: "none", borderBottom: `1px solid ${SS.accent}`, paddingBottom: 4 }}
-                >
-                  เปิดใน Google Maps →
+            <div>
+              <span className="eyebrow">ช่องทางด่วน</span>
+              <h2 style={{ fontSize: 26, marginBottom: 24 }}>คุยกับเราโดยตรง</h2>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 32 }}>
+                <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--line btn--lg">
+                  <IconLine size={18} />
+                  Line: {LINE_ID}
                 </a>
+                {hotlines.map((h) => (
+                  <a key={h.phone.tel} href={`tel:${h.phone.tel}`} className="btn btn--outline-dark btn--lg">
+                    <IconPhone size={18} />
+                    {h.label}: <span className="num">{h.phone.display}</span>
+                  </a>
+                ))}
+              </div>
+
+              <div className="card" style={{ padding: 24 }}>
+                <h3 style={{ fontSize: 18, marginBottom: 12 }}>ช่องทางอื่น ๆ</h3>
+                <ul style={{ listStyle: "none", margin: 0, padding: 0, fontSize: 15, lineHeight: 2.2 }}>
+                  <li>
+                    Facebook:{" "}
+                    <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" style={{ color: "var(--amber-dark)", fontWeight: 600 }}>
+                      facebook.com/southsteelth
+                    </a>
+                  </li>
+                  <li>
+                    อีเมล:{" "}
+                    <a href={`mailto:${EMAIL}`} style={{ color: "var(--amber-dark)", fontWeight: 600 }}>
+                      {EMAIL}
+                    </a>
+                  </li>
+                  <li>เวลาทำการ: {OPENING_HOURS_TH} (อาทิตย์หยุด)</li>
+                </ul>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
-      {/* Hours */}
-      <section style={{ padding: "72px 56px", borderBottom: `1px solid ${SS.rule}` }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 80, alignItems: "center" }}>
-          <div>
-            <div style={{ ...ssEyebrow, marginBottom: 16 }}>เวลาทำการ / Hours</div>
-            <h2 style={{ ...ssDisplay, fontSize: 40, margin: 0 }}>
-              เปิด<em style={{ fontStyle: "italic", color: SS.accent }}>จันทร์–เสาร์</em>
-            </h2>
+      {/* Branches */}
+      <section className="section section--alt">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">สาขาของเรา</span>
+            <h2>แวะมาดูสินค้าได้ที่ 2 สาขาในหาดใหญ่</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 0, borderTop: `1px solid ${SS.ink}` }}>
-            {days.map(([th, en, hrs], i) => (
-              <div key={en} style={{
-                padding: "24px 16px",
-                borderLeft: i === 0 ? "none" : `1px solid ${SS.rule}`,
-                borderBottom: `1px solid ${SS.ink}`,
-                background: i === 6 ? SS.paperAlt : "transparent",
-                opacity: i === 6 ? 0.5 : 1,
-              }}>
-                <div style={{ ...ssDisplay, fontSize: 24 }}>{th}</div>
-                <div style={{ ...ssEyebrow, color: SS.muted, marginTop: 4 }}>{en}</div>
-                <div style={{ ...ssBody, fontSize: 13, fontFamily: SS.mono, marginTop: 12, color: i === 6 ? SS.muted : SS.ink }}>{hrs}</div>
+          <div className="grid-2">
+            {BRANCHES.map((b) => (
+              <div key={b.id} className="card" style={{ overflow: "hidden" }}>
+                <div style={{ position: "relative", aspectRatio: "16/8" }}>
+                  <Image
+                    src={b.img}
+                    alt={`${b.name} ${COMPANY_TH} ${b.addr}`}
+                    fill
+                    sizes="(max-width: 767px) 100vw, 50vw"
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+                <div style={{ padding: 24 }}>
+                  <span className="eyebrow" style={{ marginBottom: 4 }}>
+                    {b.badge}
+                  </span>
+                  <h3 style={{ fontSize: 24 }}>{b.name}</h3>
+                  <p style={{ color: "var(--gray)", fontSize: 15, margin: "8px 0 16px" }}>{b.addr}</p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
+                    {b.phones.map((p) => (
+                      <a
+                        key={p.tel}
+                        href={`tel:${p.tel}`}
+                        className="btn btn--outline-dark"
+                        style={{ padding: "8px 16px", fontSize: 14 }}
+                      >
+                        <IconPhone size={14} />
+                        <span className="num">{p.num}</span>
+                      </a>
+                    ))}
+                  </div>
+                  <a href={b.mapsUrl} target="_blank" rel="noopener noreferrer" className="link-more map-link">
+                    เปิดใน Google Maps →
+                  </a>
+                </div>
               </div>
             ))}
           </div>

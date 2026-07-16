@@ -1,60 +1,119 @@
 import Link from "next/link";
-import { SS, ssEyebrow, ssBody, ssDisplay } from "@/lib/design";
+import Image from "next/image";
+import {
+  BRANCHES,
+  COMPANY_TH,
+  FACEBOOK_URL,
+  LINE_ID,
+  LINE_URL,
+  OPENING_HOURS_TH,
+  EMAIL,
+} from "@/lib/site";
+import { PRODUCTS } from "@/lib/products";
 
-const footerLinks = [
-  ["เมนู / Menu", [
-    { label: "หน้าแรก", href: "/" },
-    { label: "สินค้า", href: "/products" },
-    { label: "บริการ", href: "/services" },
-    { label: "เกี่ยวกับเรา", href: "/about" },
-    { label: "ติดต่อเรา", href: "/contact" },
-  ]],
-  ["สินค้า / Products", [
-    { label: "เหล็กรีดร้อน" },
-    { label: "เหล็กก่อสร้าง" },
-    { label: "เหล็กรีดเย็น" },
-    { label: "เหล็กแผ่น" },
-    { label: "Laser CNC" },
-  ]],
-  ["ติดต่อ / Contact", [
-    { label: "@southsteel" },
-    { label: "074-819-777" },
-    { label: "facebook.com/southsteelth" },
-    { label: "จ.–ส. 08.00–17.00" },
-  ]],
-] as const;
+const menuLinks = [
+  { label: "หน้าแรก", href: "/" },
+  { label: "สินค้า", href: "/products" },
+  { label: "บริการ", href: "/services" },
+  { label: "บทความ", href: "/blog" },
+  { label: "เกี่ยวกับเรา", href: "/about" },
+  { label: "ติดต่อเรา", href: "/contact" },
+];
 
 export default function Footer() {
+  const year = new Date().getFullYear() + 543;
   return (
-    <footer style={{ background: SS.ink, color: SS.paper, padding: "80px 56px 32px" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 48, marginBottom: 64 }}>
-        <div>
-          <Link href="/" style={{ textDecoration: "none" }}>
-            <div style={{ ...ssDisplay, color: SS.paper, fontSize: 32, fontWeight: 500 }}>เหล็กใต้</div>
-          </Link>
-          <div style={{ ...ssEyebrow, color: "#8a8067", marginTop: 4 }}>SOUTH STEEL CO., LTD.</div>
-          <p style={{ ...ssBody, color: "#a8a091", fontSize: 14, marginTop: 24, maxWidth: 320 }}>
-            ศูนย์จำหน่ายเหล็กรูปพรรณครบวงจร บริการ Laser CNC ตัด–พับ ประสบการณ์จากรุ่นสู่รุ่นกว่า 80 ปี
-          </p>
-        </div>
-        {footerLinks.map(([title, links]) => (
-          <div key={title as string}>
-            <div style={{ ...ssEyebrow, color: "#c9c2b2", marginBottom: 20 }}>{title as string}</div>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-              {(links as readonly { label: string; href?: string }[]).map((l) => (
-                <li key={l.label} style={{ ...ssBody, color: "#a8a091", fontSize: 14, padding: "6px 0" }}>
-                  {l.href ? (
-                    <Link href={l.href} style={{ color: "#a8a091", textDecoration: "none" }}>{l.label}</Link>
-                  ) : l.label}
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-main">
+          {/* คอลัมน์ 1: โลโก้ + tagline */}
+          <div className="footer-brand">
+            <Link href="/" aria-label="เหล็กใต้ — กลับหน้าแรก">
+              <Image
+                src="/images/logo-white.png"
+                alt="โลโก้ บริษัท เหล็กใต้ จำกัด"
+                width={253}
+                height={52}
+              />
+            </Link>
+            <p>
+              ร้านเหล็กหาดใหญ่ 38 ปี ศูนย์รวมเหล็กรูปพรรณ เหล็กเส้น เหล็กแผ่น
+              มาตรฐาน มอก. พร้อมบริการตัดเลเซอร์ CNC ตัด–พับ และจัดส่งทั่วไทย
+            </p>
+            <div className="footer-qr" aria-label="Line QR Code">
+              <span>LINE QR</span>
+              <span className="num">{LINE_ID}</span>
+            </div>
+          </div>
+
+          {/* คอลัมน์ 2: ลิงก์ */}
+          <div>
+            <h4>เมนู</h4>
+            <ul>
+              {menuLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+            <h4 style={{ marginTop: 24 }}>สินค้ายอดนิยม</h4>
+            <ul>
+              {PRODUCTS.slice(0, 5).map((p) => (
+                <li key={p.slug}>
+                  <Link href={`/products/${p.slug}`}>{p.nameTh}</Link>
                 </li>
               ))}
             </ul>
           </div>
-        ))}
-      </div>
-      <div style={{ borderTop: `1px solid rgba(245,242,236,0.15)`, paddingTop: 24, display: "flex", justifyContent: "space-between", ...ssBody, fontSize: 12, color: "#8a8067" }}>
-        <div>© 2568 บริษัท เหล็กใต้ จำกัด · All rights reserved.</div>
-        <div style={{ fontFamily: SS.mono }}>HATYAI · SONGKHLA · 90110</div>
+
+          {/* คอลัมน์ 3: ติดต่อ */}
+          <div className="footer-contact">
+            <h4>ติดต่อเรา</h4>
+            {BRANCHES.map((b) => (
+              <div key={b.id} className="footer-branch">
+                <strong>
+                  {b.name} ({b.badge})
+                </strong>
+                <address>{b.addr}</address>
+                <ul>
+                  {b.phones.map((p) => (
+                    <li key={p.tel}>
+                      <a href={`tel:${p.tel}`} className="num">
+                        {p.num}
+                      </a>{" "}
+                      <span style={{ fontSize: 13, color: "rgba(255,255,255,0.5)" }}>({p.label})</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <ul>
+              <li>
+                Line:{" "}
+                <a href={LINE_URL} target="_blank" rel="noopener noreferrer">
+                  {LINE_ID}
+                </a>
+              </li>
+              <li>
+                Facebook:{" "}
+                <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer">
+                  facebook.com/southsteelth
+                </a>
+              </li>
+              <li>
+                อีเมล: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+              </li>
+              <li>เปิดทำการ {OPENING_HOURS_TH}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <div>
+            © {year} สงวนลิขสิทธิ์ {COMPANY_TH} · South Steel Co., Ltd.
+          </div>
+          <div className="num">HAT YAI · SONGKHLA · THAILAND</div>
+        </div>
       </div>
     </footer>
   );
