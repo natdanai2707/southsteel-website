@@ -1,11 +1,11 @@
-import { LINE_URL, PHONE_LASER } from "@/lib/site";
+import { LINE_URL, PHONE_CTA } from "@/lib/site";
 
 // แถบ CTA ติดขอบล่างจอ — แสดงเฉพาะมือถือ (ควบคุมด้วย CSS)
 // event phone_click / line_click ยิงอัตโนมัติจาก EventTracker ใน Analytics.tsx
 export default function FloatingCta() {
   return (
     <div className="floating-cta" role="navigation" aria-label="ติดต่อด่วน">
-      <a href={`tel:${PHONE_LASER.tel}`} aria-label={`โทรหาเรา ${PHONE_LASER.display}`}>
+      <a href={`tel:${PHONE_CTA.tel}`} aria-label={`โทรหาเรา ${PHONE_CTA.display}`}>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.25 1.02z" />
         </svg>
