@@ -90,8 +90,7 @@ export default function Footer() {
                     <li key={p.tel}>
                       <a href={`tel:${p.tel}`} className="num">
                         {p.num}
-                      </a>{" "}
-                      <span style={{ fontSize: 13, color: "rgba(255,255,255,0.5)" }}>({p.label})</span>
+                      </a>
                     </li>
                   ))}
                 </ul>
