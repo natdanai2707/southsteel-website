@@ -12,7 +12,9 @@ export const EMAIL = "ss_southsteel@hotmail.com";
 
 // เบอร์หลักสำหรับปุ่ม CTA
 export const PHONE_MAIN = { display: "086-488-4450", tel: "0864884450" };
-// เบอร์สายงาน Laser CNC — ใช้กับ Floating CTA บนมือถือ
+// เบอร์สำหรับปุ่ม "โทรหาเรา" หลัก (hero) และปุ่มลอย "โทรเลย" บนมือถือ
+export const PHONE_CTA = { display: "074-819-777", tel: "074819777" };
+// เบอร์สายงาน Laser CNC
 export const PHONE_LASER = { display: "087-287-7007", tel: "0872877007" };
 export const PHONE_BENDING = { display: "086-488-4501", tel: "0864884501" };
 
