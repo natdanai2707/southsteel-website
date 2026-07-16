@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { PRODUCTS } from "@/lib/products";
-import { BRANCHES, LINE_URL, LINE_ID, PHONE_MAIN, OPENING_HOURS_TH } from "@/lib/site";
+import { PHONE_MAIN } from "@/lib/site";
 import { IconPhone } from "@/components/Icons";
 
 const navItems = [
@@ -46,29 +46,8 @@ export default function Nav() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
-  const hqPhone = BRANCHES[0].phones[0];
-  const kwPhone = BRANCHES[1].phones[0];
-
   return (
     <>
-      {/* แถบข้อมูลด้านบน: เวลาทำการ + เบอร์สาขา + Line */}
-      <div className="topbar">
-        <div className="topbar-inner">
-          <span className="topbar-hours">เปิดทำการ {OPENING_HOURS_TH}</span>
-          <div className="topbar-phones">
-            <a href={`tel:${hqPhone.tel}`}>
-              โทร <span className="num">{hqPhone.num}</span> (สามสิบเมตร)
-            </a>
-            <a href={`tel:${kwPhone.tel}`}>
-              <span className="num">{kwPhone.num}</span> (คลองหวะ)
-            </a>
-            <a href={LINE_URL} target="_blank" rel="noopener noreferrer">
-              Line {LINE_ID}
-            </a>
-          </div>
-        </div>
-      </div>
-
       <nav className={`nav${compact ? " nav--compact" : ""}`} aria-label="เมนูหลัก">
         <div className="nav-inner">
           <Link href="/" className="nav-logo" aria-label="เหล็กใต้ — กลับหน้าแรก">

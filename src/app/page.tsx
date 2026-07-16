@@ -127,7 +127,6 @@ export default function HomePage() {
         </div>
         <div className="hero-overlay" />
         <div className="hero-content">
-          <span className="eyebrow">บริษัท เหล็กใต้ จำกัด · หาดใหญ่ สงขลา</span>
           <h1 className="hero-title">
             ร้านเหล็กหาดใหญ่ <em>ครบวงจร</em>
             <br />
