@@ -152,7 +152,7 @@ export default function AboutPage() {
               ["6,000W", "เลเซอร์ไฟเบอร์ CNC"],
             ].map(([n, d]) => (
               <div key={d} style={{ textAlign: "center" }}>
-                <div className="num" style={{ fontSize: 44, fontWeight: 700, color: "var(--amber)" }}>{n}</div>
+                <div className="num" style={{ fontSize: 44, fontWeight: 700, color: "#FFC53D" }}>{n}</div>
                 <div style={{ color: "rgba(255,255,255,0.8)", marginTop: 4 }}>{d}</div>
               </div>
             ))}

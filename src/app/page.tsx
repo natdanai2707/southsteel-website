@@ -147,7 +147,11 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-        <div className="hero-stats">
+      </section>
+
+      {/* แถบจุดเด่นใต้แบนเนอร์ */}
+      <section className="usp-band" aria-label="จุดเด่นของเหล็กใต้">
+        <div className="usp-band-inner">
           {[
             ["38 ปี", "ประสบการณ์ค้าเหล็ก"],
             ["2 สาขา", "ในหาดใหญ่ สงขลา"],

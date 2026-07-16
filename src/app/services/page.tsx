@@ -146,9 +146,8 @@ export default function ServicesPage() {
                   style={{
                     width: 40,
                     height: 40,
-                    borderRadius: "50%",
-                    background: "var(--amber)",
-                    color: "var(--navy)",
+                    background: "var(--navy)",
+                    color: "#fff",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
