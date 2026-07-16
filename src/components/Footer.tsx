@@ -53,7 +53,6 @@ export default function Footer() {
                 width={108}
                 height={108}
               />
-              <span className="num">{LINE_ID}</span>
             </a>
           </div>
 
