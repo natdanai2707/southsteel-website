@@ -18,6 +18,7 @@ const menuLinks = [
   { label: "บริการ", href: "/services" },
   { label: "บทความ", href: "/blog" },
   { label: "เกี่ยวกับเรา", href: "/about" },
+  { label: "พาร์ทเนอร์ของเรา", href: "/partners" },
   { label: "ติดต่อเรา", href: "/contact" },
 ];
 

@@ -14,6 +14,7 @@ const navItems = [
   { th: "บริการ", href: "/services" },
   { th: "บทความ", href: "/blog" },
   { th: "เกี่ยวกับเรา", href: "/about" },
+  { th: "พาร์ทเนอร์", href: "/partners" },
   { th: "ติดต่อเรา", href: "/contact" },
 ];
 
