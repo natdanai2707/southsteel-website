@@ -8,6 +8,7 @@ import {
   LINE_URL,
   OPENING_HOURS_TH,
   EMAIL,
+  PHONE_COMPLAINT,
 } from "@/lib/site";
 import { PRODUCTS } from "@/lib/products";
 
@@ -113,6 +114,12 @@ export default function Footer() {
                 อีเมล: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               </li>
               <li>เปิดทำการ {OPENING_HOURS_TH}</li>
+              <li>
+                ร้องเรียนการให้บริการ:{" "}
+                <a href={`tel:${PHONE_COMPLAINT.tel}`} className="num">
+                  {PHONE_COMPLAINT.display}
+                </a>
+              </li>
             </ul>
           </div>
         </div>

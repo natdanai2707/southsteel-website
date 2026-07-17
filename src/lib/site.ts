@@ -11,12 +11,13 @@ export const FACEBOOK_URL = "https://facebook.com/southsteelth";
 export const EMAIL = "ss_southsteel@hotmail.com";
 
 // เบอร์หลักสำหรับปุ่ม CTA
-export const PHONE_MAIN = { display: "086-488-4450", tel: "0864884450" };
-// เบอร์สำหรับปุ่ม "โทรหาเรา" หลัก (hero) และปุ่มลอย "โทรเลย" บนมือถือ
-export const PHONE_CTA = { display: "074-819-777", tel: "074819777" };
+// เบอร์หลักสำหรับปุ่ม "โทรหาเรา" ทุกจุด (nav, hero, ปุ่มลอย, CTA ท้ายหน้า, หน้าสินค้า)
+export const PHONE_MAIN = { display: "074-819-777", tel: "074819777" };
 // เบอร์สายงาน Laser CNC
 export const PHONE_LASER = { display: "087-287-7007", tel: "0872877007" };
 export const PHONE_BENDING = { display: "086-488-4501", tel: "0864884501" };
+// เบอร์ร้องเรียนการให้บริการ
+export const PHONE_COMPLAINT = { display: "099-795-9526", tel: "0997959526" };
 
 export const OPENING_HOURS_TH = "จันทร์–เสาร์ 08.00–17.00 น.";
 export const OPENING_HOURS_SCHEMA = "Mo-Sa 08:00-17:00";

@@ -15,7 +15,7 @@ import {
   BRANCHES,
   LINE_URL,
   FACEBOOK_URL,
-  PHONE_CTA,
+  PHONE_MAIN,
   OPENING_HOURS_SCHEMA,
 } from "@/lib/site";
 
@@ -139,7 +139,7 @@ export default function HomePage() {
             และจัดส่งถึงไซต์งานทั่วประเทศ ดูแลโดยทีมงานประสบการณ์กว่า 38 ปี
           </p>
           <div className="hero-ctas">
-            <a href={`tel:${PHONE_CTA.tel}`} className="btn btn--primary btn--lg">
+            <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--primary btn--lg">
               <IconPhone size={18} />
               โทรหาเรา
             </a>
