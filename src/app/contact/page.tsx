@@ -12,6 +12,7 @@ import {
   EMAIL,
   PHONE_LASER,
   PHONE_BENDING,
+  PHONE_COMPLAINT,
   OPENING_HOURS_TH,
 } from "@/lib/site";
 
@@ -109,6 +110,12 @@ export default function ContactPage() {
                     </a>
                   </li>
                   <li>เวลาทำการ: {OPENING_HOURS_TH} (อาทิตย์หยุด)</li>
+                  <li>
+                    ร้องเรียนการให้บริการ:{" "}
+                    <a href={`tel:${PHONE_COMPLAINT.tel}`} className="num" style={{ color: "var(--amber-dark)", fontWeight: 600 }}>
+                      {PHONE_COMPLAINT.display}
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
