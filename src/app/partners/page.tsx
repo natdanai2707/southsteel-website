@@ -4,7 +4,7 @@ import CTA from "@/components/CTA";
 import PageHeader from "@/components/PageHeader";
 import Placeholder from "@/components/Placeholder";
 import { IconLine, IconPhone } from "@/components/Icons";
-import { LINE_URL, PHONE_MAIN } from "@/lib/site";
+import { LINE_URL, PHONE_S2000 } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "พาร์ทเนอร์ของเรา · เอส-2000 สตีล แฟบริเคท",
@@ -171,10 +171,14 @@ export default function PartnersPage() {
 
           <div className="card" style={{ padding: 24, marginTop: 24, borderLeft: "4px solid var(--amber)" }}>
             <h3 style={{ fontSize: 18, marginBottom: 8 }}>เหมาะกับธุรกิจแบบไหน</h3>
-            <p style={{ fontSize: 15, color: "var(--gray)", margin: 0 }}>
+            <p style={{ fontSize: 15, color: "var(--gray)", margin: "0 0 16px" }}>
               คลังสินค้า โกดังกระจายสินค้า โลจิสติกส์ และโรงงานเบา โดยเฉพาะสายส่งสินค้า
               ชายแดนหาดใหญ่–สะเดา สอบถามขนาดที่ว่าง ราคา และนัดชมพื้นที่จริงได้ทุกวัน
             </p>
+            <a href={`tel:${PHONE_S2000.tel}`} className="btn btn--primary">
+              <IconPhone size={16} />
+              โทร เอส-2000 <span className="num">{PHONE_S2000.display}</span>
+            </a>
           </div>
         </div>
       </section>
@@ -197,9 +201,9 @@ export default function PartnersPage() {
               ทีมงานยินดีให้ข้อมูลและนัดชมพื้นที่
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--primary">
+              <a href={`tel:${PHONE_S2000.tel}`} className="btn btn--primary">
                 <IconPhone size={16} />
-                โทร <span className="num">{PHONE_MAIN.display}</span>
+                โทร เอส-2000 <span className="num">{PHONE_S2000.display}</span>
               </a>
               <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--line">
                 <IconLine size={16} />
@@ -210,7 +214,12 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      <CTA title="สนใจงานโครงสร้างเหล็ก หรือพื้นที่ให้เช่า?" subtitle="ติดต่อทีมงานเหล็กใต้ เพื่อประสานงานกับ เอส-2000 ได้เลย" />
+      <CTA
+        eyebrow="ติดต่อ เอส-2000"
+        title="สนใจงานโครงสร้างเหล็ก หรือพื้นที่ให้เช่า?"
+        subtitle="โทรหา เอส-2000 ได้โดยตรง หรือสอบถามผ่านทีมงานเหล็กใต้"
+        phone={PHONE_S2000}
+      />
     </main>
   );
 }

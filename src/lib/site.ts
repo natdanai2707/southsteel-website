@@ -18,6 +18,8 @@ export const PHONE_LASER = { display: "087-287-7007", tel: "0872877007" };
 export const PHONE_BENDING = { display: "086-488-4501", tel: "0864884501" };
 // เบอร์ร้องเรียนการให้บริการ
 export const PHONE_COMPLAINT = { display: "099-795-9526", tel: "0997959526" };
+// เบอร์ติดต่อ บริษัท เอส-2000 สตีล แฟบริเคท (หน้าพาร์ทเนอร์)
+export const PHONE_S2000 = { display: "099-795-9526", tel: "0997959526" };
 
 export const OPENING_HOURS_TH = "จันทร์–เสาร์ 08.00–17.00 น.";
 export const OPENING_HOURS_SCHEMA = "Mo-Sa 08:00-17:00";
