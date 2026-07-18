@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import { IconLaser, IconBend, IconWeld, IconTruck, IconPhone } from "@/components/Icons";
 import { PRODUCTS } from "@/lib/products";
 import { ARTICLES } from "@/lib/blog";
+import { FAQS, stripTags } from "@/lib/faq";
 import {
   SITE_URL,
   COMPANY_TH,
@@ -113,12 +114,23 @@ const localBusinessSchema = {
   })),
 };
 
+const homeFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.slice(0, 4).map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: stripTags(f.a) },
+  })),
+};
+
 export default function HomePage() {
   const featured = FEATURED_SLUGS.map((s) => PRODUCTS.find((p) => p.slug === s)!).filter(Boolean);
 
   return (
     <main>
       <JsonLd data={localBusinessSchema} />
+      <JsonLd data={homeFaqSchema} />
 
       {/* HERO */}
       <section className="hero">
@@ -328,6 +340,30 @@ export default function HomePage() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section section--alt">
+        <div className="container" style={{ maxWidth: 820 }}>
+          <div className="section-head">
+            <span className="eyebrow">คำถามที่พบบ่อย</span>
+            <h2>เรื่องที่ลูกค้าถามเราบ่อย</h2>
+          </div>
+          {FAQS.slice(0, 4).map((f, i) => (
+            <details key={i} className="faq-item" open={i === 0}>
+              <summary>
+                <h3 style={{ fontSize: 18, margin: 0, color: "var(--navy)" }}>{f.q}</h3>
+                <span className="faq-toggle" aria-hidden="true" />
+              </summary>
+              <div className="faq-answer" dangerouslySetInnerHTML={{ __html: f.a }} />
+            </details>
+          ))}
+          <div style={{ marginTop: 24 }}>
+            <Link href="/faq" className="btn btn--outline-dark">
+              ดูคำถามที่พบบ่อยทั้งหมด →
+            </Link>
           </div>
         </div>
       </section>

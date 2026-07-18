@@ -133,13 +133,12 @@ export default function ContactPage() {
           <div className="grid-2">
             {BRANCHES.map((b) => (
               <div key={b.id} className="card" style={{ overflow: "hidden" }}>
-                <div style={{ position: "relative", aspectRatio: "16/8" }}>
-                  <Image
-                    src={b.img}
-                    alt={`${b.name} ${COMPANY_TH} ${b.addr}`}
-                    fill
-                    sizes="(max-width: 767px) 100vw, 50vw"
-                    style={{ objectFit: "cover" }}
+                <div className="map-embed">
+                  <iframe
+                    src={`https://maps.google.com/maps?q=${b.geo.lat},${b.geo.lng}&z=16&output=embed`}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={`แผนที่ ${b.name} ${COMPANY_TH} หาดใหญ่ สงขลา`}
                   />
                 </div>
                 <div style={{ padding: 24 }}>
