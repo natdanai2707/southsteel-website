@@ -18,6 +18,7 @@ import {
   FACEBOOK_URL,
   PHONE_MAIN,
   OPENING_HOURS_SCHEMA,
+  TOTAL_REVIEWS,
 } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -262,6 +263,33 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* REVIEWS / SOCIAL PROOF */}
+      <section className="section section--navy">
+        <div className="container" style={{ textAlign: "center" }}>
+          <span className="eyebrow">ลูกค้าไว้วางใจ</span>
+          <h2 style={{ maxWidth: 640, margin: "0 auto" }}>
+            รีวิวจริงกว่า <span className="num">{TOTAL_REVIEWS}</span> รายการบน Google
+          </h2>
+          <p style={{ color: "rgba(255,255,255,0.78)", fontSize: 18, margin: "16px auto 32px", maxWidth: 560 }}>
+            ช่าง ผู้รับเหมา และเจ้าของบ้านในหาดใหญ่และทั่วภาคใต้ เลือกใช้บริการเหล็กใต้
+            อ่านรีวิวจากลูกค้าจริงของทั้งสองสาขาได้บน Google
+          </p>
+          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+            {BRANCHES.map((b) => (
+              <a
+                key={b.id}
+                href={b.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--outline-light"
+              >
+                ★ {b.name} · <span className="num">{b.reviewCount}</span> รีวิว
+              </a>
+            ))}
           </div>
         </div>
       </section>
