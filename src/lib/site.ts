@@ -37,6 +37,7 @@ export interface Branch {
   phones: { num: string; tel: string; label: string }[];
   img: string;
   mapsUrl: string;
+  reviewCount: number; // จำนวนรีวิวจริงบน Google (ใช้เป็น social proof เท่านั้น ไม่ใส่ schema)
 }
 
 export const BRANCHES: Branch[] = [
@@ -57,6 +58,7 @@ export const BRANCHES: Branch[] = [
     ],
     img: "/images/branch-30m.jpg",
     mapsUrl: "https://maps.google.com/?q=45+ถ.ราษฎร์ยินดี+หาดใหญ่+สงขลา",
+    reviewCount: 64,
   },
   {
     id: "klongwa",
@@ -74,5 +76,9 @@ export const BRANCHES: Branch[] = [
     ],
     img: "/images/branch-klongwa.jpg",
     mapsUrl: "https://maps.google.com/?q=272+ถ.กาญจนวนิช+คอหงส์+หาดใหญ่+สงขลา",
+    reviewCount: 10,
   },
 ];
+
+// รีวิวจริงรวมทุกสาขาบน Google (social proof)
+export const TOTAL_REVIEWS = BRANCHES.reduce((sum, b) => sum + b.reviewCount, 0);
