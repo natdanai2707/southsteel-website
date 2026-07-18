@@ -48,6 +48,8 @@ export default async function ProductPage({ params }: Props) {
     .map((s) => getProduct(s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
+  // ธุรกิจเป็นแบบขอใบเสนอราคา (ไม่มีราคาตายตัว) จึงไม่ใส่ offers/price
+  // เพื่อไม่ให้ Google แจ้ง error ราคา และไม่ใส่ review/rating ปลอมตามนโยบาย Google
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -58,13 +60,6 @@ export default async function ProductPage({ params }: Props) {
     url: `${SITE_URL}/products/${product.slug}`,
     category: product.category,
     brand: { "@type": "Brand", name: COMPANY_TH },
-    offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      priceCurrency: "THB",
-      url: `${SITE_URL}/products/${product.slug}`,
-      seller: { "@type": "LocalBusiness", name: COMPANY_TH, "@id": `${SITE_URL}/#branch-hq` },
-    },
   };
 
   return (
