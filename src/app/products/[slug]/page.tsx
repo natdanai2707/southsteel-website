@@ -58,7 +58,6 @@ export default async function ProductPage({ params }: Props) {
     description: product.short,
     image: `${SITE_URL}${product.image}`,
     url: `${SITE_URL}/products/${product.slug}`,
-    category: product.category,
     brand: { "@type": "Brand", name: COMPANY_TH },
   };
 
