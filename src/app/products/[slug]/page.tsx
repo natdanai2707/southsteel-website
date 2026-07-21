@@ -5,11 +5,10 @@ import Link from "next/link";
 import CTA from "@/components/CTA";
 import PageHeader from "@/components/PageHeader";
 import ProductCard from "@/components/ProductCard";
-import JsonLd from "@/components/JsonLd";
 import ViewTracker from "@/components/ViewTracker";
 import { IconPhone, IconLine } from "@/components/Icons";
 import { PRODUCTS, getProduct } from "@/lib/products";
-import { SITE_URL, COMPANY_TH, LINE_URL, PHONE_MAIN } from "@/lib/site";
+import { LINE_URL, PHONE_MAIN } from "@/lib/site";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -48,22 +47,13 @@ export default async function ProductPage({ params }: Props) {
     .map((s) => getProduct(s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
-  // ธุรกิจเป็นแบบขอใบเสนอราคา (ไม่มีราคาตายตัว) จึงไม่ใส่ offers/price
-  // เพื่อไม่ให้ Google แจ้ง error ราคา และไม่ใส่ review/rating ปลอมตามนโยบาย Google
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: product.nameTh,
-    alternateName: product.nameEn,
-    description: product.short,
-    image: `${SITE_URL}${product.image}`,
-    url: `${SITE_URL}/products/${product.slug}`,
-    brand: { "@type": "Brand", name: COMPANY_TH },
-  };
+  // ไม่ใส่ Product schema: ธุรกิจเป็นแบบขอใบเสนอราคา (ไม่มี price) และไม่ใส่
+  // review/aggregateRating ปลอมตามนโยบาย Google — Product snippet ต้องมีอย่างน้อย
+  // หนึ่งในสามช่องนี้ จึงเลี่ยง error ด้วยการไม่ประกาศ @type Product
+  // โครงสร้างหน้ายังมี BreadcrumbList schema จาก PageHeader อยู่
 
   return (
     <main>
-      <JsonLd data={productSchema} />
       <ViewTracker
         event="product_view"
         params={{ product_name: product.nameTh, product_category: product.category }}
