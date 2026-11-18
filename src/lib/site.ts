@@ -61,7 +61,7 @@ export const BRANCHES: Branch[] = [
     addressLocality: "อำเภอหาดใหญ่",
     addressRegion: "สงขลา",
     postalCode: "90110",
-    geo: { lat: 7.0086, lng: 100.4747 },
+    geo: { lat: 7.0065226, lng: 100.4810876 },
     phones: [
       { num: "074-356-643-6", tel: "074356643", label: "สำนักงาน" },
       { num: "086-488-4450", tel: "0864884450", label: "มือถือ" },
@@ -69,7 +69,7 @@ export const BRANCHES: Branch[] = [
     ],
     img: "/images/branch-30m.webp",
     mapsUrl: "https://maps.app.goo.gl/6xUTiAJbnVrMoicz8",
-    reviewCount: 64,
+    reviewCount: 65,
   },
   {
     id: "klongwa",
@@ -80,14 +80,14 @@ export const BRANCHES: Branch[] = [
     addressLocality: "อำเภอหาดใหญ่",
     addressRegion: "สงขลา",
     postalCode: "90110",
-    geo: { lat: 6.9631, lng: 100.4933 },
+    geo: { lat: 6.9823429, lng: 100.4819782 },
     phones: [
       { num: "074-819-777", tel: "074819777", label: "สำนักงาน" },
       { num: "086-488-2285", tel: "0864882285", label: "มือถือ" },
     ],
     img: "/images/branch-klongwa.webp",
     mapsUrl: "https://maps.app.goo.gl/F87FkhKPbHrLzgJo9",
-    reviewCount: 10,
+    reviewCount: 12,
   },
 ];
 
