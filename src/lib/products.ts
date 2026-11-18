@@ -450,7 +450,7 @@ export const PRODUCTS: Product[] = [
     nameEn: "Black Round Steel Pipe",
     category: "เหล็กรีดเย็นและท่อ",
     categoryEn: "cold-formed",
-    mok: "มอก. 107-2561",
+    mok: "มอก. 107",
     image: "/images/round-pipe.webp",
     imageAlt: "ท่อเหล็กกลมดำ แป๊บกลม สำหรับงานโครงสร้าง จำหน่ายที่ร้านเหล็กใต้ หาดใหญ่",
     short: "ท่อเหล็กกลมดำสำหรับงานโครงสร้าง โครงหลังคา ราวบันได เสา และงานเชื่อมประกอบ",
