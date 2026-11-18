@@ -7,12 +7,12 @@ import { IconLaser, IconBend, IconWeld, IconTruck, IconLine, IconPhone } from "@
 import { LINE_URL, PHONE_LASER, PHONE_BENDING } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "บริการตัดเลเซอร์ CNC พับเหล็ก เชื่อม จัดส่ง",
+  title: "บริการแปรรูปเหล็ก หาดใหญ่ ตัด พับ เชื่อม จัดส่งถึงไซต์",
   description:
-    "บริการตัดเลเซอร์หาดใหญ่ด้วยไฟเบอร์เลเซอร์ 6,000W พับเหล็ก–สแตนเลสด้วย CNC Press Brake งานเชื่อม TIG/MIG/เลเซอร์ พร้อมจัดส่งถึงไซต์งานทั่วไทย",
+    "รวมบริการแปรรูปเหล็กของเหล็กใต้ หาดใหญ่ ในที่เดียว: ตัดเลเซอร์ 6,000W พับเหล็กและสแตนเลสด้วย CNC Press Brake งานเชื่อม TIG/MIG/เลเซอร์ และจัดส่งถึงไซต์งาน ซื้อเหล็กแล้วแปรรูปต่อได้เลย",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "บริการตัดเลเซอร์ CNC พับเหล็ก เชื่อม | เหล็กใต้ หาดใหญ่",
+    title: "บริการแปรรูปเหล็ก ตัด พับ เชื่อม จัดส่ง | เหล็กใต้ หาดใหญ่",
     description: "ตัดเลเซอร์ 6,000W แม่นยำ ±0.1 มม. พับเหล็กยาว 3 เมตร งานเชื่อมครบวงจร ที่หาดใหญ่",
     url: "/services",
   },

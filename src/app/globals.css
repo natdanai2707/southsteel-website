@@ -864,3 +864,8 @@ a { color: inherit; cursor: pointer; }
   .cookie-bar { flex-direction: column; align-items: stretch; bottom: 66px; left: 10px; right: 10px; }
   .cookie-bar__actions > .btn { flex: 1; justify-content: center; }
 }
+
+/* ---------- Work gallery (หน้าบริการ) ---------- */
+.work-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.work-gallery__item { position: relative; aspect-ratio: 4 / 3; border-radius: 6px; overflow: hidden; background: var(--paper-alt); }
+@media (max-width: 767px) { .work-gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; } }
