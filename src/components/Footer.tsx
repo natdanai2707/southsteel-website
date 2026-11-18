@@ -129,7 +129,10 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <div>
-            © {year} สงวนลิขสิทธิ์ {COMPANY_TH} · South Steel Co., Ltd.
+            © {year} สงวนลิขสิทธิ์ {COMPANY_TH} · South Steel Co., Ltd. ·{" "}
+            <Link href="/privacy" style={{ color: "inherit", textDecoration: "underline" }}>
+              นโยบายความเป็นส่วนตัว
+            </Link>
           </div>
           <div className="num">HAT YAI · SONGKHLA · THAILAND</div>
         </div>

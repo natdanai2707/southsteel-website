@@ -68,7 +68,7 @@ export const BRANCHES: Branch[] = [
       { num: "095-086-1777", tel: "0950861777", label: "มือถือ" },
     ],
     img: "/images/branch-30m.webp",
-    mapsUrl: "https://maps.google.com/?q=45+ถ.ราษฎร์ยินดี+หาดใหญ่+สงขลา",
+    mapsUrl: "https://maps.app.goo.gl/6xUTiAJbnVrMoicz8",
     reviewCount: 64,
   },
   {
@@ -86,7 +86,7 @@ export const BRANCHES: Branch[] = [
       { num: "086-488-2285", tel: "0864882285", label: "มือถือ" },
     ],
     img: "/images/branch-klongwa.webp",
-    mapsUrl: "https://maps.google.com/?q=272+ถ.กาญจนวนิช+คอหงส์+หาดใหญ่+สงขลา",
+    mapsUrl: "https://maps.app.goo.gl/F87FkhKPbHrLzgJo9",
     reviewCount: 10,
   },
 ];

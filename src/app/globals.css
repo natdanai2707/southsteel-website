@@ -836,3 +836,31 @@ a { color: inherit; cursor: pointer; }
   overflow: hidden;
 }
 .map-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---------- Cookie consent ---------- */
+.cookie-bar {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 95;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(1, 43, 59, 0.22);
+}
+.cookie-bar p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink); flex: 1; }
+.cookie-bar a { color: var(--navy); text-decoration: underline; }
+.cookie-bar__actions { display: flex; gap: 8px; flex-shrink: 0; }
+.cookie-bar .btn { padding: 9px 18px; font-size: 14px; min-height: 40px; }
+.cookie-bar .btn--ghost-dark { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+@media (max-width: 767px) {
+  .cookie-bar { flex-direction: column; align-items: stretch; bottom: 66px; left: 10px; right: 10px; }
+  .cookie-bar__actions > .btn { flex: 1; justify-content: center; }
+}
