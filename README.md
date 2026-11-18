@@ -28,7 +28,7 @@ src/
 │   ├── services|about|contact/
 │   ├── sitemap.ts robots.ts  ← สร้าง sitemap.xml / robots.txt อัตโนมัติ
 │   └── globals.css           ← design system ทั้งเว็บ (สี, ปุ่ม, การ์ด, responsive)
-├── components/               ← Nav, Footer, ContactForm, Analytics, FloatingCta ฯลฯ
+├── components/               ← Nav, Footer, Analytics, FloatingCta ฯลฯ
 └── lib/
     ├── site.ts               ← ⭐ เบอร์โทร ที่อยู่ Line URL — แก้ที่นี่ที่เดียว
     ├── products.ts           ← ⭐ ข้อมูลสินค้าทั้งหมด
@@ -85,22 +85,16 @@ src/
 |---|---|---|
 | `phone_click` | กดลิงก์ `tel:` ใด ๆ | `phone_number`, `page_path` |
 | `line_click` | กดลิงก์ line.me ใด ๆ | `line_url`, `page_path` |
-| `form_submit` | ส่งฟอร์มติดต่อสำเร็จ | `form_location`, `job_type` |
 | `product_view` | เปิดหน้า `/products/[slug]` | `product_name`, `product_category` |
 | `blog_view` | เปิดหน้า `/blog/[slug]` | `article_title` |
 | `catalog_download` | กดลิงก์ไฟล์ `.pdf` | `file_name` |
 | `page_view` | เปลี่ยนหน้าแบบ SPA | `page_path` |
 
-Facebook Pixel ยิง `PageView` ทุกหน้า และ `Lead` เมื่อส่งฟอร์ม/กดโทร/กด Line
+Facebook Pixel ยิง `PageView` ทุกหน้า และ `Lead` เมื่อกดโทร/กด Line
 
-## ฟอร์มติดต่อ (Netlify Forms)
+## ช่องทางติดต่อ
 
-ฟอร์มหน้า `/contact` ส่งผ่าน **Netlify Forms** — ครั้งแรกต้องเปิดใช้:
-
-1. Netlify → Site configuration → **Forms** → Enable form detection → Deploy ใหม่
-2. ข้อความที่ส่งเข้า จะอยู่ที่แท็บ **Forms** ของ Netlify (ฟอร์มชื่อ `contact`)
-3. ตั้ง email แจ้งเตือน: Forms → Form notifications → Add notification
-4. ทดสอบส่งฟอร์มจริงหลัง deploy หนึ่งครั้งเสมอ
+เว็บไม่มีฟอร์มติดต่อ (เอาออกเมื่อ พ.ย. 2569) ลูกค้าติดต่อผ่าน Line @southsteel และโทรศัพท์เท่านั้น
 
 ## Search Console
 

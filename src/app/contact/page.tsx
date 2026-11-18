@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
-import ContactForm from "@/components/ContactForm";
 import { IconPhone, IconLine } from "@/components/Icons";
 import {
   BRANCHES,
@@ -19,11 +18,11 @@ import {
 export const metadata: Metadata = {
   title: "ติดต่อเรา ร้านเหล็กหาดใหญ่ โทร 074-356-643",
   description:
-    "ติดต่อเหล็กใต้ ร้านเหล็กหาดใหญ่ 2 สาขา สอบถามราคาเหล็ก งานตัดเลเซอร์ ตัด–พับ ทางโทรศัพท์ Line @southsteel หรือกรอกฟอร์ม ตอบกลับภายใน 24 ชั่วโมง",
+    "ติดต่อเหล็กใต้ ร้านเหล็กหาดใหญ่ 2 สาขา สอบถามราคาเหล็ก งานตัดเลเซอร์ ตัด–พับ ทางโทรศัพท์ และ Line @southsteel ตอบกลับภายใน 24 ชั่วโมง",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "ติดต่อเรา | เหล็กใต้ ร้านเหล็กหาดใหญ่",
-    description: "สอบถามราคาเหล็กและงานตัดเลเซอร์ ทางโทร Line @southsteel หรือฟอร์ม ตอบภายใน 24 ชม.",
+    description: "สอบถามราคาเหล็กและงานตัดเลเซอร์ ทางโทรและ Line @southsteel ตอบภายใน 24 ชม.",
     url: "/contact",
   },
 };
@@ -42,36 +41,16 @@ export default function ContactPage() {
         crumbs={[{ label: "หน้าแรก", href: "/" }, { label: "ติดต่อเรา" }]}
       />
 
-      {/* Form + channels */}
+      {/* Line-first + channels */}
       <section className="section--tight section">
         <div className="container">
           <div className="grid-2" style={{ gap: 48, alignItems: "start" }}>
             <div>
-              <span className="eyebrow">ส่งข้อความหาเรา</span>
-              <h2 style={{ fontSize: 26, marginBottom: 8 }}>ขอใบเสนอราคา / สอบถาม</h2>
+              <span className="eyebrow">ขอใบเสนอราคา</span>
+              <h2 style={{ fontSize: 26, marginBottom: 8 }}>ส่งรายการเหล็กทาง Line เร็วที่สุด</h2>
               <p style={{ color: "var(--gray)", marginBottom: 24 }}>
-                กรอกรายละเอียดด้านล่าง ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง
+                ทักไลน์ {LINE_ID} แล้วส่งรายละเอียดมาได้เลย ทีมงานตอบกลับภายใน 24 ชั่วโมง
               </p>
-              <ContactForm formLocation="contact_page" />
-            </div>
-
-            <div>
-              <span className="eyebrow">ช่องทางด่วน</span>
-              <h2 style={{ fontSize: 26, marginBottom: 24 }}>คุยกับเราโดยตรง</h2>
-
-              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 32 }}>
-                <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--line btn--lg">
-                  <IconLine size={18} />
-                  Line: {LINE_ID}
-                </a>
-                {hotlines.map((h) => (
-                  <a key={h.phone.tel} href={`tel:${h.phone.tel}`} className="btn btn--outline-dark btn--lg">
-                    <IconPhone size={18} />
-                    {h.label}: <span className="num">{h.phone.display}</span>
-                  </a>
-                ))}
-              </div>
-
               <div
                 className="card"
                 style={{ padding: 24, marginBottom: 32, display: "flex", gap: 20, alignItems: "center", flexWrap: "wrap" }}
@@ -92,6 +71,34 @@ export default function ContactPage() {
                     ทีมงานตอบภายใน 24 ชั่วโมง
                   </p>
                 </div>
+              </div>
+
+              <div className="card" style={{ padding: 24 }}>
+                <h3 style={{ fontSize: 18, marginBottom: 12 }}>ส่งข้อมูลอะไรมาบ้าง</h3>
+                <ul style={{ margin: 0, paddingLeft: 20, fontSize: 15, lineHeight: 1.9 }}>
+                  <li>ชนิดและขนาดเหล็ก เช่น เหล็กกล่อง 2×2 นิ้ว หนา 2.3 มม.</li>
+                  <li>จำนวนที่ต้องการ</li>
+                  <li>สถานที่ส่ง หรือรับเองที่สาขา</li>
+                  <li>งานตัดเลเซอร์ / ตัด–พับ: แนบไฟล์แบบ DXF, PDF หรือรูปถ่ายแบบ</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <span className="eyebrow">ช่องทางด่วน</span>
+              <h2 style={{ fontSize: 26, marginBottom: 24 }}>คุยกับเราโดยตรง</h2>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 32 }}>
+                <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--line btn--lg">
+                  <IconLine size={18} />
+                  Line: {LINE_ID}
+                </a>
+                {hotlines.map((h) => (
+                  <a key={h.phone.tel} href={`tel:${h.phone.tel}`} className="btn btn--outline-dark btn--lg">
+                    <IconPhone size={18} />
+                    {h.label}: <span className="num">{h.phone.display}</span>
+                  </a>
+                ))}
               </div>
 
               <div className="card" style={{ padding: 24 }}>
