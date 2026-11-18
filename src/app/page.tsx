@@ -225,7 +225,7 @@ export default function HomePage() {
           </div>
           <div style={{ textAlign: "center", marginTop: 40 }}>
             <Link href="/products" className="btn btn--outline-dark">
-              ดูสินค้าทั้งหมด 13 รายการ →
+              ดูสินค้าทั้งหมด {PRODUCTS.length} รายการ →
             </Link>
           </div>
         </div>
