@@ -10,7 +10,7 @@ import ViewTracker from "@/components/ViewTracker";
 import { IconPhone, IconLine } from "@/components/Icons";
 import { PRODUCTS, getProduct } from "@/lib/products";
 import JsonLd from "@/components/JsonLd";
-import { LINE_URL, PHONE_MAIN, SITE_URL, COMPANY_TH } from "@/lib/site";
+import { lineMessageUrl, PHONE_MAIN, SITE_URL, COMPANY_TH } from "@/lib/site";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -171,7 +171,16 @@ export default async function ProductPage({ params }: Props) {
                     <IconPhone size={16} />
                     โทร <span className="num">{PHONE_MAIN.display}</span>
                   </a>
-                  <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--line">
+                  <a
+                    href={lineMessageUrl(
+                      product.categoryEn === "service"
+                        ? `สนใจ${product.nameTh} ขอใบเสนอราคาครับ (จากเว็บ)`
+                        : `สนใจ${product.nameTh} ขอราคาวันนี้ครับ (จากเว็บ)`,
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn--line"
+                  >
                     <IconLine size={16} />
                     สอบถามผ่าน Line
                   </a>
