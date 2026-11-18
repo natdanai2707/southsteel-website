@@ -4,3 +4,26 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+# ---------- Security headers (ทุกหน้า) ----------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# ---------- Cache ----------
+# ไฟล์ของ Next ใส่ hash ในชื่อไฟล์ จึง cache ยาวได้
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# รูปไม่มี hash ในชื่อ — cache 7 วัน
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

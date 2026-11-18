@@ -1,3 +1,4 @@
+import { YEARS_IN_BUSINESS } from "@/lib/site";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -40,7 +41,7 @@ export default function Footer() {
               />
             </Link>
             <p>
-              ร้านเหล็กหาดใหญ่ 38 ปี ศูนย์รวมเหล็กรูปพรรณ เหล็กเส้น เหล็กแผ่น
+              ร้านเหล็กหาดใหญ่ {YEARS_IN_BUSINESS} ปี ศูนย์รวมเหล็กรูปพรรณ เหล็กเส้น เหล็กแผ่น
               มาตรฐาน มอก. พร้อมบริการตัดเลเซอร์ CNC ตัด–พับ และจัดส่งทั่วไทย
             </p>
             <a

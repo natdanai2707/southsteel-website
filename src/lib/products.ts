@@ -37,7 +37,7 @@ export const PRODUCTS: Product[] = [
     category: "เหล็กโครงสร้างรีดร้อน",
     categoryEn: "structural",
     mok: "มอก. 1227-2558",
-    image: "/images/h-beam.jpg",
+    image: "/images/h-beam.webp",
     imageAlt: "เหล็กเอชบีม H-Beam สำหรับงานโครงสร้าง จำหน่ายที่ร้านเหล็กใต้ หาดใหญ่",
     short: "เหล็กโครงสร้างหน้าตัดรูปตัว H รับน้ำหนักสูง สำหรับเสาและคานอาคาร มาตรฐาน มอก.",
     intro: [
@@ -74,7 +74,7 @@ export const PRODUCTS: Product[] = [
     category: "เหล็กโครงสร้างรีดร้อน",
     categoryEn: "structural",
     mok: "มอก. 1227-2558",
-    image: "/images/i-beam.jpg",
+    image: "/images/i-beam.webp",
     imageAlt: "เหล็กไอบีม I-Beam มาตรฐาน มอก. จำหน่ายที่ร้านเหล็กใต้ หาดใหญ่",
     short: "เหล็กหน้าตัดรูปตัว I ปีกลาดเอียง เหมาะกับคานรับแรงดัดและรางเครน",
     intro: [
@@ -107,7 +107,7 @@ export const PRODUCTS: Product[] = [
     category: "เหล็กโครงสร้างรีดร้อน",
     categoryEn: "structural",
     mok: "มอก. 1227-2558",
-    image: "/images/angle-bar.jpg",
+    image: "/images/angle-bar.webp",
     imageAlt: "เหล็กฉากขาเท่ากัน จำหน่ายปลีกส่งที่ร้านเหล็กใต้ หาดใหญ่ สงขลา",
     short: "เหล็กหน้าตัดรูปตัว L ใช้งานได้หลากหลายที่สุด ทั้งโครงถัก เสารั้ว งานประกอบทั่วไป",
     intro: [
@@ -142,7 +142,7 @@ export const PRODUCTS: Product[] = [
     category: "เหล็กโครงสร้างรีดร้อน",
     categoryEn: "structural",
     mok: "มอก. 1227-2558",
-    image: "/images/channel-bar.jpg",
+    image: "/images/channel-bar.webp",
     imageAlt: "เหล็กรางน้ำ Channel จำหน่ายที่ร้านเหล็กใต้ หาดใหญ่",
     short: "เหล็กหน้าตัดรูปตัว U รีดร้อน สำหรับคานซอย โครงบันได และแชสซีรถบรรทุก",
     intro: [
@@ -175,7 +175,7 @@ export const PRODUCTS: Product[] = [
     category: "เหล็กรีดเย็นและท่อ",
     categoryEn: "cold-formed",
     mok: "มอก. 107-2533",
-    image: "/images/square-pipe.jpg",
+    image: "/images/square-pipe.webp",
     imageAlt: "เหล็กกล่องเหลี่ยมและกล่องแบน จำหน่ายที่ร้านเหล็กใต้ หาดใหญ่",
     short: "เหล็กกล่องเหลี่ยม–กล่องแบนครบทุกขนาด สำหรับโครงหลังคา ประตูรั้ว และงานเฟอร์นิเจอร์",
     intro: [
@@ -210,7 +210,7 @@ export const PRODUCTS: Product[] = [
     category: "เหล็กรีดเย็นและท่อ",
     categoryEn: "cold-formed",
     mok: "มอก. 1228-2561",
-    image: "/images/c-purlin.jpg",
+    image: "/images/c-purlin.webp",
     imageAlt: "เหล็กตัวซี แปหลังคา จำหน่ายที่ร้านเหล็กใต้ หาดใหญ่",
     short: "แปหลังคายอดนิยม น้ำหนักเบา ติดตั้งเร็ว มาตรฐาน มอก. 1228-2561",
     intro: [
@@ -243,7 +243,7 @@ export const PRODUCTS: Product[] = [
     category: "เหล็กเส้นก่อสร้าง",
     categoryEn: "rebar",
     mok: "มอก. 24-2559",
-    image: "/images/rebar.jpg",
+    image: "/images/rebar.webp",
     imageAlt: "เหล็กข้ออ้อยมาตรฐาน มอก. จำหน่ายที่ร้านเหล็กใต้ หาดใหญ่",
     short: "เหล็กเสริมคอนกรีตแบบมีบั้ง SD40/SD50 มาตรฐาน มอก. 24-2559 ตัวจริงงานโครงสร้าง",
     intro: [
@@ -277,7 +277,7 @@ export const PRODUCTS: Product[] = [
     category: "เหล็กเส้นก่อสร้าง",
     categoryEn: "rebar",
     mok: "มอก. 20-2559",
-    image: "/images/round-bar-rb.jpg",
+    image: "/images/round-bar-rb.webp",
     imageAlt: "เหล็กเส้นกลม RB มาตรฐาน มอก. จำหน่ายที่ร้านเหล็กใต้ หาดใหญ่",
     short: "เหล็กเส้นกลมผิวเรียบ SR24 สำหรับเหล็กปลอก งานก่ออิฐ และงานทั่วไป",
     intro: [
@@ -311,7 +311,7 @@ export const PRODUCTS: Product[] = [
     category: "เหล็กแผ่นและสแตนเลส",
     categoryEn: "plate",
     mok: "มอก. 1479-2558",
-    image: "/images/steel-plate.jpg",
+    image: "/images/steel-plate.webp",
     imageAlt: "เหล็กแผ่นดำ เหล็กแผ่นลาย จำหน่ายพร้อมบริการตัดที่ร้านเหล็กใต้ หาดใหญ่",
     short: "เหล็กแผ่นดำ แผ่นลาย แผ่นรีดเย็น ครบทุกความหนา พร้อมบริการตัดเลเซอร์ตามแบบ",
     intro: [
@@ -343,7 +343,7 @@ export const PRODUCTS: Product[] = [
     nameEn: "Stainless Steel 304",
     category: "เหล็กแผ่นและสแตนเลส",
     categoryEn: "plate",
-    image: "/images/stainless.jpg",
+    image: "/images/stainless.webp",
     imageAlt: "สแตนเลส 304 แผ่นและท่อ จำหน่ายที่ร้านเหล็กใต้ หาดใหญ่",
     short: "สแตนเลสเกรดแท้ 304 ทั้งแผ่นและท่อ ไม่เป็นสนิม เหมาะงานอาหารและงานตกแต่ง",
     intro: [
@@ -375,7 +375,7 @@ export const PRODUCTS: Product[] = [
     category: "เหล็กรีดเย็นและท่อ",
     categoryEn: "cold-formed",
     mok: "มอก. 277-2553",
-    image: "/images/galvanized.jpg",
+    image: "/images/galvanized.webp",
     imageAlt: "ท่อและเหล็กกล่องกัลวาไนซ์ชุบซิงค์กันสนิม จำหน่ายที่ร้านเหล็กใต้ หาดใหญ่",
     short: "เหล็กชุบซิงค์กันสนิม ทั้งท่อ กล่อง และแผ่น ไม่ต้องทาสี อายุการใช้งานยาว",
     intro: [
@@ -406,7 +406,7 @@ export const PRODUCTS: Product[] = [
     nameEn: "Laser Cutting Service",
     category: "บริการแปรรูปเหล็ก",
     categoryEn: "service",
-    image: "/images/laser-cutting.jpg",
+    image: "/images/laser-cutting.webp",
     imageAlt: "เครื่องตัดเลเซอร์ไฟเบอร์ CNC 6000 วัตต์ ที่ร้านเหล็กใต้ หาดใหญ่",
     short: "ตัดเลเซอร์ไฟเบอร์ 6,000W ความแม่นยำ ±0.1 มม. ส่งแบบ DXF/DWG ตัดได้เลย",
     intro: [
@@ -440,7 +440,7 @@ export const PRODUCTS: Product[] = [
     nameEn: "Press Brake Bending Service",
     category: "บริการแปรรูปเหล็ก",
     categoryEn: "service",
-    image: "/images/bending.jpg",
+    image: "/images/bending.webp",
     imageAlt: "เครื่องพับเหล็ก CNC Press Brake 160 ตัน ที่ร้านเหล็กใต้ หาดใหญ่",
     short: "พับเหล็ก–สแตนเลสด้วย CNC Press Brake 160 ตัน ยาวสุด 3 เมตร มุมแม่น ±0.5°",
     intro: [

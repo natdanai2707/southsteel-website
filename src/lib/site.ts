@@ -1,7 +1,15 @@
 // ข้อมูลกลางของเว็บไซต์ — แก้เบอร์โทร ที่อยู่ ลิงก์โซเชียล ได้ที่ไฟล์นี้ไฟล์เดียว
 
 export const SITE_URL = "https://southsteel-th.com";
-export const SITE_NAME = "เหล็กใต้ ร้านเหล็กหาดใหญ่ 38 ปี";
+// ปีก่อตั้ง — ตัวเลข "กี่ปี" ทั้งเว็บคำนวณจากค่านี้ตอน build ไม่ต้องแก้มือทุกปี
+export const FOUNDED_YEAR_BE = 2531; // ก่อตั้ง บริษัท เหล็กใต้ จำกัด ที่หาดใหญ่
+export const FAMILY_SINCE_BE = 2487; // ร้าน "กวงหลี" สุราษฎร์ธานี
+export const YEARS_IN_BUSINESS = new Date().getFullYear() + 543 - FOUNDED_YEAR_BE;
+export const HERITAGE_LINE = `ร้านเหล็กคู่หาดใหญ่ตั้งแต่ พ.ศ. ${FOUNDED_YEAR_BE} · ครอบครัวค้าเหล็กตั้งแต่ พ.ศ. ${FAMILY_SINCE_BE}`;
+// วันที่แก้เนื้อหาหน้าหลัก/สินค้าล่าสุด — ใช้เป็น lastmod ใน sitemap (แก้เมื่อเนื้อหาเปลี่ยนจริง)
+export const CONTENT_UPDATED = "2026-11-18";
+
+export const SITE_NAME = `เหล็กใต้ ร้านเหล็กหาดใหญ่ ${YEARS_IN_BUSINESS} ปี`;
 export const COMPANY_TH = "บริษัท เหล็กใต้ จำกัด";
 export const COMPANY_EN = "South Steel Co., Ltd.";
 
@@ -56,7 +64,7 @@ export const BRANCHES: Branch[] = [
       { num: "086-488-4450", tel: "0864884450", label: "มือถือ" },
       { num: "095-086-1777", tel: "0950861777", label: "มือถือ" },
     ],
-    img: "/images/branch-30m.jpg",
+    img: "/images/branch-30m.webp",
     mapsUrl: "https://maps.google.com/?q=45+ถ.ราษฎร์ยินดี+หาดใหญ่+สงขลา",
     reviewCount: 64,
   },
@@ -74,7 +82,7 @@ export const BRANCHES: Branch[] = [
       { num: "074-819-777", tel: "074819777", label: "สำนักงาน" },
       { num: "086-488-2285", tel: "0864882285", label: "มือถือ" },
     ],
-    img: "/images/branch-klongwa.jpg",
+    img: "/images/branch-klongwa.webp",
     mapsUrl: "https://maps.google.com/?q=272+ถ.กาญจนวนิช+คอหงส์+หาดใหญ่+สงขลา",
     reviewCount: 10,
   },

@@ -91,7 +91,7 @@ export default function PartnersPage() {
             <div className="card" style={{ overflow: "hidden" }}>
               <div style={{ position: "relative", aspectRatio: "4/3" }}>
                 <Image
-                  src="/images/laser-welding.jpg"
+                  src="/images/laser-welding.webp"
                   alt="งานผลิตและประกอบโครงสร้างเหล็กของ บริษัท เอส-2000 สตีล แฟบริเคท จำกัด"
                   fill
                   sizes="(max-width: 767px) 100vw, 50vw"

@@ -1,13 +1,13 @@
 import type { MetadataRoute } from "next";
 import { PRODUCTS } from "@/lib/products";
 import { ARTICLES } from "@/lib/blog";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, CONTENT_UPDATED } from "@/lib/site";
 
 export const dynamic = "force-static";
 
 // sitemap.xml สร้างอัตโนมัติ — สินค้าและบทความใหม่ถูกรวมให้เองเมื่อ build
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const now = new Date(CONTENT_UPDATED);
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
