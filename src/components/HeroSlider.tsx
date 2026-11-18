@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 
 // สไลด์พื้นหลัง hero — โหลดเฉพาะรูปแรกทันที รูปถัดไปโหลดเมื่อถึงคิวแสดง
 const slides = [
-  { src: "/images/hero-store.jpg", alt: "คลังเหล็กรูปพรรณของร้านเหล็กใต้ สาขาหาดใหญ่" },
-  { src: "/images/hero-store2.jpg", alt: "สต็อกเหล็กครบทุกประเภทภายในร้านเหล็กใต้ หาดใหญ่" },
-  { src: "/images/hero-store3.jpg", alt: "หน้าร้านเหล็กใต้ ศูนย์จำหน่ายเหล็กหาดใหญ่" },
+  { src: "/images/hero-store.webp", alt: "คลังเหล็กรูปพรรณของร้านเหล็กใต้ สาขาหาดใหญ่" },
+  { src: "/images/hero-store2.webp", alt: "สต็อกเหล็กครบทุกประเภทภายในร้านเหล็กใต้ หาดใหญ่" },
+  { src: "/images/hero-store3.webp", alt: "หน้าร้านเหล็กใต้ ศูนย์จำหน่ายเหล็กหาดใหญ่" },
 ];
 
 export default function HeroSlider() {

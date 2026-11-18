@@ -1,3 +1,4 @@
+import { YEARS_IN_BUSINESS } from "@/lib/site";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,6 +17,7 @@ import {
   BRANCHES,
   LINE_URL,
   FACEBOOK_URL,
+  EMAIL,
   PHONE_MAIN,
   OPENING_HOURS_SCHEMA,
   TOTAL_REVIEWS,
@@ -23,13 +25,13 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "ร้านเหล็กหาดใหญ่ เหล็กรูปพรรณ ตัดเลเซอร์ CNC | เหล็กใต้ 38 ปี",
+    absolute: `ร้านเหล็กหาดใหญ่ เหล็กรูปพรรณ ตัดเลเซอร์ CNC | เหล็กใต้ ${YEARS_IN_BUSINESS} ปี`,
   },
   description:
-    "เหล็กใต้ ร้านเหล็กหาดใหญ่ 38 ปี จำหน่ายเหล็กรูปพรรณ เหล็กกล่อง เหล็กฉาก เหล็กเส้น เหล็กแผ่น มอก. บริการตัดเลเซอร์ CNC พับเหล็ก ราคาส่ง 2 สาขา ส่งทั่วไทย",
+    `เหล็กใต้ ร้านเหล็กหาดใหญ่ ${YEARS_IN_BUSINESS} ปี จำหน่ายเหล็กรูปพรรณ เหล็กกล่อง เหล็กฉาก เหล็กเส้น เหล็กแผ่น มอก. บริการตัดเลเซอร์ CNC พับเหล็ก ราคาส่ง 2 สาขา ส่งทั่วไทย`,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "ร้านเหล็กหาดใหญ่ เหล็กรูปพรรณ ตัดเลเซอร์ CNC | เหล็กใต้ 38 ปี",
+    title: `ร้านเหล็กหาดใหญ่ เหล็กรูปพรรณ ตัดเลเซอร์ CNC | เหล็กใต้ ${YEARS_IN_BUSINESS} ปี`,
     description:
       "จำหน่ายเหล็กครบวงจร มาตรฐาน มอก. บริการตัดเลเซอร์ CNC พับเหล็ก ราคาส่ง 2 สาขาในหาดใหญ่ ส่งทั่วไทย",
     url: "/",
@@ -85,13 +87,37 @@ const timeline = [
 // LocalBusiness schema — แยกเป็น 2 สาขา ใต้ @graph เดียวกัน
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@graph": BRANCHES.map((b, i) => ({
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: COMPANY_TH,
+      alternateName: [COMPANY_EN, "เหล็กใต้", "South Steel"],
+      url: SITE_URL,
+      logo: `${SITE_URL}/images/logo.png`,
+      foundingDate: "1988",
+      foundingLocation: "หาดใหญ่ สงขลา",
+      email: EMAIL,
+      telephone: PHONE_MAIN.display,
+      areaServed: ["หาดใหญ่", "สงขลา", "สตูล", "พัทลุง", "ปัตตานี", "ยะลา", "นราธิวาส", "ตรัง", "ประเทศไทย"],
+      sameAs: [FACEBOOK_URL, LINE_URL],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: COMPANY_TH,
+      inLanguage: "th-TH",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+    },
+    ...BRANCHES.map((b, i) => ({
     "@type": "LocalBusiness",
+    parentOrganization: { "@id": `${SITE_URL}/#organization` },
     "@id": `${SITE_URL}/#branch-${b.id}`,
     name: i === 0 ? COMPANY_TH : `${COMPANY_TH} (${b.name})`,
     alternateName: COMPANY_EN,
     description:
-      "ร้านเหล็กหาดใหญ่ เปิดมากว่า 38 ปี จำหน่ายเหล็กรูปพรรณ เหล็กเส้น เหล็กแผ่น สแตนเลส มาตรฐาน มอก. พร้อมบริการตัดเลเซอร์ CNC ตัด–พับเหล็ก และจัดส่งทั่วประเทศ",
+      `ร้านเหล็กหาดใหญ่ เปิดมากว่า ${YEARS_IN_BUSINESS} ปี จำหน่ายเหล็กรูปพรรณ เหล็กเส้น เหล็กแผ่น สแตนเลส มาตรฐาน มอก. พร้อมบริการตัดเลเซอร์ CNC ตัด–พับเหล็ก และจัดส่งทั่วประเทศ`,
     url: SITE_URL,
     image: `${SITE_URL}/images/og-image.jpg`,
     telephone: b.phones.map((p) => p.num),
@@ -113,6 +139,7 @@ const localBusinessSchema = {
     hasMap: b.mapsUrl,
     sameAs: [FACEBOOK_URL, LINE_URL],
   })),
+  ],
 };
 
 const homeFaqSchema = {
@@ -149,7 +176,7 @@ export default function HomePage() {
           </h1>
           <p className="hero-sub">
             จำหน่ายเหล็กทุกชนิด ปลีก–ส่ง ราคาโรงงาน พร้อมบริการตัดเลเซอร์ พับเหล็ก
-            และจัดส่งถึงไซต์งานทั่วประเทศ ดูแลโดยทีมงานประสบการณ์กว่า 38 ปี
+            และจัดส่งถึงไซต์งานทั่วประเทศ ดูแลโดยทีมงานประสบการณ์กว่า {YEARS_IN_BUSINESS} ปี
           </p>
           <div className="hero-ctas">
             <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--primary btn--lg">
@@ -167,7 +194,7 @@ export default function HomePage() {
       <section className="usp-band" aria-label="จุดเด่นของเหล็กใต้">
         <div className="usp-band-inner">
           {[
-            ["38 ปี", "ประสบการณ์ค้าเหล็ก"],
+            [`${YEARS_IN_BUSINESS} ปี`, "ประสบการณ์ค้าเหล็ก"],
             ["2 สาขา", "ในหาดใหญ่ สงขลา"],
             ["Laser CNC", "ตัดแม่นยำ ±0.1 มม."],
             ["ส่งทั่วไทย", "จัดส่งไวถึงหน้างาน"],
@@ -243,7 +270,7 @@ export default function HomePage() {
           <div className="grid-2" style={{ gap: 64, alignItems: "start" }}>
             <div>
               <span className="eyebrow">เรื่องราวของเรา</span>
-              <h2>จากรุ่นสู่รุ่น กว่า 38 ปีในหาดใหญ่</h2>
+              <h2>จากรุ่นสู่รุ่น กว่า {YEARS_IN_BUSINESS} ปีในหาดใหญ่</h2>
               <p style={{ color: "var(--gray)", fontSize: 17, marginTop: 16 }}>
                 เริ่มต้นจากร้าน &ldquo;กวงหลี&rdquo; ที่สุราษฎร์ธานีตั้งแต่ พ.ศ. 2487
                 สู่ บริษัท เหล็กใต้ จำกัด ที่หาดใหญ่ในปี 2531 วันนี้เราส่งต่อความไว้วางใจ

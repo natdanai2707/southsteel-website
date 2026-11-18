@@ -1,3 +1,4 @@
+import { YEARS_IN_BUSINESS } from "@/lib/site";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -8,7 +9,8 @@ import ProductCard from "@/components/ProductCard";
 import ViewTracker from "@/components/ViewTracker";
 import { IconPhone, IconLine } from "@/components/Icons";
 import { PRODUCTS, getProduct } from "@/lib/products";
-import { LINE_URL, PHONE_MAIN } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { LINE_URL, PHONE_MAIN, SITE_URL, COMPANY_TH } from "@/lib/site";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -23,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = getProduct(slug);
   if (!product) return {};
   const title = `${product.nameTh} หาดใหญ่ ราคาส่ง`;
-  const description = `${product.short} ซื้อ${product.nameTh}ที่หาดใหญ่ ราคาส่งจากเหล็กใต้ ร้านเหล็ก 38 ปี พร้อมส่งทั่วไทย`;
+  const description = `${product.short} ซื้อ${product.nameTh}ที่หาดใหญ่ ราคาส่งจากเหล็กใต้ ร้านเหล็ก ${YEARS_IN_BUSINESS} ปี พร้อมส่งทั่วไทย`;
   return {
     title,
     description,
@@ -52,8 +54,26 @@ export default async function ProductPage({ params }: Props) {
   // หนึ่งในสามช่องนี้ จึงเลี่ยง error ด้วยการไม่ประกาศ @type Product
   // โครงสร้างหน้ายังมี BreadcrumbList schema จาก PageHeader อยู่
 
+  // หน้าบริการ (ตัดเลเซอร์ / พับเหล็ก) ประกาศเป็น Service — ไม่ต้องมีราคาเหมือน Product
+  const serviceSchema =
+    product.categoryEn === "service"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: product.nameTh,
+          alternateName: product.nameEn,
+          description: product.short,
+          url: `${SITE_URL}/products/${product.slug}`,
+          image: `${SITE_URL}${product.image}`,
+          serviceType: product.nameEn,
+          provider: { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: COMPANY_TH, url: SITE_URL },
+          areaServed: ["หาดใหญ่", "สงขลา", "ภาคใต้"],
+        }
+      : null;
+
   return (
     <main>
+      {serviceSchema && <JsonLd data={serviceSchema} />}
       <ViewTracker
         event="product_view"
         params={{ product_name: product.nameTh, product_category: product.category }}
@@ -89,7 +109,7 @@ export default async function ProductPage({ params }: Props) {
 
               <h2 style={{ fontSize: 24, margin: "32px 0 16px" }}>ทำไมต้องซื้อที่เหล็กใต้</h2>
               <ul className="check-list">
-                <li>ร้านเหล็กหาดใหญ่ประสบการณ์ 38 ปี มี 2 สาขา สต็อกจริง เช็กของได้ทันที</li>
+                <li>ร้านเหล็กหาดใหญ่ประสบการณ์ {YEARS_IN_BUSINESS} ปี มี 2 สาขา สต็อกจริง เช็กของได้ทันที</li>
                 <li>{product.mok ? `สินค้ามาตรฐาน ${product.mok} พร้อมใบรับรองคุณภาพ` : "สินค้าคุณภาพ ระบุเกรดชัดเจน ตรวจสอบได้ทุกชิ้น"}</li>
                 <li>บริการตัดเลเซอร์ CNC และพับเหล็กครบวงจรในที่เดียว</li>
                 <li>ราคาส่งสำหรับผู้รับเหมาและงานโครงการ พร้อมส่งถึงไซต์งานทั่วไทย</li>

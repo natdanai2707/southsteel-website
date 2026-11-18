@@ -1,3 +1,4 @@
+import { YEARS_IN_BUSINESS } from "@/lib/site";
 import type { Metadata } from "next";
 import Image from "next/image";
 import CTA from "@/components/CTA";
@@ -6,12 +7,12 @@ import { PRODUCTS } from "@/lib/products";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "เกี่ยวกับเรา ร้านเหล็กหาดใหญ่ 38 ปี",
+  title: `เกี่ยวกับเรา ร้านเหล็กหาดใหญ่ ${YEARS_IN_BUSINESS} ปี`,
   description:
     "รู้จักเหล็กใต้ ร้านเหล็กหาดใหญ่ที่เริ่มต้นตั้งแต่ พ.ศ. 2487 สู่ศูนย์จำหน่ายเหล็กครบวงจร 2 สาขา พร้อมบริการตัดเลเซอร์ CNC ส่งต่อความไว้วางใจถึงรุ่นที่สาม",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "เกี่ยวกับเรา | เหล็กใต้ ร้านเหล็กหาดใหญ่ 38 ปี",
+    title: `เกี่ยวกับเรา | เหล็กใต้ ร้านเหล็กหาดใหญ่ ${YEARS_IN_BUSINESS} ปี`,
     description: "จากร้านกวงหลีปี 2487 สู่ศูนย์จำหน่ายเหล็กครบวงจรที่หาดใหญ่ ส่งต่อความไว้วางใจถึงรุ่นที่สาม",
     url: "/about",
   },
@@ -59,7 +60,7 @@ export default function AboutPage() {
   return (
     <main>
       <PageHeader
-        title="ร้านเหล็กหาดใหญ่ 38 ปี จากรุ่นสู่รุ่น"
+        title={`ร้านเหล็กหาดใหญ่ ${YEARS_IN_BUSINESS} ปี จากรุ่นสู่รุ่น`}
         desc="จากร้านเล็ก ๆ ที่สุราษฎร์ธานีในปี พ.ศ. 2487 สู่ศูนย์จำหน่ายเหล็กครบวงจร 2 สาขาที่หาดใหญ่ วันนี้เรากำลังส่งต่อความไว้วางใจสู่รุ่นที่สาม"
         crumbs={[{ label: "หน้าแรก", href: "/" }, { label: "เกี่ยวกับเรา" }]}
       />
@@ -86,7 +87,7 @@ export default function AboutPage() {
             <div className="card" style={{ overflow: "hidden" }}>
               <div style={{ position: "relative", aspectRatio: "4/3" }}>
                 <Image
-                  src="/images/store-interior.jpg"
+                  src="/images/store-interior.webp"
                   alt="ภายในร้านเหล็กใต้ สต็อกเหล็กรูปพรรณครบทุกประเภท หาดใหญ่"
                   fill
                   sizes="(max-width: 767px) 100vw, 50vw"
@@ -103,7 +104,7 @@ export default function AboutPage() {
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">เส้นทางของเรา</span>
-            <h2>กว่า 80 ปีของครอบครัวค้าเหล็ก</h2>
+            <h2>ครอบครัวค้าเหล็กตั้งแต่ พ.ศ. 2487</h2>
           </div>
           <ul className="timeline" style={{ maxWidth: 640 }}>
             {timeline.map((t) => (
@@ -146,7 +147,7 @@ export default function AboutPage() {
         <div className="container">
           <div className="grid-4">
             {[
-              ["38", "ปีในหาดใหญ่"],
+              [String(YEARS_IN_BUSINESS), "ปีในหาดใหญ่"],
               ["3", "รุ่นของครอบครัว"],
               ["2", "สาขาพร้อมบริการ"],
               ["6,000W", "เลเซอร์ไฟเบอร์ CNC"],

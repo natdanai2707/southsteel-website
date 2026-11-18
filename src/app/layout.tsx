@@ -1,3 +1,4 @@
+import { YEARS_IN_BUSINESS } from "@/lib/site";
 import type { Metadata } from "next";
 import { Sarabun, Prompt, Inter } from "next/font/google";
 import "./globals.css";
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "เหล็กใต้ ร้านเหล็กหาดใหญ่ 38 ปี จำหน่ายเหล็กรูปพรรณ เหล็กกล่อง เหล็กฉาก เหล็กแผ่น มาตรฐาน มอก. บริการตัดเลเซอร์ CNC พับเหล็ก ส่งทั่วไทย 2 สาขาในหาดใหญ่ สงขลา",
+    `เหล็กใต้ ร้านเหล็กหาดใหญ่ ${YEARS_IN_BUSINESS} ปี จำหน่ายเหล็กรูปพรรณ เหล็กกล่อง เหล็กฉาก เหล็กแผ่น มาตรฐาน มอก. บริการตัดเลเซอร์ CNC พับเหล็ก ส่งทั่วไทย 2 สาขาในหาดใหญ่ สงขลา`,
   openGraph: {
     type: "website",
     locale: "th_TH",

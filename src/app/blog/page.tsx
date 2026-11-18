@@ -1,3 +1,4 @@
+import { YEARS_IN_BUSINESS } from "@/lib/site";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,11 +9,11 @@ import { ARTICLES } from "@/lib/blog";
 export const metadata: Metadata = {
   title: "บทความความรู้เรื่องเหล็ก",
   description:
-    "รวมบทความความรู้เรื่องเหล็กจากร้านเหล็กหาดใหญ่ 38 ปี วิธีเลือกเหล็ก มาตรฐาน มอก. งานตัดเลเซอร์ CNC และเทคนิคงานช่างที่ใช้ได้จริง",
+    `รวมบทความความรู้เรื่องเหล็กจากร้านเหล็กหาดใหญ่ ${YEARS_IN_BUSINESS} ปี วิธีเลือกเหล็ก มาตรฐาน มอก. งานตัดเลเซอร์ CNC และเทคนิคงานช่างที่ใช้ได้จริง`,
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "บทความความรู้เรื่องเหล็ก | เหล็กใต้ ร้านเหล็กหาดใหญ่",
-    description: "วิธีเลือกเหล็ก มาตรฐาน มอก. งานตัดเลเซอร์ CNC จากประสบการณ์ค้าเหล็ก 38 ปี",
+    description: `วิธีเลือกเหล็ก มาตรฐาน มอก. งานตัดเลเซอร์ CNC จากประสบการณ์ค้าเหล็ก ${YEARS_IN_BUSINESS} ปี`,
     url: "/blog",
   },
 };
@@ -23,7 +24,7 @@ export default function BlogPage() {
     <main>
       <PageHeader
         title="ความรู้เรื่องเหล็ก จากทีมงานเหล็กใต้"
-        desc="บทความจากประสบการณ์ค้าเหล็กกว่า 38 ปีที่หาดใหญ่ ช่วยให้คุณเลือกเหล็กถูกประเภท ถูกมาตรฐาน และคุ้มค่าที่สุด"
+        desc={`บทความจากประสบการณ์ค้าเหล็กกว่า ${YEARS_IN_BUSINESS} ปีที่หาดใหญ่ ช่วยให้คุณเลือกเหล็กถูกประเภท ถูกมาตรฐาน และคุ้มค่าที่สุด`}
         crumbs={[{ label: "หน้าแรก", href: "/" }, { label: "บทความ" }]}
       />
 
