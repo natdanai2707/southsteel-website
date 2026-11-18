@@ -12,20 +12,33 @@ const LINE_TAG_ID = process.env.NEXT_PUBLIC_LINE_TAG_ID;
 /**
  * สคริปต์ tracking ทั้งหมด — render ใน <head>
  * ทุกตัวเปิดใช้งานผ่าน env var เท่านั้น (ดู .env.example)
- * GA4 ไม่ hardcode gtag.js — ให้ตั้งค่า GA4 Configuration tag ใน GTM
- * โดยอ่านค่า measurement id จาก dataLayer variable "ga_measurement_id"
+ * GA4: ถ้ามี GTM_ID ให้ตั้ง GA4 tag ใน GTM (อ่าน id จาก dataLayer "ga_measurement_id")
+ *      ถ้ามีแค่ GA_ID จะโหลด gtag.js ตรง ๆ
+ * ทุก tag อยู่ใต้ Consent Mode v2 — ค่าเริ่มต้น "ปฏิเสธ" จนกว่าผู้ใช้กดยอมรับ (ดู CookieConsent)
  */
 export default function Analytics() {
   return (
     <>
-      {/* dataLayer ต้องถูกสร้างก่อน GTM โหลดเสมอ */}
+      {/* dataLayer + Consent Mode v2: ตั้งค่าเริ่มต้นเป็น "ปฏิเสธ" ก่อน tag ใด ๆ โหลด
+          ถ้าผู้ใช้เคยกดยอมรับไว้ จะอ่านจาก localStorage แล้วอัปเดตทันที */}
       <script
         dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];${
+          __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});try{if(localStorage.getItem('ss_cookie_consent')==='granted'){gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}}catch(e){}${
             GA_ID ? `window.dataLayer.push({ga_measurement_id:'${GA_ID}'});` : ""
           }`,
         }}
       />
+      {/* GA4 แบบตรง — ใช้เมื่อมี GA ID แต่ไม่ได้ใช้ GTM */}
+      {GA_ID && !GTM_ID && (
+        <>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.__gaDirect=true;gtag('js',new Date());gtag('config','${GA_ID}');`,
+            }}
+          />
+        </>
+      )}
       {GTM_ID && (
         <script
           dangerouslySetInnerHTML={{
