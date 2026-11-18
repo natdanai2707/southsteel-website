@@ -29,6 +29,12 @@
 - [เหล็กแผ่น](https://southsteel-th.com/products/steel-plate)
 - [สแตนเลส 304](https://southsteel-th.com/products/stainless-304)
 - [เหล็กกัลวาไนซ์](https://southsteel-th.com/products/galvanized)
+- [เหล็กไวด์แฟลงจ์ (Wide Flange)](https://southsteel-th.com/products/wide-flange)
+- [เหล็กแบน (Flat Bar)](https://southsteel-th.com/products/flat-bar)
+- [ท่อเหล็กกลมดำ (แป๊บกลม)](https://southsteel-th.com/products/round-pipe)
+- [เหล็กแผ่นลาย (Checker Plate)](https://southsteel-th.com/products/checker-plate)
+- [เหล็กเพลาขาว (เพลากลม)](https://southsteel-th.com/products/steel-shaft)
+- [ตะแกรงไวร์เมช (Wire Mesh)](https://southsteel-th.com/products/wire-mesh)
 
 ## บริการ
 
