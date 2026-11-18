@@ -15,6 +15,9 @@ export const COMPANY_EN = "South Steel Co., Ltd.";
 
 export const LINE_URL = "https://line.me/ti/p/@southsteel";
 export const LINE_ID = "@southsteel";
+// ลิงก์เปิดแชท LINE OA พร้อมข้อความตั้งต้น (ลูกค้ากดส่งได้เลย และเรารู้ว่ามาจากหน้าไหน)
+export const lineMessageUrl = (text: string) =>
+  `https://line.me/R/oaMessage/${encodeURIComponent(LINE_ID)}/?${encodeURIComponent(text)}`;
 export const FACEBOOK_URL = "https://facebook.com/southsteelth";
 export const EMAIL = "ss_southsteel@hotmail.com";
 
