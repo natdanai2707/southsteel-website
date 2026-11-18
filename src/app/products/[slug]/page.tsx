@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) return {};
-  const title = `${product.nameTh} หาดใหญ่ ราคาส่ง`;
-  const description = `${product.short} ซื้อ${product.nameTh}ที่หาดใหญ่ ราคาส่งจากเหล็กใต้ ร้านเหล็ก ${YEARS_IN_BUSINESS} ปี พร้อมส่งทั่วไทย`;
+  const title = product.metaTitle ?? `${product.nameTh} หาดใหญ่ ราคาส่ง`;
+  const description = product.metaDescription ?? `${product.short} ซื้อ${product.nameTh}ที่หาดใหญ่ ราคาส่งจากเหล็กใต้ ร้านเหล็ก ${YEARS_IN_BUSINESS} ปี พร้อมส่งทั่วไทย`;
   return {
     title,
     description,
@@ -190,6 +190,24 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {product.gallery && product.gallery.length > 0 && (
+        <section className="section--tight section">
+          <div className="container">
+            <div className="section-head" style={{ marginBottom: 32 }}>
+              <span className="eyebrow">ผลงานจริง</span>
+              <h2 style={{ fontSize: 26 }}>{product.galleryTitle ?? "ตัวอย่างผลงาน"}</h2>
+            </div>
+            <div className="work-gallery">
+              {product.gallery.map((g) => (
+                <div key={g.src} className="work-gallery__item">
+                  <Image src={g.src} alt={g.alt} fill loading="lazy" sizes="(max-width: 767px) 50vw, 33vw" style={{ objectFit: "cover" }} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {related.length > 0 && (
         <section className="section--tight section section--alt">

@@ -27,3 +27,24 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# ---------- รวมโดเมน (T26) ----------
+# Search Console พบหน้าแรกถูก index 3 เวอร์ชัน (https, https://www, http)
+# บังคับทุกเวอร์ชันไปที่ https://southsteel-th.com แบบ 301
+[[redirects]]
+  from = "https://www.southsteel-th.com/*"
+  to = "https://southsteel-th.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.southsteel-th.com/*"
+  to = "https://southsteel-th.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://southsteel-th.com/*"
+  to = "https://southsteel-th.com/:splat"
+  status = 301
+  force = true
