@@ -5,8 +5,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { PRODUCTS } from "@/lib/products";
-import { PHONE_MAIN } from "@/lib/site";
-import { IconPhone } from "@/components/Icons";
+import { LINE_URL, PHONE_MAIN } from "@/lib/site";
+import { IconLine, IconPhone } from "@/components/Icons";
 
 const navItems = [
   { th: "หน้าแรก", href: "/" },
@@ -112,9 +112,13 @@ export default function Nav() {
           </ul>
 
           <div className="nav-cta">
-            <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--primary">
+            <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--outline-dark">
               <IconPhone size={16} />
               <span className="num">{PHONE_MAIN.display}</span>
+            </a>
+            <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--line">
+              <IconLine size={18} />
+              LINE
             </a>
           </div>
 

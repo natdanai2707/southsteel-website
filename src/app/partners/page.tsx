@@ -207,7 +207,7 @@ export default function PartnersPage() {
               </a>
               <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--line">
                 <IconLine size={16} />
-                สอบถามผ่าน Line
+                สอบถามผ่าน LINE
               </a>
             </div>
           </div>

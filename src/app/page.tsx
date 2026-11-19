@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import CTA from "@/components/CTA";
-import HeroSlider from "@/components/HeroSlider";
+import Tw from "@/components/ThaiText";
 import ProductCard from "@/components/ProductCard";
 import JsonLd from "@/components/JsonLd";
-import { IconLaser, IconBend, IconWeld, IconTruck, IconPhone } from "@/components/Icons";
+import { IconPhone } from "@/components/Icons";
 import { PRODUCTS } from "@/lib/products";
 import { ARTICLES } from "@/lib/blog";
 import { FAQS, stripTags } from "@/lib/faq";
@@ -51,26 +51,26 @@ const FEATURED_SLUGS = [
 
 const services = [
   {
-    icon: IconLaser,
+    img: "/images/laser-cutting.webp",
     title: "ตัดเลเซอร์ CNC",
     desc: "ไฟเบอร์เลเซอร์ 6,000W แม่นยำ ±0.1 มม. ตัดเหล็กหนาถึง 25 มม. ส่งไฟล์ DXF/DWG ตัดได้เลย",
     href: "/products/laser-cutting",
     featured: true,
   },
   {
-    icon: IconBend,
+    img: "/images/bending2.webp",
     title: "พับเหล็ก Press Brake",
     desc: "เครื่องพับ CNC 160 ตัน ยาวสุด 3 เมตร รับพับรางน้ำ ตู้เหล็ก ฝาข้างรถบรรทุก งานสแตนเลส",
     href: "/products/press-brake",
   },
   {
-    icon: IconWeld,
+    img: "/images/laser-welding.webp",
     title: "งานเชื่อม",
     desc: "เชื่อม TIG, MIG และเชื่อมเลเซอร์ รอยเชื่อมสะอาด รองรับทั้งงานเหล็กบางและงานหนา",
     href: "/services",
   },
   {
-    icon: IconTruck,
+    img: "/images/delivery/delivery-01.webp",
     title: "จัดส่งถึงไซต์งาน",
     desc: "รถบรรทุกประจำพร้อมส่งทั่วหาดใหญ่ สงขลา และทั่วประเทศ จัดส่งรวดเร็วทันใจ",
     href: "/services",
@@ -162,10 +162,6 @@ export default function HomePage() {
 
       {/* HERO */}
       <section className="hero">
-        <div className="hero-bg">
-          <HeroSlider />
-        </div>
-        <div className="hero-overlay" />
         <div className="hero-content">
           <h1 className="hero-title">
             ร้านเหล็กหาดใหญ่ <em>ครบวงจร</em>
@@ -175,11 +171,10 @@ export default function HomePage() {
             ตัดเลเซอร์ CNC
           </h1>
           <p className="hero-sub">
-            จำหน่ายเหล็กทุกชนิด ปลีก–ส่ง ราคาโรงงาน พร้อมบริการตัดเลเซอร์ พับเหล็ก
-            และจัดส่งถึงไซต์งานทั่วประเทศ ดูแลโดยทีมงานประสบการณ์กว่า {YEARS_IN_BUSINESS} ปี
+            <Tw>{`จำหน่ายเหล็กทุกชนิด ปลีก–ส่ง ราคาโรงงาน พร้อมบริการตัดเลเซอร์ พับเหล็ก และจัดส่งถึงไซต์งานทั่วประเทศ ดูแลโดยทีมงานประสบการณ์กว่า ${YEARS_IN_BUSINESS} ปี`}</Tw>
           </p>
           <div className="hero-ctas">
-            <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--primary btn--lg">
+            <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--white btn--lg">
               <IconPhone size={18} />
               โทรหาเรา
             </a>
@@ -187,6 +182,15 @@ export default function HomePage() {
               ดูสินค้า
             </Link>
           </div>
+        </div>
+        <div className="hero-media">
+          <Image
+            src="/images/hero-store.webp"
+            alt="คลังเหล็กรูปพรรณของร้านเหล็กใต้ สาขาหาดใหญ่"
+            fill
+            priority
+            sizes="(max-width: 991px) 100vw, 50vw"
+          />
         </div>
       </section>
 
@@ -214,8 +218,7 @@ export default function HomePage() {
             <span className="eyebrow">สินค้าของเรา</span>
             <h2>เหล็กรูปพรรณครบทุกประเภท มาตรฐาน มอก.</h2>
             <p>
-              เหล็กโครงสร้าง เหล็กกล่อง เหล็กเส้น เหล็กแผ่น สแตนเลส และวัสดุงานเหล็กครบวงจร
-              สต็อกจริงพร้อมส่งที่หาดใหญ่
+              <Tw>เหล็กโครงสร้าง เหล็กกล่อง เหล็กเส้น เหล็กแผ่น สแตนเลส และวัสดุงานเหล็กครบวงจร สต็อกจริงพร้อมส่งที่หาดใหญ่</Tw>
             </p>
           </div>
           <div className="grid-4">
@@ -236,27 +239,29 @@ export default function HomePage() {
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">บริการของเรา</span>
-            <h2>มากกว่าร้านขายเหล็ก — ตัด พับ เชื่อม ส่ง จบในที่เดียว</h2>
+            <h2>
+              มากกว่าร้านขายเหล็ก — <span className="nb">ตัด พับ เชื่อม ส่ง</span> <span className="nb">จบในที่เดียว</span>
+            </h2>
             <p>
-              จุดต่างของเหล็กใต้คือเครื่องตัดเลเซอร์ไฟเบอร์ CNC ระดับโรงงานอุตสาหกรรม
-              เจ้าแรก ๆ ในหาดใหญ่ ให้คุณสั่งเหล็กพร้อมแปรรูปเสร็จในร้านเดียว
+              <Tw>จุดต่างของเหล็กใต้คือเครื่องตัดเลเซอร์ไฟเบอร์ CNC ระดับโรงงานอุตสาหกรรม เจ้าแรก ๆ ในหาดใหญ่ ให้คุณสั่งเหล็กพร้อมแปรรูปเสร็จในร้านเดียว</Tw>
             </p>
           </div>
-          <div className="grid-2">
+          <div className="grid-4">
             {services.map((s) => (
               <Link
                 key={s.title}
                 href={s.href}
-                className={`service-item${s.featured ? " service-item--featured" : ""}`}
-                style={{ textDecoration: "none", color: "inherit" }}
+                className={`service-card${s.featured ? " service-card--featured" : ""}`}
               >
-                <div className="service-icon">
-                  <s.icon size={30} />
-                </div>
-                <div>
+                <div className="service-card__img">
+                  <Image src={s.img} alt={s.title} fill sizes="(max-width: 639px) 50vw, 25vw" />
                   {s.featured && <span className="badge-featured">บริการเด่น</span>}
+                </div>
+                <div className="service-card__body">
                   <h3>{s.title}</h3>
-                  <p>{s.desc}</p>
+                  <p>
+                    <Tw>{s.desc}</Tw>
+                  </p>
                 </div>
               </Link>
             ))}
@@ -272,10 +277,7 @@ export default function HomePage() {
               <span className="eyebrow">เรื่องราวของเรา</span>
               <h2>จากรุ่นสู่รุ่น กว่า {YEARS_IN_BUSINESS} ปีในหาดใหญ่</h2>
               <p style={{ color: "var(--gray)", fontSize: 17, marginTop: 16 }}>
-                เริ่มต้นจากร้าน &ldquo;กวงหลี&rdquo; ที่สุราษฎร์ธานีตั้งแต่ พ.ศ. 2487
-                สู่ บริษัท เหล็กใต้ จำกัด ที่หาดใหญ่ในปี 2531 วันนี้เราส่งต่อความไว้วางใจ
-                สู่รุ่นที่สาม พร้อมยกระดับบริการด้วยเทคโนโลยี Laser CNC
-                เพื่อเป็นร้านเหล็กคู่เมืองหาดใหญ่ที่ช่างและผู้รับเหมาไว้ใจที่สุด
+                <Tw>{"เริ่มต้นจากร้าน “กวงหลี” ที่สุราษฎร์ธานีตั้งแต่ พ.ศ. 2487 สู่ บริษัท เหล็กใต้ จำกัด ที่หาดใหญ่ในปี 2531 วันนี้เราส่งต่อความไว้วางใจ สู่รุ่นที่สาม พร้อมยกระดับบริการด้วยเทคโนโลยี Laser CNC เพื่อเป็นร้านเหล็กคู่เมืองหาดใหญ่ที่ช่างและผู้รับเหมาไว้ใจที่สุด"}</Tw>
               </p>
               <Link href="/about" className="link-more">
                 อ่านเรื่องราวของเหล็กใต้ →
@@ -302,8 +304,7 @@ export default function HomePage() {
             รีวิวจริงกว่า <span className="num">{TOTAL_REVIEWS}</span> รายการบน Google
           </h2>
           <p style={{ color: "rgba(255,255,255,0.78)", fontSize: 18, margin: "16px auto 32px", maxWidth: 560 }}>
-            ช่าง ผู้รับเหมา และเจ้าของบ้านในหาดใหญ่และทั่วภาคใต้ เลือกใช้บริการเหล็กใต้
-            อ่านรีวิวจากลูกค้าจริงของทั้งสองสาขาได้บน Google
+            <Tw>ช่าง ผู้รับเหมา และเจ้าของบ้านในหาดใหญ่และทั่วภาคใต้ เลือกใช้บริการเหล็กใต้ อ่านรีวิวจากลูกค้าจริงของทั้งสองสาขาได้บน Google</Tw>
           </p>
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
             {BRANCHES.map((b) => (
@@ -312,9 +313,9 @@ export default function HomePage() {
                 href={b.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn--outline-light"
+                className="btn btn--white btn--lg"
               >
-                ★ {b.name} · <span className="num">{b.reviewCount}</span> รีวิว
+                <span style={{ color: "#B45309" }} aria-hidden="true">★</span> {b.name} · <span className="num">{b.reviewCount}</span> รีวิว
               </a>
             ))}
           </div>
@@ -330,7 +331,7 @@ export default function HomePage() {
           </div>
           <div className="grid-2">
             {BRANCHES.map((b) => (
-              <div key={b.id} className="card" style={{ overflow: "hidden" }}>
+              <div key={b.id} className="card branch-card">
                 <div style={{ position: "relative", aspectRatio: "16/8" }}>
                   <Image
                     src={b.img}
@@ -340,15 +341,13 @@ export default function HomePage() {
                     style={{ objectFit: "cover" }}
                   />
                 </div>
-                <div style={{ padding: 24 }}>
-                  <span className="eyebrow" style={{ marginBottom: 4 }}>
-                    {b.badge}
-                  </span>
+                <div className="branch-card__body">
+                  <span className="branch-badge">{b.badge}</span>
                   <h3 style={{ fontSize: 24 }}>{b.name}</h3>
-                  <p style={{ color: "var(--gray)", fontSize: 15, margin: "8px 0 16px" }}>{b.addr}</p>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
-                    {b.phones.map((p) => (
-                      <a key={p.tel} href={`tel:${p.tel}`} className="btn btn--outline-dark" style={{ padding: "8px 16px", fontSize: 14 }}>
+                  <p style={{ color: "var(--gray)", fontSize: 15, margin: 0 }}>{b.addr}</p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                    {b.phones.map((p, i) => (
+                      <a key={p.tel} href={`tel:${p.tel}`} className={`phone-pill${i === 0 ? " phone-pill--main" : ""}`}>
                         <IconPhone size={14} />
                         <span className="num">{p.num}</span>
                       </a>

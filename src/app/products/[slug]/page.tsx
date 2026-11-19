@@ -6,6 +6,7 @@ import Link from "next/link";
 import CTA from "@/components/CTA";
 import PageHeader from "@/components/PageHeader";
 import ProductCard from "@/components/ProductCard";
+import Tw from "@/components/ThaiText";
 import ViewTracker from "@/components/ViewTracker";
 import { IconPhone, IconLine } from "@/components/Icons";
 import { PRODUCTS, getProduct } from "@/lib/products";
@@ -96,12 +97,12 @@ export default async function ProductPage({ params }: Props) {
             <div>
               {product.intro.map((p, i) => (
                 <p key={i} style={{ fontSize: 17, lineHeight: 1.85, color: "#1F2937" }}>
-                  {p}
+                  <Tw>{p}</Tw>
                 </p>
               ))}
 
               <h2 style={{ fontSize: 24, margin: "32px 0 16px" }}>เหมาะกับงานอะไรบ้าง</h2>
-              <ul className="check-list">
+              <ul className="check-list check-list--tiles">
                 {product.uses.map((u) => (
                   <li key={u}>{u}</li>
                 ))}
@@ -116,9 +117,9 @@ export default async function ProductPage({ params }: Props) {
               </ul>
             </div>
 
-            {/* รูป + สเปก + CTA */}
-            <div>
-              <div className="card" style={{ overflow: "hidden", marginBottom: 24 }}>
+            {/* รูป + ราคา + สเปก (เลื่อนตามจอบน desktop) */}
+            <div className="product-side">
+              <div className="card" style={{ overflow: "hidden" }}>
                 <div style={{ position: "relative", aspectRatio: "16/10" }}>
                   {product.mok && <span className="badge-mok">{product.mok}</span>}
                   <Image
@@ -132,7 +133,33 @@ export default async function ProductPage({ params }: Props) {
                 </div>
               </div>
 
-              <h2 style={{ fontSize: 22, marginBottom: 16 }}>{product.specTitle}</h2>
+              <div className="price-card">
+                <h3 style={{ fontSize: 19, marginBottom: 8 }}>เช็กราคาวันนี้</h3>
+                <p style={{ fontSize: 15, color: "var(--gray)", marginBottom: 16 }}>
+                  <Tw>ราคาเหล็กเปลี่ยนตามตลาด ส่งรายการที่ต้องการมาทางไลน์ หรือโทรสอบถาม ทีมงานตอบภายใน 24 ชั่วโมง</Tw>
+                </p>
+                <div className="price-card__actions">
+                  <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--primary">
+                    <IconPhone size={16} />
+                    โทร <span className="num">{PHONE_MAIN.display}</span>
+                  </a>
+                  <a
+                    href={lineMessageUrl(
+                      product.categoryEn === "service"
+                        ? `สนใจ${product.nameTh} ขอใบเสนอราคาครับ (จากเว็บ)`
+                        : `สนใจ${product.nameTh} ขอราคาวันนี้ครับ (จากเว็บ)`,
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn--line"
+                  >
+                    <IconLine size={16} />
+                    สอบถามผ่าน LINE
+                  </a>
+                </div>
+              </div>
+              <div>
+              <h2 style={{ fontSize: 22, marginBottom: 12 }}>{product.specTitle}</h2>
               <div className="table-scroll">
                 <table className="spec-table">
                   <thead>
@@ -157,34 +184,6 @@ export default async function ProductPage({ params }: Props) {
                 <p style={{ fontSize: 14, color: "var(--gray)", marginTop: 12 }}>{product.specNote}</p>
               )}
 
-              <div
-                className="card"
-                style={{ padding: 24, marginTop: 24, borderLeft: "4px solid var(--amber)" }}
-              >
-                <h3 style={{ fontSize: 19, marginBottom: 8 }}>เช็กราคาวันนี้</h3>
-                <p style={{ fontSize: 15, color: "var(--gray)", marginBottom: 16 }}>
-                  ราคาเหล็กเปลี่ยนตามตลาด ส่งรายการที่ต้องการมาทางไลน์
-                  หรือโทรสอบถาม ทีมงานตอบภายใน 24 ชั่วโมง
-                </p>
-                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                  <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--primary">
-                    <IconPhone size={16} />
-                    โทร <span className="num">{PHONE_MAIN.display}</span>
-                  </a>
-                  <a
-                    href={lineMessageUrl(
-                      product.categoryEn === "service"
-                        ? `สนใจ${product.nameTh} ขอใบเสนอราคาครับ (จากเว็บ)`
-                        : `สนใจ${product.nameTh} ขอราคาวันนี้ครับ (จากเว็บ)`,
-                    )}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn--line"
-                  >
-                    <IconLine size={16} />
-                    สอบถามผ่าน Line
-                  </a>
-                </div>
               </div>
             </div>
           </div>
