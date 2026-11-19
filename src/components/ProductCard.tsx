@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Placeholder from "@/components/Placeholder";
 import type { Product } from "@/lib/products";
+import Tw from "@/components/ThaiText";
 
 // การ์ดสินค้า — ขอบบนเป็นสีเหลืองอำพันเมื่อ hover (กำหนดใน globals.css)
 export default function ProductCard({ product }: { product: Product }) {
@@ -12,7 +13,9 @@ export default function ProductCard({ product }: { product: Product }) {
       </div>
       <div className="product-card-body">
         <h3>{product.nameTh}</h3>
-        <p>{product.short}</p>
+        <p>
+          <Tw>{product.short}</Tw>
+        </p>
         <span className="link-more">สอบถามราคา →</span>
       </div>
     </Link>
