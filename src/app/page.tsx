@@ -53,14 +53,14 @@ const services = [
   {
     img: "/images/laser-cutting.webp",
     title: "ตัดเลเซอร์ CNC",
-    desc: "ไฟเบอร์เลเซอร์ 6,000W แม่นยำ ±0.1 มม. ตัดเหล็กหนาถึง 25 มม. ส่งไฟล์ DXF/DWG ตัดได้เลย",
+    desc: "ไฟเบอร์เลเซอร์ 6,000W แม่นยำ ±0.1 มม. ตัดเหล็กหนาถึง 25 มม. ส่งไฟล์ DXF/DWG ตัดได้เลย",
     href: "/products/laser-cutting",
     featured: true,
   },
   {
     img: "/images/bending2.webp",
     title: "พับเหล็ก Press Brake",
-    desc: "เครื่องพับ CNC 160 ตัน ยาวสุด 3 เมตร รับพับรางน้ำ ตู้เหล็ก ฝาข้างรถบรรทุก งานสแตนเลส",
+    desc: "เครื่องพับ CNC 160 ตัน ยาวสุด 3 เมตร รับพับรางน้ำ ตู้เหล็ก ฝาข้างรถบรรทุก งานสแตนเลส",
     href: "/products/press-brake",
   },
   {
@@ -81,10 +81,10 @@ const timeline = [
   { yr: "2487", title: 'ก่อตั้งร้าน "กวงหลี"', sub: "จุดเริ่มต้นของครอบครัว ที่สุราษฎร์ธานี" },
   { yr: "2531", title: "ก่อตั้ง บริษัท เหล็กใต้ จำกัด", sub: "เปิดสาขาแรกที่หาดใหญ่ สงขลา" },
   { yr: "2555", title: "ขยายสาขาคลองหวะ", sub: "รองรับลูกค้าโซนคอหงส์และสนามบิน" },
-  { yr: "2569", title: "ร้านเหล็กคู่เมืองหาดใหญ่", sub: "ครบ 38 ปี พร้อมบริการ Laser CNC ครบวงจร" },
+  { yr: "2569", title: "ร้านเหล็กคู่เมืองหาดใหญ่", sub: "ครบ 38 ปี พร้อมบริการ Laser CNC ครบวงจร" },
 ];
 
-// LocalBusiness schema — แยกเป็น 2 สาขา ใต้ @graph เดียวกัน
+// LocalBusiness schema — แยกเป็น 2 สาขา ใต้ @graph เดียวกัน
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -117,7 +117,7 @@ const localBusinessSchema = {
     name: i === 0 ? COMPANY_TH : `${COMPANY_TH} (${b.name})`,
     alternateName: COMPANY_EN,
     description:
-      `ร้านเหล็กหาดใหญ่ เปิดมากว่า ${YEARS_IN_BUSINESS} ปี จำหน่ายเหล็กรูปพรรณ เหล็กเส้น เหล็กแผ่น สแตนเลส มาตรฐาน มอก. พร้อมบริการตัดเลเซอร์ CNC ตัด–พับเหล็ก และจัดส่งทั่วประเทศ`,
+      `ร้านเหล็กหาดใหญ่ เปิดมากว่า ${YEARS_IN_BUSINESS} ปี จำหน่ายเหล็กรูปพรรณ เหล็กเส้น เหล็กแผ่น สแตนเลส มาตรฐาน มอก. พร้อมบริการตัดเลเซอร์ CNC ตัด–พับเหล็ก และจัดส่งทั่วประเทศ`,
     url: SITE_URL,
     image: `${SITE_URL}/images/og-image.jpg`,
     telephone: b.phones.map((p) => p.num),
@@ -171,7 +171,7 @@ export default function HomePage() {
             ตัดเลเซอร์ CNC
           </h1>
           <p className="hero-sub">
-            <Tw>{`จำหน่ายเหล็กทุกชนิด ปลีก–ส่ง ราคาโรงงาน พร้อมบริการตัดเลเซอร์ พับเหล็ก และจัดส่งถึงไซต์งานทั่วประเทศ ดูแลโดยทีมงานประสบการณ์กว่า ${YEARS_IN_BUSINESS} ปี`}</Tw>
+            <Tw>{`จำหน่ายเหล็กทุกชนิด ปลีก–ส่ง ราคาโรงงาน พร้อมบริการตัดเลเซอร์ พับเหล็ก และจัดส่งถึงไซต์งานทั่วประเทศ ดูแลโดยทีมงานประสบการณ์กว่า ${YEARS_IN_BUSINESS} ปี`}</Tw>
           </p>
           <div className="hero-ctas">
             <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--white btn--lg">
@@ -198,9 +198,9 @@ export default function HomePage() {
       <section className="usp-band" aria-label="จุดเด่นของเหล็กใต้">
         <div className="usp-band-inner">
           {[
-            [`${YEARS_IN_BUSINESS} ปี`, "ประสบการณ์ค้าเหล็ก"],
-            ["2 สาขา", "ในหาดใหญ่ สงขลา"],
-            ["Laser CNC", "ตัดแม่นยำ ±0.1 มม."],
+            [`${YEARS_IN_BUSINESS} ปี`, "ประสบการณ์ค้าเหล็ก"],
+            ["2 สาขา", "ในหาดใหญ่ สงขลา"],
+            ["Laser CNC", "ตัดแม่นยำ ±0.1 มม."],
             ["ส่งทั่วไทย", "จัดส่งไวถึงหน้างาน"],
           ].map(([n, d]) => (
             <div key={n} className="stat-badge">
@@ -228,7 +228,7 @@ export default function HomePage() {
           </div>
           <div style={{ textAlign: "center", marginTop: 40 }}>
             <Link href="/products" className="btn btn--outline-dark">
-              ดูสินค้าทั้งหมด {PRODUCTS.length} รายการ →
+              ดูสินค้าทั้งหมด {PRODUCTS.length} รายการ →
             </Link>
           </div>
         </div>
@@ -275,9 +275,9 @@ export default function HomePage() {
           <div className="grid-2" style={{ gap: 64, alignItems: "start" }}>
             <div>
               <span className="eyebrow">เรื่องราวของเรา</span>
-              <h2>จากรุ่นสู่รุ่น กว่า {YEARS_IN_BUSINESS} ปีในหาดใหญ่</h2>
+              <h2>จากรุ่นสู่รุ่น กว่า {YEARS_IN_BUSINESS} ปีในหาดใหญ่</h2>
               <p style={{ color: "var(--gray)", fontSize: 17, marginTop: 16 }}>
-                <Tw>{"เริ่มต้นจากร้าน “กวงหลี” ที่สุราษฎร์ธานีตั้งแต่ พ.ศ. 2487 สู่ บริษัท เหล็กใต้ จำกัด ที่หาดใหญ่ในปี 2531 วันนี้เราส่งต่อความไว้วางใจ สู่รุ่นที่สาม พร้อมยกระดับบริการด้วยเทคโนโลยี Laser CNC เพื่อเป็นร้านเหล็กคู่เมืองหาดใหญ่ที่ช่างและผู้รับเหมาไว้ใจที่สุด"}</Tw>
+                <Tw>{"เริ่มต้นจากร้าน “กวงหลี” ที่สุราษฎร์ธานีตั้งแต่ พ.ศ. 2487 สู่ บริษัท เหล็กใต้ จำกัด ที่หาดใหญ่ในปี 2531 วันนี้เราส่งต่อความไว้วางใจ สู่รุ่นที่สาม พร้อมยกระดับบริการด้วยเทคโนโลยี Laser CNC เพื่อเป็นร้านเหล็กคู่เมืองหาดใหญ่ที่ช่างและผู้รับเหมาไว้ใจที่สุด"}</Tw>
               </p>
               <Link href="/about" className="link-more">
                 อ่านเรื่องราวของเหล็กใต้ →
@@ -327,7 +327,7 @@ export default function HomePage() {
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">สาขาของเรา</span>
-            <h2>2 สาขาในหาดใหญ่ พร้อมให้บริการ</h2>
+            <h2>2 สาขาในหาดใหญ่ พร้อมให้บริการ</h2>
           </div>
           <div className="grid-2">
             {BRANCHES.map((b) => (

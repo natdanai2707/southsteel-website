@@ -1125,3 +1125,21 @@ p { text-wrap: pretty; }
 .floating-cta a:first-child { background: var(--navy); }
 .floating-cta a:last-child { background: var(--line-green); }
 @media (max-width: 767px) { body { padding-bottom: 80px; } }
+
+/* ---------- การตัดบรรทัดบนจอเล็ก ---------- */
+/* เบอร์โทรและตัวเลขห้ามถูกตัดกลาง */
+.num, a[href^="tel:"] { white-space: nowrap; }
+/* วลีที่ต้องอยู่ด้วยกัน: ย้ายทั้งก้อนลงบรรทัดใหม่ และยอมตัดเฉพาะเมื่อยาวเกินจอ */
+.nb { display: inline-block; max-width: 100%; white-space: normal; }
+/* ปุ่ม: ถ้าไม่พอหนึ่งบรรทัด ให้เบอร์โทรลงบรรทัดใหม่ทั้งก้อน ไม่แตกเป็นสองคอลัมน์ */
+.btn { flex-wrap: wrap; row-gap: 0; }
+.btn > svg { flex: none; }
+@media (max-width: 767px) {
+  .nav-inner { padding: 0 var(--s2); }
+}
+@media (max-width: 639px) {
+  .btn { padding-left: 18px; padding-right: 18px; }
+  .btn--lg { padding-left: 20px; padding-right: 20px; }
+  .cta-box { padding: 40px 20px; }
+  .cta-box .btn { flex: 1 1 100%; }
+}

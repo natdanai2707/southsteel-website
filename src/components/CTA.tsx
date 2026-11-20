@@ -6,7 +6,7 @@ import Tw from "@/components/ThaiText";
 // ส่ง phone มาแทนได้ (เช่น หน้าพาร์ทเนอร์ใช้เบอร์ เอส-2000)
 export default function CTA({
   title = "ต้องการใบเสนอราคา หรือปรึกษาเรื่องเหล็ก?",
-  subtitle = `ทีมงานตอบไว ภายใน 24 ชั่วโมง เปิดทำการ${OPENING_HOURS_TH}`,
+  subtitle = `ทีมงานตอบไว ภายใน 24 ชั่วโมง เปิดทำการ${OPENING_HOURS_TH}`,
   eyebrow = "ติดต่อเหล็กใต้",
   phone = PHONE_MAIN,
 }: {

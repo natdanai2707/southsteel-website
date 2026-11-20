@@ -37,7 +37,7 @@ export default function ContactPage() {
     <main>
       <PageHeader
         title="ติดต่อเหล็กใต้ ร้านเหล็กหาดใหญ่"
-        desc={`ทีมงานพร้อมให้คำปรึกษาและเสนอราคาฟรี ${OPENING_HOURS_TH} ตอบกลับทุกช่องทางภายใน 24 ชั่วโมง`}
+        desc={`ทีมงานพร้อมให้คำปรึกษาและเสนอราคาฟรี ${OPENING_HOURS_TH} ตอบกลับทุกช่องทางภายใน 24 ชั่วโมง`}
         crumbs={[{ label: "หน้าแรก", href: "/" }, { label: "ติดต่อเรา" }]}
       />
 
@@ -49,7 +49,7 @@ export default function ContactPage() {
               <span className="eyebrow">ขอใบเสนอราคา</span>
               <h2 style={{ fontSize: 26, marginBottom: 8 }}>ส่งรายการเหล็กทาง Line เร็วที่สุด</h2>
               <p style={{ color: "var(--gray)", marginBottom: 24 }}>
-                ทักไลน์ {LINE_ID} แล้วส่งรายละเอียดมาได้เลย ทีมงานตอบกลับภายใน 24 ชั่วโมง
+                ทักไลน์ {LINE_ID} แล้วส่งรายละเอียดมาได้เลย ทีมงานตอบกลับภายใน 24 ชั่วโมง
               </p>
               <div
                 className="card"
@@ -68,7 +68,7 @@ export default function ContactPage() {
                   <h3 style={{ fontSize: 18, marginBottom: 6 }}>สแกนเพิ่มเพื่อนใน Line</h3>
                   <p style={{ fontSize: 14, color: "var(--gray)", margin: 0 }}>
                     เปิดกล้องหรือแอป Line สแกน QR นี้ แล้วส่งรายการที่ต้องการมาได้เลย
-                    ทีมงานตอบภายใน 24 ชั่วโมง
+                    ทีมงานตอบภายใน 24 ชั่วโมง
                   </p>
                 </div>
               </div>
@@ -76,7 +76,7 @@ export default function ContactPage() {
               <div className="card" style={{ padding: 24 }}>
                 <h3 style={{ fontSize: 18, marginBottom: 12 }}>ส่งข้อมูลอะไรมาบ้าง</h3>
                 <ul style={{ margin: 0, paddingLeft: 20, fontSize: 15, lineHeight: 1.9 }}>
-                  <li>ชนิดและขนาดเหล็ก เช่น เหล็กกล่อง 2×2 นิ้ว หนา 2.3 มม.</li>
+                  <li>ชนิดและขนาดเหล็ก เช่น เหล็กกล่อง 2×2 นิ้ว หนา 2.3 มม.</li>
                   <li>จำนวนที่ต้องการ</li>
                   <li>สถานที่ส่ง หรือรับเองที่สาขา</li>
                   <li>งานตัดเลเซอร์ / ตัด–พับ: แนบไฟล์แบบ DXF, PDF หรือรูปถ่ายแบบ</li>
@@ -135,7 +135,7 @@ export default function ContactPage() {
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">สาขาของเรา</span>
-            <h2>แวะมาดูสินค้าได้ที่ 2 สาขาในหาดใหญ่</h2>
+            <h2>แวะมาดูสินค้าได้ที่ 2 สาขาในหาดใหญ่</h2>
           </div>
           <div className="grid-2">
             {BRANCHES.map((b) => (

@@ -110,7 +110,7 @@ export default async function ProductPage({ params }: Props) {
 
               <h2 style={{ fontSize: 24, margin: "32px 0 16px" }}>ทำไมต้องซื้อที่เหล็กใต้</h2>
               <ul className="check-list">
-                <li>ร้านเหล็กหาดใหญ่ประสบการณ์ {YEARS_IN_BUSINESS} ปี มี 2 สาขา สต็อกจริง เช็กของได้ทันที</li>
+                <li>ร้านเหล็กหาดใหญ่ประสบการณ์ {YEARS_IN_BUSINESS} ปี มี 2 สาขา สต็อกจริง เช็กของได้ทันที</li>
                 <li>{product.mok ? `สินค้ามาตรฐาน ${product.mok} พร้อมใบรับรองคุณภาพ` : "สินค้าคุณภาพ ระบุเกรดชัดเจน ตรวจสอบได้ทุกชิ้น"}</li>
                 <li>บริการตัดเลเซอร์ CNC และพับเหล็กครบวงจรในที่เดียว</li>
                 <li>ราคาส่งสำหรับผู้รับเหมาและงานโครงการ พร้อมส่งถึงไซต์งานทั่วไทย</li>
@@ -136,7 +136,7 @@ export default async function ProductPage({ params }: Props) {
               <div className="price-card">
                 <h3 style={{ fontSize: 19, marginBottom: 8 }}>เช็กราคาวันนี้</h3>
                 <p style={{ fontSize: 15, color: "var(--gray)", marginBottom: 16 }}>
-                  <Tw>ราคาเหล็กเปลี่ยนตามตลาด ส่งรายการที่ต้องการมาทางไลน์ หรือโทรสอบถาม ทีมงานตอบภายใน 24 ชั่วโมง</Tw>
+                  <Tw>ราคาเหล็กเปลี่ยนตามตลาด ส่งรายการที่ต้องการมาทางไลน์ หรือโทรสอบถาม ทีมงานตอบภายใน 24 ชั่วโมง</Tw>
                 </p>
                 <div className="price-card__actions">
                   <a href={`tel:${PHONE_MAIN.tel}`} className="btn btn--primary">

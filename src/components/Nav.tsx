@@ -53,7 +53,7 @@ export default function Nav() {
         <div className="nav-inner">
           <Link href="/" className="nav-logo" aria-label="เหล็กใต้ — กลับหน้าแรก">
             <Image
-              src="/images/logo-blue.png"
+              src="/images/logo-blue-v2.png"
               alt="โลโก้ บริษัท เหล็กใต้ จำกัด — South Steel Co., Ltd."
               width={167}
               height={46}

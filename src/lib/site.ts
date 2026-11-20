@@ -32,7 +32,7 @@ export const PHONE_COMPLAINT = { display: "099-795-9526", tel: "0997959526" };
 // เบอร์ติดต่อ บริษัท เอส-2000 สตีล แฟบริเคท (หน้าพาร์ทเนอร์)
 export const PHONE_S2000 = { display: "099-795-9526", tel: "0997959526" };
 
-export const OPENING_HOURS_TH = "จันทร์–เสาร์ 08.00–17.00 น.";
+export const OPENING_HOURS_TH = "จันทร์–เสาร์ 08.00⁠–⁠17.00 น.";
 export const OPENING_HOURS_SCHEMA = "Mo-Sa 08:00-17:00";
 
 export interface Branch {
