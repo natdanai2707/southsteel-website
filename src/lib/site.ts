@@ -85,7 +85,7 @@ export const BRANCHES: Branch[] = [
       { num: "074-819-777", tel: "074819777", label: "สำนักงาน" },
       { num: "086-488-2285", tel: "0864882285", label: "มือถือ" },
     ],
-    img: "/images/branch-klongwa.webp",
+    img: "/images/branch-klongwa-sign.webp",
     mapsUrl: "https://maps.app.goo.gl/F87FkhKPbHrLzgJo9",
     reviewCount: 12,
   },
