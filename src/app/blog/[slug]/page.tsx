@@ -1,3 +1,4 @@
+import { keepHtml } from "@/components/ThaiText";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -39,14 +40,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function Block({ block }: { block: ArticleBlock }) {
   switch (block.type) {
     case "h2":
-      return <h2 dangerouslySetInnerHTML={{ __html: block.html || "" }} />;
+      return <h2 dangerouslySetInnerHTML={{ __html: keepHtml(block.html || "") }} />;
     case "h3":
-      return <h3 dangerouslySetInnerHTML={{ __html: block.html || "" }} />;
+      return <h3 dangerouslySetInnerHTML={{ __html: keepHtml(block.html || "") }} />;
     case "ul":
       return (
         <ul>
           {(block.items || []).map((item, i) => (
-            <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+            <li key={i} dangerouslySetInnerHTML={{ __html: keepHtml(item) }} />
           ))}
         </ul>
       );
@@ -74,7 +75,7 @@ function Block({ block }: { block: ArticleBlock }) {
         </div>
       );
     default:
-      return <p dangerouslySetInnerHTML={{ __html: block.html || "" }} />;
+      return <p dangerouslySetInnerHTML={{ __html: keepHtml(block.html || "") }} />;
   }
 }
 

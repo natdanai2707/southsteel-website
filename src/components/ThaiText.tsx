@@ -29,7 +29,7 @@ export default function Tw({ children, maxNoWrap = 34 }: { children: string; max
       {parts.map((p, i) => (
         <Fragment key={i}>
           {i > 0 && " "}
-          {p.length > maxNoWrap ? p : <span className="nb">{p}</span>}
+          {p.length > maxNoWrap ? <Keep>{p}</Keep> : <span className="nb"><Keep>{p}</Keep></span>}
         </Fragment>
       ))}
     </>
