@@ -558,10 +558,18 @@ export const PRODUCTS: Product[] = [
     metaDescription:
       "รับเลเซอร์คัท ตัดเลเซอร์ CNC ไฟเบอร์ 6,000W ที่หาดใหญ่ สงขลา เหล็กหนาถึง 25 มม. สแตนเลสถึง 20 มม. แม่นยำ ±0.1 มม. ส่งไฟล์ DXF, DWG, PDF ทางไลน์ ประเมินราคาใน 24 ชม. มีเหล็กในสต็อก ตัดแล้วพับต่อได้ในที่เดียว",
     galleryTitle: "ตัวอย่างงานเลเซอร์คัทจากโรงงานเรา",
-    gallery: [1, 2, 3, 4, 5, 6].map((n) => ({
-      src: `/images/laser-ex${n}.webp`,
-      alt: `ตัวอย่างงานเลเซอร์คัท ตัดเลเซอร์ CNC ชิ้นที่ ${n} โดยเหล็กใต้ หาดใหญ่`,
-    })),
+    gallery: [
+      { src: "/images/laser-work-gate-rooster-installed.webp", alt: "ประตูรั้วเหล็กฉลุลายไก่และรวงข้าว งานเลเซอร์คัทติดตั้งหน้างาน โดยเหล็กใต้ หาดใหญ่" },
+      { src: "/images/laser-work-gate-rooster-fabrication.webp", alt: "แผ่นเหล็กฉลุลายด้วยเลเซอร์คัท ระหว่างประกอบโครงประตูรั้วในโรงงาน" },
+      { src: "/images/laser-work-gate-rooster-welding.webp", alt: "ช่างเชื่อมประกอบประตูรั้วเหล็กฉลุลายจากงานตัดเลเซอร์ CNC" },
+      { src: "/images/laser-work-laser-head-cutting.webp", alt: "หัวตัดไฟเบอร์เลเซอร์ CNC กำลังตัดรูบนแผ่นเหล็ก ที่โรงงานเหล็กใต้" },
+      { src: "/images/laser-work-base-plates-stacked.webp", alt: "เพลทเหล็กเจาะรูตัดด้วยเลเซอร์ งานผลิตซ้ำจำนวนมาก วางซ้อนหน้าเครื่องตัด" },
+      { src: "/images/laser-work-perforated-plates-pallet.webp", alt: "แผ่นเหล็กเจาะรูตามแบบ ตัดเลเซอร์ทั้งล็อต วางบนพาเลทพร้อมส่ง" },
+      ...[1, 2, 3, 4, 5, 6].map((n) => ({
+        src: `/images/laser-ex${n}.webp`,
+        alt: `ตัวอย่างงานเลเซอร์คัท ตัดเลเซอร์ CNC ชิ้นที่ ${n} โดยเหล็กใต้ หาดใหญ่`,
+      })),
+    ],
   },
   {
     slug: "press-brake",
