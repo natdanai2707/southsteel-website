@@ -48,7 +48,7 @@ const values = [
   },
   {
     title: "ราคาโปร่งใส",
-    desc: "ราคาส่งตรงจากโรงงาน แจ้งราคาตามจริง ไม่มีค่าใช้จ่ายแอบแฝง ตอบใบเสนอราคาภายใน 24 ชั่วโมงทุกช่องทาง",
+    desc: "ราคาส่งตรงจากโรงงาน แจ้งราคาตามจริง ไม่มีค่าใช้จ่ายแอบแฝง ตอบใบเสนอราคาภายใน 24 ชั่วโมงทุกช่องทาง",
   },
   {
     title: "บริการที่ไว้ใจได้",
@@ -61,7 +61,7 @@ export default function AboutPage() {
     <main>
       <PageHeader
         title={`ร้านเหล็กหาดใหญ่ ${YEARS_IN_BUSINESS} ปี จากรุ่นสู่รุ่น`}
-        desc="จากร้านเล็ก ๆ ที่สุราษฎร์ธานีในปี พ.ศ. 2487 สู่ศูนย์จำหน่ายเหล็กครบวงจร 2 สาขาที่หาดใหญ่ วันนี้เรากำลังส่งต่อความไว้วางใจสู่รุ่นที่สาม"
+        desc="จากร้านเล็ก ๆ ที่สุราษฎร์ธานีในปี พ.ศ. 2487 สู่ศูนย์จำหน่ายเหล็กครบวงจร 2 สาขาที่หาดใหญ่ วันนี้เรากำลังส่งต่อความไว้วางใจสู่รุ่นที่สาม"
         crumbs={[{ label: "หน้าแรก", href: "/" }, { label: "เกี่ยวกับเรา" }]}
       />
 
@@ -87,11 +87,11 @@ export default function AboutPage() {
             <div className="card" style={{ overflow: "hidden" }}>
               <div style={{ position: "relative", aspectRatio: "4/3" }}>
                 <Image
-                  src="/images/store-interior.webp"
-                  alt="ภายในร้านเหล็กใต้ สต็อกเหล็กรูปพรรณครบทุกประเภท หาดใหญ่"
+                  src="/images/branch-klongwa-sign.webp"
+                  alt="ป้ายทาวเวอร์ร้านเหล็กใต้ สาขาคลองหวะ ริมถนนกาญจนวนิช หาดใหญ่"
                   fill
                   sizes="(max-width: 767px) 100vw, 50vw"
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "cover", objectPosition: "66% center" }}
                 />
               </div>
             </div>
@@ -150,8 +150,8 @@ export default function AboutPage() {
             <div className="card" style={{ overflow: "hidden" }}>
               <div style={{ position: "relative", aspectRatio: "16/9" }}>
                 <Image
-                  src="/images/branch-klongwa-sign.webp"
-                  alt="ป้ายร้านเหล็กใต้ สาขาคลองหวะ ริมถนนกาญจนวนิช หาดใหญ่ พร้อมป้ายยี่ห้อเหล็กที่จำหน่าย"
+                  src="/images/store-interior.webp"
+                  alt="ภายในร้านเหล็กใต้ สต็อกเหล็กรูปพรรณครบทุกประเภท หาดใหญ่"
                   fill
                   loading="lazy"
                   sizes="(max-width: 767px) 100vw, 50vw"
@@ -173,7 +173,7 @@ export default function AboutPage() {
                 <li>ZUBB Steel</li>
               </ul>
               <p style={{ color: "var(--gray)", fontSize: 14, marginTop: 16 }}>
-                มองหาป้ายนี้ได้ที่สาขาคลองหวะ ริมถนนกาญจนวนิช
+                ดูโลโก้ยี่ห้อเหล่านี้ได้บนป้ายทาวเวอร์หน้าสาขาคลองหวะ ริมถนนกาญจนวนิช
               </p>
             </div>
           </div>

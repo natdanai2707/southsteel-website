@@ -1,3 +1,4 @@
+import { keepHtml } from "@/components/ThaiText";
 import type { Metadata } from "next";
 import CTA from "@/components/CTA";
 import PageHeader from "@/components/PageHeader";
@@ -44,7 +45,7 @@ export default function FaqPage() {
                 <h2>{f.q}</h2>
                 <span className="faq-toggle" aria-hidden="true" />
               </summary>
-              <div className="faq-answer" dangerouslySetInnerHTML={{ __html: f.a }} />
+              <div className="faq-answer" dangerouslySetInnerHTML={{ __html: keepHtml(f.a) }} />
             </details>
           ))}
         </div>

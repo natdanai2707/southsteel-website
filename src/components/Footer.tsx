@@ -34,14 +34,14 @@ export default function Footer() {
           <div className="footer-brand">
             <Link href="/" aria-label="เหล็กใต้ — กลับหน้าแรก">
               <Image
-                src="/images/logo-white.png"
+                src="/images/logo-white-v2.png"
                 alt="โลโก้ บริษัท เหล็กใต้ จำกัด"
                 width={189}
                 height={52}
               />
             </Link>
             <p>
-              ร้านเหล็กหาดใหญ่ {YEARS_IN_BUSINESS} ปี ศูนย์รวมเหล็กรูปพรรณ เหล็กเส้น เหล็กแผ่น
+              ร้านเหล็กหาดใหญ่ {YEARS_IN_BUSINESS} ปี ศูนย์รวมเหล็กรูปพรรณ เหล็กเส้น เหล็กแผ่น
               มาตรฐาน มอก. พร้อมบริการตัดเลเซอร์ CNC ตัด–พับ และจัดส่งทั่วไทย
             </p>
             <a

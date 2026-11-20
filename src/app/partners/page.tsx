@@ -28,15 +28,15 @@ const fabWork = [
   "ควบคุมงานและประเมินราคาโดยทีมวิศวกรของบริษัท",
 ];
 
-// โกดัง/คลังสินค้าให้เช่า 2 ทำเลที่หาดใหญ่
+// โกดัง/คลังสินค้าให้เช่า 2 ทำเลที่หาดใหญ่
 const warehouses = [
   {
     name: "โกดังสำเร็จรูป — ทำเลสายเอเชีย",
     tag: "พร้อมเช่า เข้าใช้งานได้ทันที",
     img: undefined as string | undefined,
     imgLabel: "โกดังสายเอเชีย",
-    size: "200 – 1,400 ตร.ม.",
-    price: "เริ่มต้น 90 บาท/ตร.ม./เดือน",
+    size: "200 – 1,400 ตร.ม.",
+    price: "เริ่มต้น 90 บาท/ตร.ม./เดือน",
     points: [
       "โกดังสร้างเสร็จแล้ว พร้อมเข้าใช้งานทันที ไม่ต้องรอสร้าง",
       "ติดถนนสายเอเชีย ใกล้แยกคลองหวะ รถบรรทุก/รถใหญ่เข้าออกสะดวก",
@@ -49,12 +49,12 @@ const warehouses = [
     tag: "ออกแบบตามธุรกิจของคุณ",
     img: undefined as string | undefined,
     imgLabel: "โกดังบ้านพรุ-บ้านไร่",
-    size: "1,000 – 32,000 ตร.ม.",
-    price: "อ้างอิงตลาด ~100 – 150 บาท/ตร.ม./เดือน",
+    size: "1,000 – 32,000 ตร.ม.",
+    price: "อ้างอิงตลาด ~100 – 150 บาท/ตร.ม./เดือน",
     points: [
       "สร้างโกดังตามแบบและขนาดที่ธุรกิจต้องการบนที่ดินของ เอส-2000",
-      "ติดถนนกาญจนวนิช หน้าแปลงกว้าง 140 เมตร เห็นชัดจากถนนใหญ่",
-      "ขับรถ 3 นาทีถึงวงแหวนหาดใหญ่ เชื่อมด่านสะเดา สนามบิน และ ทล.43 โดยไม่ต้องเข้าเมือง",
+      "ติดถนนกาญจนวนิช หน้าแปลงกว้าง 140 เมตร เห็นชัดจากถนนใหญ่",
+      "ขับรถ 3 นาทีถึงวงแหวนหาดใหญ่ เชื่อมด่านสะเดา สนามบิน และ ทล.43 โดยไม่ต้องเข้าเมือง",
       "เหมาะกับโลจิสติกส์ คลังกระจายสินค้าชายแดน และโรงงานเบา",
     ],
     maps: "https://maps.app.goo.gl/mL7CAowVKx3qvApF7",
@@ -117,10 +117,10 @@ export default function PartnersPage() {
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">บริการโดย เอส-2000</span>
-            <h2>โกดัง–คลังสินค้าให้เช่า หาดใหญ่ 2 ทำเล</h2>
+            <h2>โกดัง–คลังสินค้าให้เช่า หาดใหญ่ 2 ทำเล</h2>
             <p>
               เอส-2000 เป็นผู้รับเหมาก่อสร้างโครงสร้างเหล็กเอง จึงปรับแบบโกดังได้ตามความต้องการ
-              และควบคุมคุณภาพได้ทุกขั้นตอน ทั้ง 2 ทำเลอยู่ในจุดที่ <strong>น้ำไม่ท่วม</strong>{" "}
+              และควบคุมคุณภาพได้ทุกขั้นตอน ทั้ง 2 ทำเลอยู่ในจุดที่ <strong>น้ำไม่ท่วม</strong>{" "}
               แม้ในช่วงน้ำท่วมใหญ่เดือนพฤศจิกายน 2568
             </p>
           </div>
@@ -177,7 +177,7 @@ export default function PartnersPage() {
             </p>
             <a href={`tel:${PHONE_S2000.tel}`} className="btn btn--primary">
               <IconPhone size={16} />
-              โทร เอส-2000 <span className="num">{PHONE_S2000.display}</span>
+              โทร <span className="num">{PHONE_S2000.display}</span>
             </a>
           </div>
         </div>
@@ -203,7 +203,7 @@ export default function PartnersPage() {
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <a href={`tel:${PHONE_S2000.tel}`} className="btn btn--primary">
                 <IconPhone size={16} />
-                โทร เอส-2000 <span className="num">{PHONE_S2000.display}</span>
+                โทร <span className="num">{PHONE_S2000.display}</span>
               </a>
               <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--line">
                 <IconLine size={16} />
