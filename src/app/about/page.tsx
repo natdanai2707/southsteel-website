@@ -143,6 +143,43 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
+      {/* ยี่ห้อเหล็กที่จำหน่าย + ป้ายหน้าร้านสาขาคลองหวะ */}
+      <section className="section section--alt">
+        <div className="container">
+          <div className="grid-2" style={{ gap: 40, alignItems: "center" }}>
+            <div className="card" style={{ overflow: "hidden" }}>
+              <div style={{ position: "relative", aspectRatio: "16/9" }}>
+                <Image
+                  src="/images/branch-klongwa-sign.webp"
+                  alt="ป้ายร้านเหล็กใต้ สาขาคลองหวะ ริมถนนกาญจนวนิช หาดใหญ่ พร้อมป้ายยี่ห้อเหล็กที่จำหน่าย"
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 767px) 100vw, 50vw"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+            </div>
+            <div>
+              <span className="eyebrow">ยี่ห้อเหล็กที่เราจำหน่าย</span>
+              <h2>เหล็กจากโรงงานที่ช่างรู้จัก</h2>
+              <p style={{ color: "var(--gray)", marginBottom: 16 }}>
+                เหล็กใต้จำหน่ายสินค้าจากผู้ผลิตเหล็กชั้นนำของไทย ระบุยี่ห้อและมาตรฐานได้ทุกรายการ
+                บอกยี่ห้อที่ต้องการมาได้เลยตอนขอราคา
+              </p>
+              <ul className="check-list">
+                <li>TMT Steel</li>
+                <li>Mitr Steel</li>
+                <li>Pacific Pipe</li>
+                <li>ZUBB Steel</li>
+              </ul>
+              <p style={{ color: "var(--gray)", fontSize: 14, marginTop: 16 }}>
+                มองหาป้ายนี้ได้ที่สาขาคลองหวะ ริมถนนกาญจนวนิช
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section--tight section section--navy">
         <div className="container">
           <div className="grid-4">
