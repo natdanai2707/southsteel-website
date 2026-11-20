@@ -36,7 +36,7 @@ export default function Footer() {
               <Image
                 src="/images/logo-white.png"
                 alt="โลโก้ บริษัท เหล็กใต้ จำกัด"
-                width={253}
+                width={189}
                 height={52}
               />
             </Link>

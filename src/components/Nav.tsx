@@ -55,7 +55,7 @@ export default function Nav() {
             <Image
               src="/images/logo-blue.png"
               alt="โลโก้ บริษัท เหล็กใต้ จำกัด — South Steel Co., Ltd."
-              width={226}
+              width={167}
               height={46}
               priority
             />
