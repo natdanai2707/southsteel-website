@@ -182,7 +182,7 @@ export default async function ProductPage({ params }: Props) {
                 </table>
               </div>
               {product.specNote && (
-                <p style={{ fontSize: 14, color: "var(--gray)", marginTop: 12 }}>{product.specNote}</p>
+                <p style={{ fontSize: 14, color: "var(--gray)", marginTop: 12 }}><Keep>{product.specNote}</Keep></p>
               )}
 
               </div>

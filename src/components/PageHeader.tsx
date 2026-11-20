@@ -1,3 +1,4 @@
+import Tw from "@/components/ThaiText";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/site";
@@ -42,7 +43,7 @@ export default function PageHeader({ title, desc, crumbs, children }: PageHeader
             </ol>
           </nav>
         )}
-        <h1>{title}</h1>
+        <h1><Tw>{title}</Tw></h1>
         {desc && <p>{desc}</p>}
         {children}
       </div>
