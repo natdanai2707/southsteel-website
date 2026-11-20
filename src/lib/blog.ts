@@ -121,7 +121,7 @@ export const ARTICLES: Article[] = [
           "<strong>มอก. 24-2559</strong> — <a href=\"/products/rebar\">เหล็กข้ออ้อย</a> (DB) สำหรับงานโครงสร้าง",
           "<strong>มอก. 20-2559</strong> — <a href=\"/products/round-bar\">เหล็กเส้นกลม</a> (RB) สำหรับเหล็กปลอก",
           "<strong>มอก. 1227-2558</strong> — เหล็กโครงสร้างรีดร้อน เช่น <a href=\"/products/h-beam\">เอชบีม</a> <a href=\"/products/channel\">รางน้ำ</a>",
-          "<strong>มอก. 107</strong> — ท่อเหล็กและ<a href=\"/products/square-tube\">เหล็กกล่อง</a>",
+          "<strong>มอก. 107-2566</strong> — ท่อเหล็กและ<a href=\"/products/square-tube\">เหล็กกล่อง</a>",
           "<strong>มอก. 1228-2561</strong> — <a href=\"/products/c-channel\">เหล็กตัวซี</a> โครงสร้างรีดเย็น",
         ],
       },
