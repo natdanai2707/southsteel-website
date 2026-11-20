@@ -2,6 +2,7 @@ import { YEARS_IN_BUSINESS } from "@/lib/site";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import { Keep } from "@/components/ThaiText";
 import Link from "next/link";
 import CTA from "@/components/CTA";
 import PageHeader from "@/components/PageHeader";
@@ -165,7 +166,7 @@ export default async function ProductPage({ params }: Props) {
                   <thead>
                     <tr>
                       {product.specColumns.map((c) => (
-                        <th key={c}>{c}</th>
+                        <th key={c}><Keep>{c}</Keep></th>
                       ))}
                     </tr>
                   </thead>
@@ -173,7 +174,7 @@ export default async function ProductPage({ params }: Props) {
                     {product.specRows.map((row, i) => (
                       <tr key={i}>
                         {row.map((cell, j) => (
-                          <td key={j}>{cell}</td>
+                          <td key={j}><Keep>{String(cell)}</Keep></td>
                         ))}
                       </tr>
                     ))}

@@ -1,6 +1,7 @@
 import { YEARS_IN_BUSINESS } from "@/lib/site";
 import type { Metadata } from "next";
 import Image from "next/image";
+import { keepHtml } from "@/components/ThaiText";
 import Link from "next/link";
 import CTA from "@/components/CTA";
 import Tw from "@/components/ThaiText";
@@ -411,7 +412,7 @@ export default function HomePage() {
                 <h3 style={{ fontSize: 18, margin: 0, color: "var(--navy)" }}>{f.q}</h3>
                 <span className="faq-toggle" aria-hidden="true" />
               </summary>
-              <div className="faq-answer" dangerouslySetInnerHTML={{ __html: f.a }} />
+              <div className="faq-answer" dangerouslySetInnerHTML={{ __html: keepHtml(f.a) }} />
             </details>
           ))}
           <div style={{ marginTop: 24 }}>

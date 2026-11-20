@@ -35,3 +35,16 @@ export default function Tw({ children, maxNoWrap = 34 }: { children: string; max
     </>
   );
 }
+
+// กันตัวเลขที่มีขีดคั่น (เบอร์โทร เลข มอก. ช่วงขนาด) ไม่ให้ถูกตัดกลางบรรทัด
+const KEEP_RE = /(\d[\d,.]*(?:[-–]\d[\d,.]*)+)/g;
+export function Keep({ children }: { children: string }) {
+  const parts = children.split(KEEP_RE);
+  return (
+    <>
+      {parts.map((p, i) => (i % 2 === 1 ? <span key={i} className="nw">{p}</span> : <Fragment key={i}>{p}</Fragment>))}
+    </>
+  );
+}
+export const keepHtml = (html: string) =>
+  html.replace(/(>|^)([^<]+)/g, (_m, a: string, t: string) => a + t.replace(KEEP_RE, '<span class="nw">$1</span>'));

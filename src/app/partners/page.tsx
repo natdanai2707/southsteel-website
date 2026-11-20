@@ -177,7 +177,7 @@ export default function PartnersPage() {
             </p>
             <a href={`tel:${PHONE_S2000.tel}`} className="btn btn--primary">
               <IconPhone size={16} />
-              โทร เอส-2000 <span className="num">{PHONE_S2000.display}</span>
+              โทร <span className="num">{PHONE_S2000.display}</span>
             </a>
           </div>
         </div>
@@ -203,7 +203,7 @@ export default function PartnersPage() {
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <a href={`tel:${PHONE_S2000.tel}`} className="btn btn--primary">
                 <IconPhone size={16} />
-                โทร เอส-2000 <span className="num">{PHONE_S2000.display}</span>
+                โทร <span className="num">{PHONE_S2000.display}</span>
               </a>
               <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--line">
                 <IconLine size={16} />
