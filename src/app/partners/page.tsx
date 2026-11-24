@@ -153,7 +153,7 @@ export default function PartnersPage() {
                   ) : (
                     <Placeholder label={w.imgLabel} alt={w.name} />
                   )}
-                  <span className="badge-mok" style={{ background: "var(--amber)" }}>
+                  <span className="badge-mok" style={{ background: "var(--amber)", color: "#fff", zIndex: 1 }}>
                     {w.tag}
                   </span>
                 </div>

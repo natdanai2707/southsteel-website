@@ -377,7 +377,7 @@ a { color: inherit; cursor: pointer; }
 }
 .mobile-menu-cta { display: flex; flex-direction: column; gap: var(--s2); margin-top: var(--s4); }
 
-@media (max-width: 991px) {
+@media (max-width: 1179px) {
   .nav-links, .nav-cta { display: none; }
   .nav-burger { display: flex; }
   :root { --nav-h: 64px; }
@@ -1166,3 +1166,5 @@ p { text-wrap: pretty; }
 .grid-2 > *, .grid-3 > *, .grid-4 > * { min-width: 0; }
 .mega--narrow { width: 320px; }
 .mega--narrow .mega-grid { grid-template-columns: 1fr; }
+
+.nav-link, .nav-cta .btn { white-space: nowrap; flex-wrap: nowrap; }
