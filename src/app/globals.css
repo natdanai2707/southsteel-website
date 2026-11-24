@@ -952,17 +952,6 @@ p { text-wrap: pretty; }
   .hero-content { padding: 32px 16px 36px; }
   .hero-title { font-size: 29px; }
 }
-/* จอใหญ่: จัดแบนเนอร์ให้อยู่ในกรอบ 1200px แนวเดียวกับเมนูและแถบจุดเด่น */
-@media (min-width: 1280px) {
-  .hero {
-    grid-template-columns: minmax(24px, 1fr) minmax(0, 640px) minmax(0, 512px) minmax(24px, 1fr);
-    padding: 48px 0;
-    align-items: center;
-  }
-  .hero-content { grid-column: 2; padding: 16px 40px 16px 0; }
-  .hero-media { grid-column: 3; min-height: 440px; border-radius: var(--r-lg); overflow: hidden; }
-  .hero-title { font-size: 42px; }
-}
 .hero-title em { white-space: nowrap; }
 
 /* แถบ USP */
