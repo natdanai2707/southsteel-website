@@ -165,7 +165,7 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-title">
-            ร้านขายเหล็กหาดใหญ่ <em>ครบวงจร</em>
+            <span className="nb">ร้านขายเหล็กหาดใหญ่</span> <em>ครบวงจร</em>
             <br />
             เหล็กรูปพรรณ มอก.
             <br />
@@ -190,7 +190,7 @@ export default function HomePage() {
             alt="คลังเหล็กรูปพรรณของร้านเหล็กใต้ สาขาหาดใหญ่"
             fill
             priority
-            sizes="(max-width: 991px) 100vw, 50vw"
+            sizes="(max-width: 767px) 100vw, 50vw"
           />
         </div>
       </section>

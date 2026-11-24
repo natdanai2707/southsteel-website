@@ -939,11 +939,29 @@ p { text-wrap: pretty; }
 .hero-title em { color: #9FD6EA; }
 .hero-media { position: relative; min-height: 480px; background: var(--navy-darker); }
 .hero-media img { object-fit: cover; }
-@media (max-width: 991px) {
+/* แท็บเล็ต / ครึ่งจอ: ยังเป็นสองคอลัมน์ ย่อขนาดตัวอักษร */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero-content { padding: 44px 28px 44px 24px; }
+  .hero-title { font-size: 32px; }
+  .hero-sub { font-size: 16px; }
+  .hero-media { min-height: 400px; }
+}
+@media (max-width: 767px) {
   .hero { grid-template-columns: 1fr; }
   .hero-media { order: -1; min-height: 260px; }
   .hero-content { padding: 32px 16px 36px; }
   .hero-title { font-size: 29px; }
+}
+/* จอใหญ่: จัดแบนเนอร์ให้อยู่ในกรอบ 1200px แนวเดียวกับเมนูและแถบจุดเด่น */
+@media (min-width: 1280px) {
+  .hero {
+    grid-template-columns: minmax(24px, 1fr) minmax(0, 640px) minmax(0, 512px) minmax(24px, 1fr);
+    padding: 48px 0;
+    align-items: center;
+  }
+  .hero-content { grid-column: 2; padding: 16px 40px 16px 0; }
+  .hero-media { grid-column: 3; min-height: 440px; border-radius: var(--r-lg); overflow: hidden; }
+  .hero-title { font-size: 44px; }
 }
 
 /* แถบ USP */
