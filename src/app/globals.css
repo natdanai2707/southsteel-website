@@ -961,8 +961,9 @@ p { text-wrap: pretty; }
   }
   .hero-content { grid-column: 2; padding: 16px 40px 16px 0; }
   .hero-media { grid-column: 3; min-height: 440px; border-radius: var(--r-lg); overflow: hidden; }
-  .hero-title { font-size: 44px; }
+  .hero-title { font-size: 42px; }
 }
+.hero-title em { white-space: nowrap; }
 
 /* แถบ USP */
 .usp-band { background: var(--navy-darker); }
