@@ -1163,3 +1163,5 @@ p { text-wrap: pretty; }
 }
 .nw { white-space: nowrap; }
 .grid-2 > *, .grid-3 > *, .grid-4 > * { min-width: 0; }
+.mega--narrow { width: 320px; }
+.mega--narrow .mega-grid { grid-template-columns: 1fr; }
