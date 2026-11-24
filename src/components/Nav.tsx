@@ -10,19 +10,28 @@ import { IconLine, IconPhone } from "@/components/Icons";
 
 const navItems = [
   { th: "หน้าแรก", href: "/" },
-  { th: "สินค้า", href: "/products", mega: true },
-  { th: "บริการ", href: "/services" },
+  { th: "สินค้า", href: "/products", mega: "products" as const },
+  { th: "บริการ", href: "/services", mega: "services" as const },
   { th: "บทความ", href: "/blog" },
   { th: "เกี่ยวกับเรา", href: "/about" },
   { th: "พาร์ทเนอร์", href: "/partners" },
   { th: "ติดต่อเรา", href: "/contact" },
 ];
 
+// เมนูสินค้าแสดงเฉพาะสินค้า ส่วนงานบริการอยู่ใต้เมนูบริการ
+const productItems = PRODUCTS.filter((p) => p.categoryEn !== "service");
+const serviceItems = [
+  { th: "ตัดเลเซอร์ CNC", sub: "เหล็ก สแตนเลส อลูมิเนียม ตามแบบ", href: "/products/laser-cutting" },
+  { th: "พับเหล็ก พับสแตนเลส", sub: "เครื่องพับ CNC พับรางน้ำ", href: "/products/press-brake" },
+  { th: "งานเชื่อม", sub: "เชื่อมประกอบตามแบบ", href: "/services#welding" },
+  { th: "จัดส่งถึงไซต์งาน", sub: "รถบริษัท ส่งทั่วประเทศ", href: "/services#delivery" },
+];
+
 export default function Nav() {
   const pathname = usePathname();
   const [compact, setCompact] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [megaOpen, setMegaOpen] = useState(false);
+  const [megaOpen, setMegaOpen] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setCompact(window.scrollY > 40);
@@ -34,7 +43,7 @@ export default function Nav() {
   // ปิดเมนูเมื่อเปลี่ยนหน้า และล็อก scroll ตอนเมนูมือถือเปิด
   useEffect(() => {
     setMobileOpen(false);
-    setMegaOpen(false);
+    setMegaOpen(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -66,14 +75,14 @@ export default function Nav() {
               item.mega ? (
                 <li
                   key={item.href}
-                  className={`nav-item${megaOpen ? " nav-item--open" : ""}`}
-                  onMouseEnter={() => setMegaOpen(true)}
-                  onMouseLeave={() => setMegaOpen(false)}
+                  className={`nav-item${megaOpen === item.mega ? " nav-item--open" : ""}`}
+                  onMouseEnter={() => setMegaOpen(item.mega ?? null)}
+                  onMouseLeave={() => setMegaOpen(null)}
                 >
                   <Link
                     href={item.href}
                     className={`nav-link${isActive(item.href) ? " nav-link--active" : ""}`}
-                    aria-expanded={megaOpen}
+                    aria-expanded={megaOpen === item.mega}
                     aria-current={isActive(item.href) ? "page" : undefined}
                   >
                     {item.th}
@@ -81,21 +90,39 @@ export default function Nav() {
                       <path d="M6 9l6 6 6-6" />
                     </svg>
                   </Link>
-                  <div className="mega" role="menu">
-                    <div className="mega-grid">
-                      {PRODUCTS.map((p) => (
-                        <Link key={p.slug} href={`/products/${p.slug}`} className="mega-link" role="menuitem">
-                          <strong>{p.nameTh}</strong>
-                          <span>{p.category}</span>
+                  {item.mega === "products" ? (
+                    <div className="mega" role="menu">
+                      <div className="mega-grid">
+                        {productItems.map((p) => (
+                          <Link key={p.slug} href={`/products/${p.slug}`} className="mega-link" role="menuitem">
+                            <strong>{p.nameTh}</strong>
+                            <span>{p.category}</span>
+                          </Link>
+                        ))}
+                      </div>
+                      <div className="mega-footer">
+                        <Link href="/products" className="link-more">
+                          ดูสินค้าทั้งหมด →
                         </Link>
-                      ))}
+                      </div>
                     </div>
-                    <div className="mega-footer">
-                      <Link href="/products" className="link-more">
-                        ดูสินค้าทั้งหมด →
-                      </Link>
+                  ) : (
+                    <div className="mega mega--narrow" role="menu">
+                      <div className="mega-grid">
+                        {serviceItems.map((sv) => (
+                          <Link key={sv.href} href={sv.href} className="mega-link" role="menuitem">
+                            <strong>{sv.th}</strong>
+                            <span>{sv.sub}</span>
+                          </Link>
+                        ))}
+                      </div>
+                      <div className="mega-footer">
+                        <Link href="/services" className="link-more">
+                          ดูบริการทั้งหมด →
+                        </Link>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </li>
               ) : (
                 <li key={item.href}>
@@ -146,10 +173,16 @@ export default function Nav() {
               >
                 {item.th}
               </Link>
-              {item.mega &&
-                PRODUCTS.slice(0, 6).map((p) => (
+              {item.mega === "products" &&
+                productItems.slice(0, 6).map((p) => (
                   <Link key={p.slug} href={`/products/${p.slug}`} className="mobile-sublink">
                     {p.nameTh}
+                  </Link>
+                ))}
+              {item.mega === "services" &&
+                serviceItems.map((sv) => (
+                  <Link key={sv.href} href={sv.href} className="mobile-sublink">
+                    {sv.th}
                   </Link>
                 ))}
             </li>
