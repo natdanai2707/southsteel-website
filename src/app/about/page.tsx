@@ -150,8 +150,8 @@ export default function AboutPage() {
             <div className="card" style={{ overflow: "hidden" }}>
               <div style={{ position: "relative", aspectRatio: "16/9" }}>
                 <Image
-                  src="/images/store-interior.webp"
-                  alt="ภายในร้านเหล็กใต้ สต็อกเหล็กรูปพรรณครบทุกประเภท หาดใหญ่"
+                  src="/images/hero-store5.webp"
+                  alt="คลังเหล็กรูปพรรณขนาดใหญ่ของเหล็กใต้ สต็อกเหล็กเต็มโกดัง หาดใหญ่"
                   fill
                   loading="lazy"
                   sizes="(max-width: 767px) 100vw, 50vw"
