@@ -33,7 +33,8 @@ const warehouses = [
   {
     name: "โกดังสำเร็จรูป — ทำเลสายเอเชีย",
     tag: "พร้อมเช่า เข้าใช้งานได้ทันที",
-    img: undefined as string | undefined,
+    img: "s2000-asia-highway-drone" as string | undefined,
+    imgAlt: "โกดังให้เช่า S-2000 ถนนสายเอเชีย หาดใหญ่ มุมมองโดรน",
     imgLabel: "โกดังสายเอเชีย",
     size: "200 – 1,400 ตร.ม.",
     price: "เริ่มต้น 90 บาท/ตร.ม./เดือน",
@@ -48,6 +49,7 @@ const warehouses = [
     name: "โกดังสั่งสร้าง (Built-to-Suit) — บ้านพรุ-บ้านไร่",
     tag: "ออกแบบตามธุรกิจของคุณ",
     img: undefined as string | undefined,
+    imgAlt: "ที่ดินสร้างโกดังตามสั่ง S-2000 บ้านพรุ-บ้านไร่ ติดถนนกาญจนวนิช มุมมองโดรน",
     imgLabel: "โกดังบ้านพรุ-บ้านไร่",
     size: "1,000 – 32,000 ตร.ม.",
     price: "อ้างอิงตลาด ~100 – 150 บาท/ตร.ม./เดือน",
@@ -129,7 +131,28 @@ export default function PartnersPage() {
             {warehouses.map((w) => (
               <div key={w.name} className="card" style={{ overflow: "hidden", display: "flex", flexDirection: "column" }}>
                 <div style={{ position: "relative", aspectRatio: "16/9", background: "var(--paper-alt)" }}>
-                  <Placeholder label={w.imgLabel} src={w.img} alt={w.name} />
+                  {w.img ? (
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={`/images/${w.img}-1600.webp`}
+                        srcSet={`/images/${w.img}-800.webp 800w, /images/${w.img}-1600.webp 1600w`}
+                        sizes="(max-width: 639px) 100vw, 50vw"
+                        alt={w.imgAlt}
+                        loading="lazy"
+                        decoding="async"
+                        width={1600}
+                        height={900}
+                        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+                      />
+                      <div
+                        aria-hidden="true"
+                        style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(1,43,59,0.45), rgba(1,43,59,0) 38%)" }}
+                      />
+                    </>
+                  ) : (
+                    <Placeholder label={w.imgLabel} alt={w.name} />
+                  )}
                   <span className="badge-mok" style={{ background: "var(--amber)" }}>
                     {w.tag}
                   </span>
